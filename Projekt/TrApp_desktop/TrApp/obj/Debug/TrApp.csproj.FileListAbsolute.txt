@@ -1,0 +1,13 @@
+C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\bin\Debug\TrApp.exe.config
+C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\bin\Debug\TrApp.exe
+C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\bin\Debug\TrApp.pdb
+C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\TrApp.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\MainWindow.baml
+C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\MainWindow.g.cs
+C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\App.g.cs
+C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\TrApp_MarkupCompile.cache
+C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\TrApp.g.resources
+C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\TrApp.Properties.Resources.resources
+C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\TrApp.csproj.GenerateResource.Cache
+C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\TrApp.exe
+C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\TrApp.pdb
