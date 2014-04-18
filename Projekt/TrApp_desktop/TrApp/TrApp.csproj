@@ -53,6 +53,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GodisnjiOdmor.cs" />
+    <Compile Include="Prijava.cs" />
+    <Compile Include="Servis.cs" />
+    <Compile Include="TehnickiPregled.cs" />
+    <Compile Include="Vozilo.cs" />
+    <Compile Include="Zaposlenik.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,6 +95,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="TrApp_class.cd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
