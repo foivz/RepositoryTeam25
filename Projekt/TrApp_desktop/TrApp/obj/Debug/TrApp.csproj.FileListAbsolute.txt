@@ -11,3 +11,6 @@ C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj
 C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\TrApp.csproj.GenerateResource.Cache
 C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\TrApp.exe
 C:\Users\Goran\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\TrApp.pdb
+C:\Users\Matej\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\bin\Debug\TrApp.exe.config
+C:\Users\Matej\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\TrApp.exe
+C:\Users\Matej\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\TrApp\obj\Debug\TrApp.pdb

@@ -1,0 +1,19 @@
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\TrApp_desktop2\TrApp_desktop2\bin\Debug\TrApp_desktop2.exe.config
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp_desktop2.csprojResolveAssemblyReference.cache
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\TrApp_desktop2\TrApp_desktop2\obj\Debug\MainWindow.baml
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\TrApp_desktop2\TrApp_desktop2\obj\Debug\MainWindow.g.cs
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\TrApp_desktop2\TrApp_desktop2\obj\Debug\App.g.cs
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp_desktop2_MarkupCompile.cache
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp_desktop2.g.resources
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp_desktop2.Properties.Resources.resources
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp_desktop2.csproj.GenerateResource.Cache
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\TrApp_desktop2\TrApp_desktop2\bin\Debug\TrApp_desktop2.exe
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\TrApp_desktop2\TrApp_desktop2\bin\Debug\TrApp_desktop2.pdb
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp_desktop2.exe
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp_desktop2.pdb
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\TrApp_desktop2\TrApp_desktop2\bin\Debug\TrApp_desktop2.exe.config
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp_desktop2.exe
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp_desktop2.pdb
+C:\Users\Matej\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\bin\Debug\TrApp_desktop2.exe.config
+C:\Users\Matej\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp_desktop2.exe
+C:\Users\Matej\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp_desktop2.pdb
