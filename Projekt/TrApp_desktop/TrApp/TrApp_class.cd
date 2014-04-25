@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TrApp.Vozilo">
+    <Position X="1" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAgAAAAAAAABAAAAgAAAEAQgAAAgAAIQCAAgAAAAAAA=</HashCode>
+      <FileName>Vozilo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrApp.Zaposlenik">
+    <Position X="4.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAECAABAEQAAAAAABAAAAEAgCIAAAgAAAAAAAAA=</HashCode>
+      <FileName>Zaposlenik.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrApp.Prijava">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAACAAAAQAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Prijava.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrApp.Servis">
+    <Position X="3" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAEAEAUAAAEBAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Servis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrApp.TehnickiPregled">
+    <Position X="7.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACACAAEAAAAAEAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>TehnickiPregled.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrApp.GodisnjiOdmor">
+    <Position X="5.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GodisnjiOdmor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
