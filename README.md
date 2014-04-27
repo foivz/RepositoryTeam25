@@ -16,6 +16,6 @@ TraApp aplikacija za kontrolu transporta namijenjena je pružanju informacija nj
 * Mobilne aplikacije, prvenstveno namijenjene vozačima 
 * Baze podataka s centriliziranim pristupom
 
-Cjelokupnu dokumentaciju možete pogledati ovdje: https://github.com/foivz/RepositoryTeam25/blob/master/Projektna%20dokumentacija/KontrolaTransporta_dokumentacija%20(1)-11.4..docx
+Cjelokupnu dokumentaciju možete pogledati ovdje: https://github.com/foivz/RepositoryTeam25/blob/master/Projektna%20dokumentacija/TrApp_T25.pdf
 
 
