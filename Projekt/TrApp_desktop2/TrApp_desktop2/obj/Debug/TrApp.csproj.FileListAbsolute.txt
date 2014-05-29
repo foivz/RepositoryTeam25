@@ -11,3 +11,14 @@ C:\Users\Matej\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_de
 C:\Users\Matej\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\bin\Debug\TrApp.pdb
 C:\Users\Matej\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp.exe
 C:\Users\Matej\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp.pdb
+C:\Users\sesta_000\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\bin\Debug\TrApp.exe.config
+C:\Users\sesta_000\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp.exe
+C:\Users\sesta_000\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp.pdb
+C:\Users\sesta_000\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp.csprojResolveAssemblyReference.cache
+C:\Users\sesta_000\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\MainWindow.baml
+C:\Users\sesta_000\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\MainWindow.g.cs
+C:\Users\sesta_000\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\App.g.cs
+C:\Users\sesta_000\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp_MarkupCompile.cache
+C:\Users\sesta_000\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp.g.resources
+C:\Users\sesta_000\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp.Properties.Resources.resources
+C:\Users\sesta_000\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop2\TrApp_desktop2\obj\Debug\TrApp.csproj.GenerateResource.Cache
