@@ -1,0 +1,16 @@
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\bin\Debug\DesingPi.exe
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\bin\Debug\DesingPi.pdb
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\MainWindow.baml
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\MainWindow.g.cs
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\App.g.cs
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi.g.resources
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Ivan\Dropbox\Echo\TrApp_desktop2\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Ivan\Dropbox\Echo\TrApp_desktop2\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Ivan\Dropbox\Echo\TrApp_desktop2\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
