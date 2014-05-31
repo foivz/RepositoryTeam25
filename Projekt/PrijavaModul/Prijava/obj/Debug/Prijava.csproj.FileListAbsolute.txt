@@ -1,0 +1,13 @@
+D:\PI_projekt\Prijava\Prijava\Prijava\bin\Debug\Prijava.exe.config
+D:\PI_projekt\Prijava\Prijava\Prijava\obj\Debug\Prijava.csprojResolveAssemblyReference.cache
+D:\PI_projekt\Prijava\Prijava\Prijava\obj\Debug\MainWindow.baml
+D:\PI_projekt\Prijava\Prijava\Prijava\obj\Debug\MainWindow.g.cs
+D:\PI_projekt\Prijava\Prijava\Prijava\obj\Debug\App.g.cs
+D:\PI_projekt\Prijava\Prijava\Prijava\obj\Debug\Prijava_MarkupCompile.cache
+D:\PI_projekt\Prijava\Prijava\Prijava\obj\Debug\Prijava.g.resources
+D:\PI_projekt\Prijava\Prijava\Prijava\obj\Debug\Prijava.Properties.Resources.resources
+D:\PI_projekt\Prijava\Prijava\Prijava\obj\Debug\Prijava.csproj.GenerateResource.Cache
+D:\PI_projekt\Prijava\Prijava\Prijava\bin\Debug\Prijava.exe
+D:\PI_projekt\Prijava\Prijava\Prijava\bin\Debug\Prijava.pdb
+D:\PI_projekt\Prijava\Prijava\Prijava\obj\Debug\Prijava.exe
+D:\PI_projekt\Prijava\Prijava\Prijava\obj\Debug\Prijava.pdb
