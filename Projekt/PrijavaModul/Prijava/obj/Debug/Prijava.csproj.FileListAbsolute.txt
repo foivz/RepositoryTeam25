@@ -11,3 +11,4 @@ D:\PI_projekt\Prijava\Prijava\Prijava\bin\Debug\Prijava.exe
 D:\PI_projekt\Prijava\Prijava\Prijava\bin\Debug\Prijava.pdb
 D:\PI_projekt\Prijava\Prijava\Prijava\obj\Debug\Prijava.exe
 D:\PI_projekt\Prijava\Prijava\Prijava\obj\Debug\Prijava.pdb
+D:\PI_projekt\Prijava\Prijava\Prijava\obj\Debug\Prijava_MarkupCompile.lref

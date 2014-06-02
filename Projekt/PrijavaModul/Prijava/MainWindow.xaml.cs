@@ -22,17 +22,17 @@ namespace Prijava
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         SqlConnection Connection = new SqlConnection();
         public MainWindow()
         {
             Connection.ConnectionString = @"Data Source=31.147.204.119\PISERVER,1433;Initial Catalog=T25_DB;Persist Security Info=True;User ID=T25_User;Password=rrharSGb";
- 
             InitializeComponent();
+            
         }
 
         private void btnPrijava_Click(object sender, RoutedEventArgs e)
         {
-
             try
             {
                 Connection.Open();
@@ -49,11 +49,11 @@ namespace Prijava
 
                 if (dr.HasRows == true)
                 {
-                    MessageBox.Show("Uspješna prijava!");
+                    MessageBox.Show("Uspješna prijava!","Poruka o prijavi",MessageBoxButton.OK,MessageBoxImage.Information);
                 }
                 else 
                 {
-                    MessageBox.Show("Prijava nije uspijela!");
+                    MessageBox.Show("Prijava nije uspijela!\nProvjerite korisničko ime i lozinku!!!","Upozorenje",MessageBoxButton.OK,MessageBoxImage.Error);
                 }
             }
 
@@ -66,12 +66,11 @@ namespace Prijava
             {
                 Connection.Close();
             }
-
         }
 
         private void btnOdustani_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult rezultat=MessageBox.Show("Jeste li sigurni da želite napustiti izbornik?","Upozorenje!",MessageBoxButton.YesNo);
+            MessageBoxResult rezultat=MessageBox.Show("Jeste li sigurni da želite napustiti izbornik?","Upozorenje!",MessageBoxButton.YesNo,MessageBoxImage.Warning);
             if (rezultat == MessageBoxResult.Yes)
             {
                 this.Close();
@@ -79,8 +78,36 @@ namespace Prijava
             else 
             {
                 Show();
-            }
-            
+            }  
         }
-    }
+
+        private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
+        {
+            bool stanje = chkBox.IsChecked.Value;
+            if (pssBox.Password.Length == 0)
+            {
+                txtLozinka.SelectAll();
+                txtLozinka.Copy();
+                pssBox.Paste();
+                Clipboard.Clear();
+            }
+            else if(txtLozinka.Text!=pssBox.Password)
+            {
+                pssBox.Clear();
+                txtLozinka.SelectAll();
+                txtLozinka.Copy();
+                pssBox.Paste();
+                Clipboard.Clear();
+            }
+            pssBox.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void chkBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            if (txtLozinka.Text == pssBox.Password)
+            {
+                pssBox.Visibility = System.Windows.Visibility.Hidden;
+            }
+        }
+     }     
 }
