@@ -1,0 +1,31 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:DesingPi" mc:Ignorable="d" x:Class="DesingPi.SlobodniVozaci"
+        Title="Slobodni vozači" Height="363" Width="462" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="t25_DBEntitiesViewSource" d:DesignSource="{d:DesignInstance {x:Type local:T25_DBEntities}, CreateList=True}"/>
+        <CollectionViewSource x:Key="t25_DBEntitieszaposleniciViewSource" Source="{Binding zaposlenici, Source={StaticResource t25_DBEntitiesViewSource}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource t25_DBEntitieszaposleniciViewSource}">
+        <Label Content="Pregled slobodnih vozača" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <DataGrid x:Name="zaposleniciDataGrid3" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="43,125,0,0" RowDetailsVisibilityMode="VisibleWhenSelected" HorizontalAlignment="Left" Width="338" Height="140" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="id_zaposleniciColumn" Binding="{Binding id_zaposlenici}" Header="#" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="prezimeColumn" Binding="{Binding prezime}" Header="Prezime" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="imeColumn" Binding="{Binding ime}" Header="Ime" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="telefonColumn" Binding="{Binding telefon}" Header="Telefon" Width="SizeToHeader"/>
+                <DataGridTemplateColumn x:Name="datum_zaposlenjaColumn" Header="Datum zaposlenja" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding datum_zaposlenja, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock HorizontalAlignment="Left" Margin="43,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="hr-hr" Text="Odabran vozač:"/></TextBlock>
+        <TextBox Name="txtID" HorizontalAlignment="Left" Height="24" Margin="139,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Text="{Binding ElementName=zaposleniciDataGrid3, Path=SelectedItem.id_zaposlenici}" BorderThickness="0,0,0,2" RenderTransformOrigin="0.085,0.625" FontSize="14" />
+        <Button Content="Odaberi" HorizontalAlignment="Left" Margin="43,285,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+    </Grid>
+</Window>
