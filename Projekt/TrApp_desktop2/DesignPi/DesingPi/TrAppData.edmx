@@ -1,0 +1,1043 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="T25_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dnevnik">
+          <Key>
+            <PropertyRef Name="id_zapisa" />
+          </Key>
+          <Property Name="id_zapisa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datum" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="vozilo_id_vozilo" Type="int" Nullable="false" />
+          <Property Name="status_id_statusa" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="godisnji_odmor">
+          <Key>
+            <PropertyRef Name="id_godisnjeg_odmora" />
+          </Key>
+          <Property Name="id_godisnjeg_odmora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="zaposlenik" Type="int" />
+          <Property Name="pocetak" Type="date" />
+          <Property Name="kraj" Type="date" />
+        </EntityType>
+        <EntityType Name="lokacija">
+          <Key>
+            <PropertyRef Name="id_lokacija" />
+          </Key>
+          <Property Name="id_lokacija" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="putni_radni_list" Type="int" />
+          <Property Name="long" Type="real" />
+          <Property Name="lat" Type="real" />
+          <Property Name="status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="PutniRadniList">
+          <Key>
+            <PropertyRef Name="id_putnog_radnog_lista" />
+          </Key>
+          <Property Name="id_putnog_radnog_lista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vozilo" Type="int" />
+          <Property Name="kreira" Type="int" Nullable="false" />
+          <Property Name="kilometraza" Type="int" />
+          <Property Name="pocetak" Type="datetime" StoreGeneratedPattern="None" />
+          <Property Name="kraj" Type="datetime" />
+          <Property Name="mjesto_utovara" Type="varchar" MaxLength="45" />
+          <Property Name="mjesto_istovara" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="radni_sati">
+          <Key>
+            <PropertyRef Name="putni_radni_list" />
+            <PropertyRef Name="zaposlenik" />
+          </Key>
+          <Property Name="putni_radni_list" Type="int" Nullable="false" />
+          <Property Name="zaposlenik" Type="int" Nullable="false" />
+          <Property Name="br_sati" Type="int" />
+        </EntityType>
+        <EntityType Name="servis">
+          <Key>
+            <PropertyRef Name="id_servisa" />
+          </Key>
+          <Property Name="id_servisa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vozilo" Type="int" />
+          <Property Name="prijedjeni_km" Type="int" />
+          <Property Name="opis" Type="varchar" MaxLength="2000" />
+          <Property Name="datum" Type="date" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="id_statusa" />
+          </Key>
+          <Property Name="id_statusa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tankiranje">
+          <Key>
+            <PropertyRef Name="id_tankiranja" />
+          </Key>
+          <Property Name="id_tankiranja" Type="int" Nullable="false" />
+          <Property Name="vrsta_goriva" Type="int" />
+          <Property Name="zaposlenik" Type="int" />
+          <Property Name="PutniRadniList" Type="int" />
+          <Property Name="datum" Type="date" />
+          <Property Name="kolicina" Type="float" />
+        </EntityType>
+        <EntityType Name="tehnicki_pregled">
+          <Key>
+            <PropertyRef Name="id_tehnickog_pregleda" />
+          </Key>
+          <Property Name="id_tehnickog_pregleda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vozilo" Type="int" />
+          <Property Name="datum" Type="date" />
+        </EntityType>
+        <EntityType Name="uloga">
+          <Key>
+            <PropertyRef Name="id_uloge" />
+          </Key>
+          <Property Name="id_uloge" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="vozilo">
+          <Key>
+            <PropertyRef Name="id_vozilo" />
+          </Key>
+          <Property Name="id_vozilo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vrsta_vozila_id" Type="int" />
+          <Property Name="naziv" Type="varchar" MaxLength="45" />
+          <Property Name="godina_proizvodnje" Type="int" />
+          <Property Name="registracija" Type="varchar" MaxLength="9" />
+          <Property Name="datum_registracije" Type="date" />
+          <Property Name="pocetno_stanje_km" Type="int" />
+          <Property Name="nosivost" Type="int" />
+          <Property Name="servisni_interval" Type="int" />
+        </EntityType>
+        <EntityType Name="vrsta_goriva">
+          <Key>
+            <PropertyRef Name="id_vrste_goriva" />
+          </Key>
+          <Property Name="id_vrste_goriva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="vrsta_vozila">
+          <Key>
+            <PropertyRef Name="id_vrsta_vozila" />
+          </Key>
+          <Property Name="id_vrsta_vozila" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naziv" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="zaposlenici">
+          <Key>
+            <PropertyRef Name="id_zaposlenici" />
+          </Key>
+          <Property Name="id_zaposlenici" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uloga" Type="int" />
+          <Property Name="ime" Type="varchar" MaxLength="50" />
+          <Property Name="prezime" Type="varchar" MaxLength="45" />
+          <Property Name="lozinka" Type="varchar" MaxLength="45" />
+          <Property Name="korisnicko_ime" Type="varchar" MaxLength="45" />
+          <Property Name="oib" Type="varchar" MaxLength="11" />
+          <Property Name="datum_zaposlenja" Type="date" />
+          <Property Name="IBAN" Type="varchar" MaxLength="20" />
+          <Property Name="telefon" Type="varchar" MaxLength="30" />
+          <Property Name="adresa" Type="varchar" MaxLength="100" />
+          <Property Name="datum_rodjenja" Type="date" />
+        </EntityType>
+        <Association Name="fk_dnevnik_status1">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="dnevnik" Type="Self.dnevnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id_statusa" />
+            </Principal>
+            <Dependent Role="dnevnik">
+              <PropertyRef Name="status_id_statusa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dnevnik_vozilo1">
+          <End Role="vozilo" Type="Self.vozilo" Multiplicity="1" />
+          <End Role="dnevnik" Type="Self.dnevnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vozilo">
+              <PropertyRef Name="id_vozilo" />
+            </Principal>
+            <Dependent Role="dnevnik">
+              <PropertyRef Name="vozilo_id_vozilo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_godisnji_odmor_zaposlenici1">
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="0..1" />
+          <End Role="godisnji_odmor" Type="Self.godisnji_odmor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="godisnji_odmor">
+              <PropertyRef Name="zaposlenik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_gorivo_vrsta_goriva1">
+          <End Role="vrsta_goriva" Type="Self.vrsta_goriva" Multiplicity="0..1" />
+          <End Role="tankiranje" Type="Self.tankiranje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vrsta_goriva">
+              <PropertyRef Name="id_vrste_goriva" />
+            </Principal>
+            <Dependent Role="tankiranje">
+              <PropertyRef Name="vrsta_goriva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_gorivo_zaposlenici1">
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="0..1" />
+          <End Role="tankiranje" Type="Self.tankiranje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="tankiranje">
+              <PropertyRef Name="zaposlenik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lokacija_ruta1">
+          <End Role="PutniRadniList" Type="Self.PutniRadniList" Multiplicity="0..1" />
+          <End Role="lokacija" Type="Self.lokacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PutniRadniList">
+              <PropertyRef Name="id_putnog_radnog_lista" />
+            </Principal>
+            <Dependent Role="lokacija">
+              <PropertyRef Name="putni_radni_list" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PutniRadniList_zaposlenici1">
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="1" />
+          <End Role="PutniRadniList" Type="Self.PutniRadniList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="PutniRadniList">
+              <PropertyRef Name="kreira" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_radni_sati_ruta1">
+          <End Role="PutniRadniList" Type="Self.PutniRadniList" Multiplicity="1" />
+          <End Role="radni_sati" Type="Self.radni_sati" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PutniRadniList">
+              <PropertyRef Name="id_putnog_radnog_lista" />
+            </Principal>
+            <Dependent Role="radni_sati">
+              <PropertyRef Name="putni_radni_list" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_radni_sati_zaposlenici1">
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="1" />
+          <End Role="radni_sati" Type="Self.radni_sati" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="radni_sati">
+              <PropertyRef Name="zaposlenik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ruta_vozilo1">
+          <End Role="vozilo" Type="Self.vozilo" Multiplicity="0..1" />
+          <End Role="PutniRadniList" Type="Self.PutniRadniList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vozilo">
+              <PropertyRef Name="id_vozilo" />
+            </Principal>
+            <Dependent Role="PutniRadniList">
+              <PropertyRef Name="vozilo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_servis_vozilo1">
+          <End Role="vozilo" Type="Self.vozilo" Multiplicity="0..1" />
+          <End Role="servis" Type="Self.servis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vozilo">
+              <PropertyRef Name="id_vozilo" />
+            </Principal>
+            <Dependent Role="servis">
+              <PropertyRef Name="vozilo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tankiranje_PutniRadniList1">
+          <End Role="PutniRadniList" Type="Self.PutniRadniList" Multiplicity="0..1" />
+          <End Role="tankiranje" Type="Self.tankiranje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PutniRadniList">
+              <PropertyRef Name="id_putnog_radnog_lista" />
+            </Principal>
+            <Dependent Role="tankiranje">
+              <PropertyRef Name="PutniRadniList" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tehnicki_pregled_vozilo1">
+          <End Role="vozilo" Type="Self.vozilo" Multiplicity="0..1" />
+          <End Role="tehnicki_pregled" Type="Self.tehnicki_pregled" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vozilo">
+              <PropertyRef Name="id_vozilo" />
+            </Principal>
+            <Dependent Role="tehnicki_pregled">
+              <PropertyRef Name="vozilo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vozilo_vrsta_vozila">
+          <End Role="vrsta_vozila" Type="Self.vrsta_vozila" Multiplicity="0..1" />
+          <End Role="vozilo" Type="Self.vozilo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vrsta_vozila">
+              <PropertyRef Name="id_vrsta_vozila" />
+            </Principal>
+            <Dependent Role="vozilo">
+              <PropertyRef Name="vrsta_vozila_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_zaposlenici_uloga">
+          <End Role="uloga" Type="Self.uloga" Multiplicity="0..1" />
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uloga">
+              <PropertyRef Name="id_uloge" />
+            </Principal>
+            <Dependent Role="zaposlenici">
+              <PropertyRef Name="uloga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="T25_DBModelStoreContainer">
+          <EntitySet Name="dnevnik" EntityType="Self.dnevnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="godisnji_odmor" EntityType="Self.godisnji_odmor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lokacija" EntityType="Self.lokacija" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PutniRadniList" EntityType="Self.PutniRadniList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="radni_sati" EntityType="Self.radni_sati" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="servis" EntityType="Self.servis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="status" EntityType="Self.status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tankiranje" EntityType="Self.tankiranje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tehnicki_pregled" EntityType="Self.tehnicki_pregled" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="uloga" EntityType="Self.uloga" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vozilo" EntityType="Self.vozilo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vrsta_goriva" EntityType="Self.vrsta_goriva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vrsta_vozila" EntityType="Self.vrsta_vozila" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="zaposlenici" EntityType="Self.zaposlenici" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_dnevnik_status1" Association="Self.fk_dnevnik_status1">
+            <End Role="status" EntitySet="status" />
+            <End Role="dnevnik" EntitySet="dnevnik" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dnevnik_vozilo1" Association="Self.fk_dnevnik_vozilo1">
+            <End Role="vozilo" EntitySet="vozilo" />
+            <End Role="dnevnik" EntitySet="dnevnik" />
+          </AssociationSet>
+          <AssociationSet Name="fk_godisnji_odmor_zaposlenici1" Association="Self.fk_godisnji_odmor_zaposlenici1">
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+            <End Role="godisnji_odmor" EntitySet="godisnji_odmor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_gorivo_vrsta_goriva1" Association="Self.fk_gorivo_vrsta_goriva1">
+            <End Role="vrsta_goriva" EntitySet="vrsta_goriva" />
+            <End Role="tankiranje" EntitySet="tankiranje" />
+          </AssociationSet>
+          <AssociationSet Name="fk_gorivo_zaposlenici1" Association="Self.fk_gorivo_zaposlenici1">
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+            <End Role="tankiranje" EntitySet="tankiranje" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lokacija_ruta1" Association="Self.fk_lokacija_ruta1">
+            <End Role="PutniRadniList" EntitySet="PutniRadniList" />
+            <End Role="lokacija" EntitySet="lokacija" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PutniRadniList_zaposlenici1" Association="Self.fk_PutniRadniList_zaposlenici1">
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+            <End Role="PutniRadniList" EntitySet="PutniRadniList" />
+          </AssociationSet>
+          <AssociationSet Name="fk_radni_sati_ruta1" Association="Self.fk_radni_sati_ruta1">
+            <End Role="PutniRadniList" EntitySet="PutniRadniList" />
+            <End Role="radni_sati" EntitySet="radni_sati" />
+          </AssociationSet>
+          <AssociationSet Name="fk_radni_sati_zaposlenici1" Association="Self.fk_radni_sati_zaposlenici1">
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+            <End Role="radni_sati" EntitySet="radni_sati" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ruta_vozilo1" Association="Self.fk_ruta_vozilo1">
+            <End Role="vozilo" EntitySet="vozilo" />
+            <End Role="PutniRadniList" EntitySet="PutniRadniList" />
+          </AssociationSet>
+          <AssociationSet Name="fk_servis_vozilo1" Association="Self.fk_servis_vozilo1">
+            <End Role="vozilo" EntitySet="vozilo" />
+            <End Role="servis" EntitySet="servis" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tankiranje_PutniRadniList1" Association="Self.fk_tankiranje_PutniRadniList1">
+            <End Role="PutniRadniList" EntitySet="PutniRadniList" />
+            <End Role="tankiranje" EntitySet="tankiranje" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tehnicki_pregled_vozilo1" Association="Self.fk_tehnicki_pregled_vozilo1">
+            <End Role="vozilo" EntitySet="vozilo" />
+            <End Role="tehnicki_pregled" EntitySet="tehnicki_pregled" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vozilo_vrsta_vozila" Association="Self.FK_vozilo_vrsta_vozila">
+            <End Role="vrsta_vozila" EntitySet="vrsta_vozila" />
+            <End Role="vozilo" EntitySet="vozilo" />
+          </AssociationSet>
+          <AssociationSet Name="fk_zaposlenici_uloga" Association="Self.fk_zaposlenici_uloga">
+            <End Role="uloga" EntitySet="uloga" />
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="T25_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="dnevnik">
+          <Key>
+            <PropertyRef Name="id_zapisa" />
+          </Key>
+          <Property Name="id_zapisa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datum" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="vozilo_id_vozilo" Type="Int32" Nullable="false" />
+          <Property Name="status_id_statusa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="status" Relationship="Self.fk_dnevnik_status1" FromRole="dnevnik" ToRole="status" />
+          <NavigationProperty Name="vozilo" Relationship="Self.fk_dnevnik_vozilo1" FromRole="dnevnik" ToRole="vozilo" />
+        </EntityType>
+        <EntityType Name="godisnji_odmor">
+          <Key>
+            <PropertyRef Name="id_godisnjeg_odmora" />
+          </Key>
+          <Property Name="id_godisnjeg_odmora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="zaposlenik" Type="Int32" />
+          <Property Name="pocetak" Type="DateTime" Precision="0" />
+          <Property Name="kraj" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="zaposlenici" Relationship="Self.fk_godisnji_odmor_zaposlenici1" FromRole="godisnji_odmor" ToRole="zaposlenici" />
+        </EntityType>
+        <EntityType Name="lokacija">
+          <Key>
+            <PropertyRef Name="id_lokacija" />
+          </Key>
+          <Property Name="id_lokacija" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="putni_radni_list" Type="Int32" />
+          <Property Name="long" Type="Single" />
+          <Property Name="lat" Type="Single" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="PutniRadniList" Relationship="Self.fk_lokacija_ruta1" FromRole="lokacija" ToRole="PutniRadniList" />
+        </EntityType>
+        <EntityType Name="PutniRadniList">
+          <Key>
+            <PropertyRef Name="id_putnog_radnog_lista" />
+          </Key>
+          <Property Name="id_putnog_radnog_lista" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vozilo" Type="Int32" />
+          <Property Name="kreira" Type="Int32" Nullable="false" />
+          <Property Name="kilometraza" Type="Int32" />
+          <Property Name="pocetak" Type="DateTime" annotation:StoreGeneratedPattern="None" Precision="3" />
+          <Property Name="kraj" Type="DateTime" Precision="3" />
+          <Property Name="mjesto_utovara" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="mjesto_istovara" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="lokacija" Relationship="Self.fk_lokacija_ruta1" FromRole="PutniRadniList" ToRole="lokacija" />
+          <NavigationProperty Name="zaposlenici" Relationship="Self.fk_PutniRadniList_zaposlenici1" FromRole="PutniRadniList" ToRole="zaposlenici" />
+          <NavigationProperty Name="radni_sati" Relationship="Self.fk_radni_sati_ruta1" FromRole="PutniRadniList" ToRole="radni_sati" />
+          <NavigationProperty Name="vozilo1" Relationship="Self.fk_ruta_vozilo1" FromRole="PutniRadniList" ToRole="vozilo" />
+          <NavigationProperty Name="tankiranje" Relationship="Self.fk_tankiranje_PutniRadniList1" FromRole="PutniRadniList" ToRole="tankiranje" />
+        </EntityType>
+        <EntityType Name="radni_sati">
+          <Key>
+            <PropertyRef Name="putni_radni_list" />
+            <PropertyRef Name="zaposlenik" />
+          </Key>
+          <Property Name="putni_radni_list" Type="Int32" Nullable="false" />
+          <Property Name="zaposlenik" Type="Int32" Nullable="false" />
+          <Property Name="br_sati" Type="Int32" />
+          <NavigationProperty Name="PutniRadniList" Relationship="Self.fk_radni_sati_ruta1" FromRole="radni_sati" ToRole="PutniRadniList" />
+          <NavigationProperty Name="zaposlenici" Relationship="Self.fk_radni_sati_zaposlenici1" FromRole="radni_sati" ToRole="zaposlenici" />
+        </EntityType>
+        <EntityType Name="servis">
+          <Key>
+            <PropertyRef Name="id_servisa" />
+          </Key>
+          <Property Name="id_servisa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vozilo" Type="Int32" />
+          <Property Name="prijedjeni_km" Type="Int32" />
+          <Property Name="opis" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="datum" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="vozilo1" Relationship="Self.fk_servis_vozilo1" FromRole="servis" ToRole="vozilo" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="id_statusa" />
+          </Key>
+          <Property Name="id_statusa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="dnevnik" Relationship="Self.fk_dnevnik_status1" FromRole="status" ToRole="dnevnik" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tankiranje">
+          <Key>
+            <PropertyRef Name="id_tankiranja" />
+          </Key>
+          <Property Name="id_tankiranja" Type="Int32" Nullable="false" />
+          <Property Name="vrsta_goriva" Type="Int32" />
+          <Property Name="zaposlenik" Type="Int32" />
+          <Property Name="PutniRadniList" Type="Int32" />
+          <Property Name="datum" Type="DateTime" Precision="0" />
+          <Property Name="kolicina" Type="Double" />
+          <NavigationProperty Name="PutniRadniList1" Relationship="Self.fk_tankiranje_PutniRadniList1" FromRole="tankiranje" ToRole="PutniRadniList" />
+          <NavigationProperty Name="vrsta_goriva1" Relationship="Self.fk_gorivo_vrsta_goriva1" FromRole="tankiranje" ToRole="vrsta_goriva" />
+          <NavigationProperty Name="zaposlenici" Relationship="Self.fk_gorivo_zaposlenici1" FromRole="tankiranje" ToRole="zaposlenici" />
+        </EntityType>
+        <EntityType Name="tehnicki_pregled">
+          <Key>
+            <PropertyRef Name="id_tehnickog_pregleda" />
+          </Key>
+          <Property Name="id_tehnickog_pregleda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vozilo" Type="Int32" />
+          <Property Name="datum" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="vozilo1" Relationship="Self.fk_tehnicki_pregled_vozilo1" FromRole="tehnicki_pregled" ToRole="vozilo" />
+        </EntityType>
+        <EntityType Name="uloga">
+          <Key>
+            <PropertyRef Name="id_uloge" />
+          </Key>
+          <Property Name="id_uloge" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="zaposlenici" Relationship="Self.fk_zaposlenici_uloga" FromRole="uloga" ToRole="zaposlenici" />
+        </EntityType>
+        <EntityType Name="vozilo">
+          <Key>
+            <PropertyRef Name="id_vozilo" />
+          </Key>
+          <Property Name="id_vozilo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vrsta_vozila_id" Type="Int32" />
+          <Property Name="naziv" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="godina_proizvodnje" Type="Int32" />
+          <Property Name="registracija" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="datum_registracije" Type="DateTime" Precision="0" />
+          <Property Name="pocetno_stanje_km" Type="Int32" />
+          <Property Name="nosivost" Type="Int32" />
+          <Property Name="servisni_interval" Type="Int32" />
+          <NavigationProperty Name="dnevnik" Relationship="Self.fk_dnevnik_vozilo1" FromRole="vozilo" ToRole="dnevnik" />
+          <NavigationProperty Name="PutniRadniList" Relationship="Self.fk_ruta_vozilo1" FromRole="vozilo" ToRole="PutniRadniList" />
+          <NavigationProperty Name="servis" Relationship="Self.fk_servis_vozilo1" FromRole="vozilo" ToRole="servis" />
+          <NavigationProperty Name="tehnicki_pregled" Relationship="Self.fk_tehnicki_pregled_vozilo1" FromRole="vozilo" ToRole="tehnicki_pregled" />
+          <NavigationProperty Name="vrsta_vozila" Relationship="Self.FK_vozilo_vrsta_vozila" FromRole="vozilo" ToRole="vrsta_vozila" />
+        </EntityType>
+        <EntityType Name="vrsta_goriva">
+          <Key>
+            <PropertyRef Name="id_vrste_goriva" />
+          </Key>
+          <Property Name="id_vrste_goriva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tankiranje" Relationship="Self.fk_gorivo_vrsta_goriva1" FromRole="vrsta_goriva" ToRole="tankiranje" />
+        </EntityType>
+        <EntityType Name="vrsta_vozila">
+          <Key>
+            <PropertyRef Name="id_vrsta_vozila" />
+          </Key>
+          <Property Name="id_vrsta_vozila" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="vozilo" Relationship="Self.FK_vozilo_vrsta_vozila" FromRole="vrsta_vozila" ToRole="vozilo" />
+        </EntityType>
+        <EntityType Name="zaposlenici">
+          <Key>
+            <PropertyRef Name="id_zaposlenici" />
+          </Key>
+          <Property Name="id_zaposlenici" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uloga" Type="Int32" />
+          <Property Name="ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prezime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="lozinka" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="korisnicko_ime" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="oib" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="datum_zaposlenja" Type="DateTime" Precision="0" />
+          <Property Name="IBAN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="telefon" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="adresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="datum_rodjenja" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="godisnji_odmor" Relationship="Self.fk_godisnji_odmor_zaposlenici1" FromRole="zaposlenici" ToRole="godisnji_odmor" />
+          <NavigationProperty Name="PutniRadniList" Relationship="Self.fk_PutniRadniList_zaposlenici1" FromRole="zaposlenici" ToRole="PutniRadniList" />
+          <NavigationProperty Name="radni_sati" Relationship="Self.fk_radni_sati_zaposlenici1" FromRole="zaposlenici" ToRole="radni_sati" />
+          <NavigationProperty Name="tankiranje" Relationship="Self.fk_gorivo_zaposlenici1" FromRole="zaposlenici" ToRole="tankiranje" />
+          <NavigationProperty Name="uloga1" Relationship="Self.fk_zaposlenici_uloga" FromRole="zaposlenici" ToRole="uloga" />
+        </EntityType>
+        <Association Name="fk_dnevnik_status1">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="dnevnik" Type="Self.dnevnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id_statusa" />
+            </Principal>
+            <Dependent Role="dnevnik">
+              <PropertyRef Name="status_id_statusa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dnevnik_vozilo1">
+          <End Role="vozilo" Type="Self.vozilo" Multiplicity="1" />
+          <End Role="dnevnik" Type="Self.dnevnik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vozilo">
+              <PropertyRef Name="id_vozilo" />
+            </Principal>
+            <Dependent Role="dnevnik">
+              <PropertyRef Name="vozilo_id_vozilo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_godisnji_odmor_zaposlenici1">
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="0..1" />
+          <End Role="godisnji_odmor" Type="Self.godisnji_odmor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="godisnji_odmor">
+              <PropertyRef Name="zaposlenik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lokacija_ruta1">
+          <End Role="PutniRadniList" Type="Self.PutniRadniList" Multiplicity="0..1" />
+          <End Role="lokacija" Type="Self.lokacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PutniRadniList">
+              <PropertyRef Name="id_putnog_radnog_lista" />
+            </Principal>
+            <Dependent Role="lokacija">
+              <PropertyRef Name="putni_radni_list" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_PutniRadniList_zaposlenici1">
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="1" />
+          <End Role="PutniRadniList" Type="Self.PutniRadniList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="PutniRadniList">
+              <PropertyRef Name="kreira" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_radni_sati_ruta1">
+          <End Role="PutniRadniList" Type="Self.PutniRadniList" Multiplicity="1" />
+          <End Role="radni_sati" Type="Self.radni_sati" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PutniRadniList">
+              <PropertyRef Name="id_putnog_radnog_lista" />
+            </Principal>
+            <Dependent Role="radni_sati">
+              <PropertyRef Name="putni_radni_list" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ruta_vozilo1">
+          <End Role="vozilo" Type="Self.vozilo" Multiplicity="0..1" />
+          <End Role="PutniRadniList" Type="Self.PutniRadniList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vozilo">
+              <PropertyRef Name="id_vozilo" />
+            </Principal>
+            <Dependent Role="PutniRadniList">
+              <PropertyRef Name="vozilo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tankiranje_PutniRadniList1">
+          <End Role="PutniRadniList" Type="Self.PutniRadniList" Multiplicity="0..1" />
+          <End Role="tankiranje" Type="Self.tankiranje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PutniRadniList">
+              <PropertyRef Name="id_putnog_radnog_lista" />
+            </Principal>
+            <Dependent Role="tankiranje">
+              <PropertyRef Name="PutniRadniList" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_radni_sati_zaposlenici1">
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="1" />
+          <End Role="radni_sati" Type="Self.radni_sati" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="radni_sati">
+              <PropertyRef Name="zaposlenik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_servis_vozilo1">
+          <End Role="vozilo" Type="Self.vozilo" Multiplicity="0..1" />
+          <End Role="servis" Type="Self.servis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vozilo">
+              <PropertyRef Name="id_vozilo" />
+            </Principal>
+            <Dependent Role="servis">
+              <PropertyRef Name="vozilo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_gorivo_vrsta_goriva1">
+          <End Role="vrsta_goriva" Type="Self.vrsta_goriva" Multiplicity="0..1" />
+          <End Role="tankiranje" Type="Self.tankiranje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vrsta_goriva">
+              <PropertyRef Name="id_vrste_goriva" />
+            </Principal>
+            <Dependent Role="tankiranje">
+              <PropertyRef Name="vrsta_goriva" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_gorivo_zaposlenici1">
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="0..1" />
+          <End Role="tankiranje" Type="Self.tankiranje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="zaposlenici">
+              <PropertyRef Name="id_zaposlenici" />
+            </Principal>
+            <Dependent Role="tankiranje">
+              <PropertyRef Name="zaposlenik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tehnicki_pregled_vozilo1">
+          <End Role="vozilo" Type="Self.vozilo" Multiplicity="0..1" />
+          <End Role="tehnicki_pregled" Type="Self.tehnicki_pregled" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vozilo">
+              <PropertyRef Name="id_vozilo" />
+            </Principal>
+            <Dependent Role="tehnicki_pregled">
+              <PropertyRef Name="vozilo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_zaposlenici_uloga">
+          <End Role="uloga" Type="Self.uloga" Multiplicity="0..1" />
+          <End Role="zaposlenici" Type="Self.zaposlenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uloga">
+              <PropertyRef Name="id_uloge" />
+            </Principal>
+            <Dependent Role="zaposlenici">
+              <PropertyRef Name="uloga" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_vozilo_vrsta_vozila">
+          <End Role="vrsta_vozila" Type="Self.vrsta_vozila" Multiplicity="0..1" />
+          <End Role="vozilo" Type="Self.vozilo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vrsta_vozila">
+              <PropertyRef Name="id_vrsta_vozila" />
+            </Principal>
+            <Dependent Role="vozilo">
+              <PropertyRef Name="vrsta_vozila_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="T25_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dnevnik" EntityType="Self.dnevnik" />
+          <EntitySet Name="godisnji_odmor" EntityType="Self.godisnji_odmor" />
+          <EntitySet Name="lokacija" EntityType="Self.lokacija" />
+          <EntitySet Name="PutniRadniList" EntityType="Self.PutniRadniList" />
+          <EntitySet Name="radni_sati" EntityType="Self.radni_sati" />
+          <EntitySet Name="servis" EntityType="Self.servis" />
+          <EntitySet Name="status" EntityType="Self.status" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tankiranje" EntityType="Self.tankiranje" />
+          <EntitySet Name="tehnicki_pregled" EntityType="Self.tehnicki_pregled" />
+          <EntitySet Name="uloga" EntityType="Self.uloga" />
+          <EntitySet Name="vozilo" EntityType="Self.vozilo" />
+          <EntitySet Name="vrsta_goriva" EntityType="Self.vrsta_goriva" />
+          <EntitySet Name="vrsta_vozila" EntityType="Self.vrsta_vozila" />
+          <EntitySet Name="zaposlenici" EntityType="Self.zaposlenici" />
+          <AssociationSet Name="fk_dnevnik_status1" Association="Self.fk_dnevnik_status1">
+            <End Role="status" EntitySet="status" />
+            <End Role="dnevnik" EntitySet="dnevnik" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dnevnik_vozilo1" Association="Self.fk_dnevnik_vozilo1">
+            <End Role="vozilo" EntitySet="vozilo" />
+            <End Role="dnevnik" EntitySet="dnevnik" />
+          </AssociationSet>
+          <AssociationSet Name="fk_godisnji_odmor_zaposlenici1" Association="Self.fk_godisnji_odmor_zaposlenici1">
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+            <End Role="godisnji_odmor" EntitySet="godisnji_odmor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lokacija_ruta1" Association="Self.fk_lokacija_ruta1">
+            <End Role="PutniRadniList" EntitySet="PutniRadniList" />
+            <End Role="lokacija" EntitySet="lokacija" />
+          </AssociationSet>
+          <AssociationSet Name="fk_PutniRadniList_zaposlenici1" Association="Self.fk_PutniRadniList_zaposlenici1">
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+            <End Role="PutniRadniList" EntitySet="PutniRadniList" />
+          </AssociationSet>
+          <AssociationSet Name="fk_radni_sati_ruta1" Association="Self.fk_radni_sati_ruta1">
+            <End Role="PutniRadniList" EntitySet="PutniRadniList" />
+            <End Role="radni_sati" EntitySet="radni_sati" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ruta_vozilo1" Association="Self.fk_ruta_vozilo1">
+            <End Role="vozilo" EntitySet="vozilo" />
+            <End Role="PutniRadniList" EntitySet="PutniRadniList" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tankiranje_PutniRadniList1" Association="Self.fk_tankiranje_PutniRadniList1">
+            <End Role="PutniRadniList" EntitySet="PutniRadniList" />
+            <End Role="tankiranje" EntitySet="tankiranje" />
+          </AssociationSet>
+          <AssociationSet Name="fk_radni_sati_zaposlenici1" Association="Self.fk_radni_sati_zaposlenici1">
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+            <End Role="radni_sati" EntitySet="radni_sati" />
+          </AssociationSet>
+          <AssociationSet Name="fk_servis_vozilo1" Association="Self.fk_servis_vozilo1">
+            <End Role="vozilo" EntitySet="vozilo" />
+            <End Role="servis" EntitySet="servis" />
+          </AssociationSet>
+          <AssociationSet Name="fk_gorivo_vrsta_goriva1" Association="Self.fk_gorivo_vrsta_goriva1">
+            <End Role="vrsta_goriva" EntitySet="vrsta_goriva" />
+            <End Role="tankiranje" EntitySet="tankiranje" />
+          </AssociationSet>
+          <AssociationSet Name="fk_gorivo_zaposlenici1" Association="Self.fk_gorivo_zaposlenici1">
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+            <End Role="tankiranje" EntitySet="tankiranje" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tehnicki_pregled_vozilo1" Association="Self.fk_tehnicki_pregled_vozilo1">
+            <End Role="vozilo" EntitySet="vozilo" />
+            <End Role="tehnicki_pregled" EntitySet="tehnicki_pregled" />
+          </AssociationSet>
+          <AssociationSet Name="fk_zaposlenici_uloga" Association="Self.fk_zaposlenici_uloga">
+            <End Role="uloga" EntitySet="uloga" />
+            <End Role="zaposlenici" EntitySet="zaposlenici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_vozilo_vrsta_vozila" Association="Self.FK_vozilo_vrsta_vozila">
+            <End Role="vrsta_vozila" EntitySet="vrsta_vozila" />
+            <End Role="vozilo" EntitySet="vozilo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="T25_DBModelStoreContainer" CdmEntityContainer="T25_DBEntities">
+          <EntitySetMapping Name="dnevnik">
+            <EntityTypeMapping TypeName="T25_DBModel.dnevnik">
+              <MappingFragment StoreEntitySet="dnevnik">
+                <ScalarProperty Name="id_zapisa" ColumnName="id_zapisa" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="vozilo_id_vozilo" ColumnName="vozilo_id_vozilo" />
+                <ScalarProperty Name="status_id_statusa" ColumnName="status_id_statusa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="godisnji_odmor">
+            <EntityTypeMapping TypeName="T25_DBModel.godisnji_odmor">
+              <MappingFragment StoreEntitySet="godisnji_odmor">
+                <ScalarProperty Name="id_godisnjeg_odmora" ColumnName="id_godisnjeg_odmora" />
+                <ScalarProperty Name="zaposlenik" ColumnName="zaposlenik" />
+                <ScalarProperty Name="pocetak" ColumnName="pocetak" />
+                <ScalarProperty Name="kraj" ColumnName="kraj" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lokacija">
+            <EntityTypeMapping TypeName="T25_DBModel.lokacija">
+              <MappingFragment StoreEntitySet="lokacija">
+                <ScalarProperty Name="id_lokacija" ColumnName="id_lokacija" />
+                <ScalarProperty Name="putni_radni_list" ColumnName="putni_radni_list" />
+                <ScalarProperty Name="long" ColumnName="long" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PutniRadniList">
+            <EntityTypeMapping TypeName="T25_DBModel.PutniRadniList">
+              <MappingFragment StoreEntitySet="PutniRadniList">
+                <ScalarProperty Name="id_putnog_radnog_lista" ColumnName="id_putnog_radnog_lista" />
+                <ScalarProperty Name="vozilo" ColumnName="vozilo" />
+                <ScalarProperty Name="kreira" ColumnName="kreira" />
+                <ScalarProperty Name="kilometraza" ColumnName="kilometraza" />
+                <ScalarProperty Name="pocetak" ColumnName="pocetak" />
+                <ScalarProperty Name="kraj" ColumnName="kraj" />
+                <ScalarProperty Name="mjesto_utovara" ColumnName="mjesto_utovara" />
+                <ScalarProperty Name="mjesto_istovara" ColumnName="mjesto_istovara" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="radni_sati">
+            <EntityTypeMapping TypeName="T25_DBModel.radni_sati">
+              <MappingFragment StoreEntitySet="radni_sati">
+                <ScalarProperty Name="putni_radni_list" ColumnName="putni_radni_list" />
+                <ScalarProperty Name="zaposlenik" ColumnName="zaposlenik" />
+                <ScalarProperty Name="br_sati" ColumnName="br_sati" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="servis">
+            <EntityTypeMapping TypeName="T25_DBModel.servis">
+              <MappingFragment StoreEntitySet="servis">
+                <ScalarProperty Name="id_servisa" ColumnName="id_servisa" />
+                <ScalarProperty Name="vozilo" ColumnName="vozilo" />
+                <ScalarProperty Name="prijedjeni_km" ColumnName="prijedjeni_km" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="status">
+            <EntityTypeMapping TypeName="T25_DBModel.status">
+              <MappingFragment StoreEntitySet="status">
+                <ScalarProperty Name="id_statusa" ColumnName="id_statusa" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="T25_DBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tankiranje">
+            <EntityTypeMapping TypeName="T25_DBModel.tankiranje">
+              <MappingFragment StoreEntitySet="tankiranje">
+                <ScalarProperty Name="id_tankiranja" ColumnName="id_tankiranja" />
+                <ScalarProperty Name="vrsta_goriva" ColumnName="vrsta_goriva" />
+                <ScalarProperty Name="zaposlenik" ColumnName="zaposlenik" />
+                <ScalarProperty Name="PutniRadniList" ColumnName="PutniRadniList" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="kolicina" ColumnName="kolicina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tehnicki_pregled">
+            <EntityTypeMapping TypeName="T25_DBModel.tehnicki_pregled">
+              <MappingFragment StoreEntitySet="tehnicki_pregled">
+                <ScalarProperty Name="id_tehnickog_pregleda" ColumnName="id_tehnickog_pregleda" />
+                <ScalarProperty Name="vozilo" ColumnName="vozilo" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uloga">
+            <EntityTypeMapping TypeName="T25_DBModel.uloga">
+              <MappingFragment StoreEntitySet="uloga">
+                <ScalarProperty Name="id_uloge" ColumnName="id_uloge" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vozilo">
+            <EntityTypeMapping TypeName="T25_DBModel.vozilo">
+              <MappingFragment StoreEntitySet="vozilo">
+                <ScalarProperty Name="id_vozilo" ColumnName="id_vozilo" />
+                <ScalarProperty Name="vrsta_vozila_id" ColumnName="vrsta_vozila_id" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="godina_proizvodnje" ColumnName="godina_proizvodnje" />
+                <ScalarProperty Name="registracija" ColumnName="registracija" />
+                <ScalarProperty Name="datum_registracije" ColumnName="datum_registracije" />
+                <ScalarProperty Name="pocetno_stanje_km" ColumnName="pocetno_stanje_km" />
+                <ScalarProperty Name="nosivost" ColumnName="nosivost" />
+                <ScalarProperty Name="servisni_interval" ColumnName="servisni_interval" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vrsta_goriva">
+            <EntityTypeMapping TypeName="T25_DBModel.vrsta_goriva">
+              <MappingFragment StoreEntitySet="vrsta_goriva">
+                <ScalarProperty Name="id_vrste_goriva" ColumnName="id_vrste_goriva" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vrsta_vozila">
+            <EntityTypeMapping TypeName="T25_DBModel.vrsta_vozila">
+              <MappingFragment StoreEntitySet="vrsta_vozila">
+                <ScalarProperty Name="id_vrsta_vozila" ColumnName="id_vrsta_vozila" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="zaposlenici">
+            <EntityTypeMapping TypeName="T25_DBModel.zaposlenici">
+              <MappingFragment StoreEntitySet="zaposlenici">
+                <ScalarProperty Name="id_zaposlenici" ColumnName="id_zaposlenici" />
+                <ScalarProperty Name="uloga" ColumnName="uloga" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="lozinka" ColumnName="lozinka" />
+                <ScalarProperty Name="korisnicko_ime" ColumnName="korisnicko_ime" />
+                <ScalarProperty Name="oib" ColumnName="oib" />
+                <ScalarProperty Name="datum_zaposlenja" ColumnName="datum_zaposlenja" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="adresa" ColumnName="adresa" />
+                <ScalarProperty Name="datum_rodjenja" ColumnName="datum_rodjenja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

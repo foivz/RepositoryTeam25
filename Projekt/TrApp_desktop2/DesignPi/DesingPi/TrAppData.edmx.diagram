@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="22924d14cd3e4914b64122a032169240" Name="Diagram1">
+        <EntityTypeShape EntityType="T25_DBModel.dnevnik" Width="1.5" PointX="8.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.godisnji_odmor" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.lokacija" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.PutniRadniList" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.radni_sati" Width="1.5" PointX="10.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.servis" Width="1.5" PointX="8.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.status" Width="1.5" PointX="6" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.tankiranje" Width="1.5" PointX="13.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.tehnicki_pregled" Width="1.5" PointX="8.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.uloga" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.vozilo" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.vrsta_goriva" Width="1.5" PointX="11.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.vrsta_vozila" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="T25_DBModel.zaposlenici" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="T25_DBModel.fk_dnevnik_status1" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.fk_dnevnik_vozilo1" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.fk_godisnji_odmor_zaposlenici1" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.fk_lokacija_ruta1" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.fk_PutniRadniList_zaposlenici1" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.fk_radni_sati_ruta1" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.fk_ruta_vozilo1" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.fk_tankiranje_PutniRadniList1" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.fk_radni_sati_zaposlenici1" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.fk_servis_vozilo1" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.fk_gorivo_vrsta_goriva1" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.fk_gorivo_zaposlenici1" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.fk_tehnicki_pregled_vozilo1" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.fk_zaposlenici_uloga" ManuallyRouted="false" />
+        <AssociationConnector Association="T25_DBModel.FK_vozilo_vrsta_vozila" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
