@@ -69,9 +69,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="frmGlavna.cs" />
-    <Compile Include="frmGlavna.xaml.cs">
-      <DependentUpon>frmGlavna.xaml</DependentUpon>
-    </Compile>
     <Compile Include="frmKontrolaVozaca.cs" />
     <Compile Include="frmKontrolaVozila.cs" />
     <Compile Include="frmOsnovnoPodaci.cs" />
@@ -81,10 +78,6 @@
     <Compile Include="TehnickiPregled.cs" />
     <Compile Include="Vozilo.cs" />
     <Compile Include="Zaposlenik.cs" />
-    <Page Include="frmGlavna.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

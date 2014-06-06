@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace TrApp
-{/*
+{
     public class frmGlavna
     {
         public frmKontrolaVozaca frmKontrolaVozaca;
@@ -44,5 +44,5 @@ namespace TrApp
             {
             }
         }
-    }*/
+    }
 }

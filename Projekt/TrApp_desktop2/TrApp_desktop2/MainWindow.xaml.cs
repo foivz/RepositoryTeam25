@@ -24,11 +24,5 @@ namespace TrApp
         {
             InitializeComponent();
         }
-
-        void otvori(object sender, RoutedEventArgs e)
-        {
-            frmGlavna g = new frmGlavna();
-            g.Show();
-        }
     }
 }
