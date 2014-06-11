@@ -17,6 +17,7 @@ namespace DesingPi
         public int id_tehnickog_pregleda { get; set; }
         public Nullable<int> vozilo { get; set; }
         public Nullable<System.DateTime> datum { get; set; }
+        public string napomena { get; set; }
     
         public virtual vozilo vozilo1 { get; set; }
     }

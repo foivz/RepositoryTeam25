@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:DesingPi" x:Name="frmOdabirVozila" mc:Ignorable="d" x:Class="DesingPi.SlobodnaVozila"
         Title="Odabir vozila" Height="367" Width="587" Loaded="Window_Loaded">
     <Window.Resources>
-        <CollectionViewSource x:Key="t25_DBEntitiesViewSource" d:DesignSource="{d:DesignInstance {x:Type local:T25_DBEntities}, CreateList=True}"/>
+        <CollectionViewSource x:Key="t25_DBEntitiesViewSource" d:DesignSource="{d:DesignInstance {x:Type local:T25_DBEntities1}, CreateList=True}"/>
         <CollectionViewSource x:Key="t25_DBEntitiesvoziloViewSource" Source="{Binding vozilo, Source={StaticResource t25_DBEntitiesViewSource}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource t25_DBEntitiesvoziloViewSource}" Margin="0,0,2,0">
@@ -20,13 +20,14 @@
                 <DataGridTemplateColumn x:Name="vrsta_vozilaColumn" Header="Vrsta vozila" Width="123">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ComboBox>
-                                <ComboBoxItem Content="{Binding vrsta_vozila}"/>
-                            </ComboBox>
+                            <Grid>
+                                <ComboBox ItemsSource="{Binding Path=upit}"/>
+                                <TextBox Text="{Binding Path=naziv}"/>
+                            </Grid>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <!--<DataGridTextColumn x:Name="vrsta_vozila_idColumn" Binding="{Binding vrsta_vozila_id}" Header="vrsta vozila id" Width="SizeToHeader"/>-->
+                <!--<DataGridTextColumn x:Name="vrsta_vozila_idColumn" Binding="{Binding vrsta_vozila_id}" Header="Vrsta vozila" Width="SizeToHeader"/>!-->
             </DataGrid.Columns>
         </DataGrid>
         <Button Name="btnOdaberiVozilo" Content="Odaberi" HorizontalAlignment="Left" Margin="69,286,0,0" VerticalAlignment="Top" Width="75" Click="btnOdaberiVozilo_Click" />

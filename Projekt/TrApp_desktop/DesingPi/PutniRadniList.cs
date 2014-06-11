@@ -18,22 +18,22 @@ namespace DesingPi
         {
             this.lokacija = new HashSet<lokacija>();
             this.radni_sati = new HashSet<radni_sati>();
-            this.tankiranje = new HashSet<tankiranje>();
         }
     
         public int id_putnog_radnog_lista { get; set; }
-        public Nullable<int> vozilo { get; set; }
+        public int vozilo { get; set; }
         public int kreira { get; set; }
         public Nullable<int> kilometraza { get; set; }
         public Nullable<System.DateTime> pocetak { get; set; }
         public Nullable<System.DateTime> kraj { get; set; }
         public string mjesto_utovara { get; set; }
         public string mjesto_istovara { get; set; }
+        public Nullable<int> teret { get; set; }
+        public string napomene { get; set; }
     
         public virtual ICollection<lokacija> lokacija { get; set; }
         public virtual zaposlenici zaposlenici { get; set; }
         public virtual ICollection<radni_sati> radni_sati { get; set; }
         public virtual vozilo vozilo1 { get; set; }
-        public virtual ICollection<tankiranje> tankiranje { get; set; }
     }
 }

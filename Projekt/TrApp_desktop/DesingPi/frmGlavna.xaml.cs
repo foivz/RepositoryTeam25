@@ -97,6 +97,9 @@ namespace DesingPi
             System.Windows.Data.CollectionViewSource putniRadniListViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("putniRadniListViewSource")));
             // Load data by setting the CollectionViewSource.Source property:
             // putniRadniListViewSource.Source = [generic data source]
+            System.Windows.Data.CollectionViewSource godisnji_odmorViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("godisnji_odmorViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // godisnji_odmorViewSource.Source = [generic data source]
         }
 
         /// <summary>
@@ -129,9 +132,10 @@ namespace DesingPi
         {
             string a = "System.Windows.Controls.TabItem Header:Popis vozila Content:System.Windows.Controls.TabItem Header:Unos vozila Content:System.Windows.Controls.TabItem Header:Unos vozila Content:";
             string b = e.OriginalSource.ToString();
+            string podatak = "svi_vozaci";
             if (string.Compare(a, b) == 1)
             {
-                zaposleniciDataGrid.ItemsSource = model.dohvatVozaca();
+                zaposleniciDataGrid.ItemsSource = model.dohvatVozaca(podatak);
             }
             else
             {
@@ -255,8 +259,9 @@ namespace DesingPi
         {
             if (provjeriPopunjenostZaposlenika())
             {
+                string podatak = "svi_vozaci";
                 controller.dodaj(dohvatiPodatkeZaposlenika());
-                zaposleniciDataGrid.ItemsSource = model.dohvatVozaca();
+                zaposleniciDataGrid.ItemsSource = model.dohvatVozaca(podatak);
                 zaposleniciDataGrid1.ItemsSource = model.dohvatZaposlenika();
                 MessageBox.Show("Zaposlenik uspješno dodan!", "Obavijest");
                 ocistiTextBox(this);
@@ -277,11 +282,11 @@ namespace DesingPi
         {
             if (provjeriPopunjenostZaposlenika())
             {
-
+                string podatak = "svi_vozaci";
                 int zaposlenikId = Convert.ToInt32(id_zaposleniciTextBox.Text);
                 controller.izmjeni(zaposlenikId, dohvatiPodatkeZaposlenika());
                 MessageBox.Show("Zaposlenik uspješno izmjenjen!", "Obavijest");
-                zaposleniciDataGrid.ItemsSource = model.dohvatVozaca();
+                zaposleniciDataGrid.ItemsSource = model.dohvatVozaca(podatak);
                 zaposleniciDataGrid1.ItemsSource = model.dohvatZaposlenika();
             }
             else
@@ -298,11 +303,11 @@ namespace DesingPi
         /// <param name="e"></param>
         private void btnObrisiZaposlenika_Click(object sender, RoutedEventArgs e)
         {
-            string podatak = "zaposlenik";
+            string podatak = "svi_vozaci";
             int zaposlenikId = Convert.ToInt32(id_zaposleniciTextBox.Text);
             controller.obrisi(zaposlenikId, podatak);
             MessageBox.Show("Vozilo uspješno obrisano!", "Obavijest");
-            zaposleniciDataGrid.ItemsSource = model.dohvatVozaca();
+            zaposleniciDataGrid.ItemsSource = model.dohvatVozaca(podatak);
             zaposleniciDataGrid1.ItemsSource = model.dohvatZaposlenika();
         }
 
@@ -364,35 +369,40 @@ namespace DesingPi
 
         private void btnPregledPTR_Click(object sender, RoutedEventArgs e)
         {
-            //kreiranje liste za dohvat objekata
-            List<PutniRadniList> odabraniPTR = new List<PutniRadniList>();
             //kreiranje objekta za prvi objekt u listi
             PutniRadniList odabraniPTRObj = new PutniRadniList();
+
+            List<radni_sati> odabraniVozaci = new List<radni_sati>();
+            radni_sati odabraniVozaciObj = new radni_sati();
+
             //otvaranje forme za odabir putnig radnog lista
             PregledPTR frmPTR = new PregledPTR();
             frmPTR.ShowDialog();
             id_putnog_radnog_listaTextBox.Text = frmPTR.txtIDPTR.Text;
             int idPTR = 0;
-            
-           
+            if (!string.IsNullOrWhiteSpace(id_putnog_radnog_listaTextBox.Text))
+            {
                 idPTR = Convert.ToInt32(id_putnog_radnog_listaTextBox.Text);
-          
 
+                odabraniPTRObj = model.dohvatPTR(idPTR).First<PutniRadniList>();
 
-            odabraniPTR = model.dohvatPTR(idPTR);
-            odabraniPTRObj = odabraniPTR.First<PutniRadniList>();
-            
-            voziloTextBox.Text = odabraniPTRObj.vozilo.ToString();
-            pocetakDatePicker.Text = odabraniPTRObj.pocetak.ToString();
-            krajDatePicker.Text = odabraniPTRObj.kraj.ToString();
-            // to do -> zaposlenikTextBox.Text = odabraniPTRObj
-            mjesto_utovaraTextBox.Text = odabraniPTRObj.mjesto_utovara.ToString();
-            mjesto_istovaraTextBox.Text = odabraniPTRObj.mjesto_istovara.ToString();
-            kreiraTextBox.Text = odabraniPTRObj.kreira.ToString();
-            kilometrazaTextBox.Text = odabraniPTRObj.kilometraza.ToString();
-
-
-
+                odabraniVozaci = model.dohvatRS(idPTR);
+                odabraniVozaciObj = odabraniVozaci.ElementAt<radni_sati>(0);
+                zaposlenikTextBox.Text = odabraniVozaciObj.zaposlenik.ToString();
+                var a = odabraniVozaci.Count();
+                if (a == 2)
+                {
+                    odabraniVozaciObj = odabraniVozaci.ElementAt<radni_sati>(1);
+                    zaposlenikTextBox1.Text = odabraniVozaciObj.zaposlenik.ToString();
+                }
+                voziloTextBox.Text = odabraniPTRObj.vozilo.ToString();
+                pocetakDatePicker.Text = odabraniPTRObj.pocetak.ToString();
+                krajDatePicker.Text = odabraniPTRObj.kraj.ToString();
+                mjesto_utovaraTextBox.Text = odabraniPTRObj.mjesto_utovara.ToString();
+                mjesto_istovaraTextBox.Text = odabraniPTRObj.mjesto_istovara.ToString();
+                kreiraTextBox.Text = odabraniPTRObj.kreira.ToString();
+                kilometrazaTextBox.Text = odabraniPTRObj.kilometraza.ToString();
+            }
         }
 
         private void btnOdaberiVozaca1_Click(object sender, RoutedEventArgs e)
@@ -413,9 +423,7 @@ namespace DesingPi
         {
             if (string.IsNullOrWhiteSpace(voziloTextBox.Text) ||
                 string.IsNullOrWhiteSpace(zaposlenikTextBox.Text) ||
-                string.IsNullOrWhiteSpace(zaposlenikTextBox1.Text) ||
                 string.IsNullOrWhiteSpace(pocetakDatePicker.Text) ||
-                string.IsNullOrWhiteSpace(krajDatePicker.Text) ||
                 string.IsNullOrWhiteSpace(kilometrazaTextBox.Text) ||
                 string.IsNullOrWhiteSpace(kreiraTextBox.Text) ||
                 string.IsNullOrWhiteSpace(mjesto_utovaraTextBox.Text) ||
@@ -429,29 +437,59 @@ namespace DesingPi
         private PutniRadniList dohvatPodatakaPTR()
         {
             PutniRadniList PTR = new PutniRadniList();
-            PTR.vozilo = Convert.ToInt32(voziloTextBox.Text);
-            PTR.kreira = Convert.ToInt32(kreiraTextBox.Text);
-            PTR.kilometraza = Convert.ToInt32(kilometrazaTextBox.Text);
-            PTR.pocetak = Convert.ToDateTime(pocetakDatePicker.Text);
-            PTR.kraj = Convert.ToDateTime(krajDatePicker.Text);
-            PTR.mjesto_utovara = mjesto_utovaraTextBox.Text;
-            PTR.mjesto_istovara = mjesto_istovaraTextBox.Text;
-            return PTR;
+            try
+            {
+                PTR.vozilo = Convert.ToInt32(voziloTextBox.Text);
+                PTR.kreira = Convert.ToInt32(kreiraTextBox.Text);
+                PTR.kilometraza = Convert.ToInt32(kilometrazaTextBox.Text);
+                PTR.pocetak = Convert.ToDateTime(pocetakDatePicker.Text);
+                if (!string.IsNullOrWhiteSpace(krajDatePicker.Text))
+                    PTR.kraj = Convert.ToDateTime(krajDatePicker.Text);
+                PTR.mjesto_utovara = mjesto_utovaraTextBox.Text;
+                PTR.mjesto_istovara = mjesto_istovaraTextBox.Text;
+                return PTR;
+           }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Upozorenje");
+            }
+            finally 
+            {
+               
+                
+            }
+            return null;
         }
 
-        private radni_sati dohvatPodatakaRS()
+        private List<radni_sati> dohvatPodatakaRS()
         {
-            radni_sati RS = new radni_sati();
-            RS.putni_radni_list = Convert.ToInt32(id_putnog_radnog_listaTextBox.Text);
-            RS.zaposlenik = Convert.ToInt32(zaposlenikTextBox.Text);
-            RS.zaposlenik = Convert.ToInt32(zaposlenikTextBox1.Text);
-            return RS;
+            try
+            {
+                List<radni_sati> zaposlenici = new List<radni_sati>();
+                radni_sati RS = new radni_sati();
+                //RS.putni_radni_list = Convert.ToInt32(id_putnog_radnog_listaTextBox.Text);
+                RS.zaposlenik = Convert.ToInt32(zaposlenikTextBox.Text);
+                zaposlenici.Add(RS);
+                if (zaposlenikTextBox1.Text != "")
+                {
+                    radni_sati RS1 = new radni_sati();
+                    //RS1.putni_radni_list = Convert.ToInt32(id_putnog_radnog_listaTextBox.Text);
+                    RS1.zaposlenik = Convert.ToInt32(zaposlenikTextBox1.Text);
+                    zaposlenici.Add(RS1);
+                }
+                return zaposlenici;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Upozorenje");
+            }
+            return null;
         }
 
         private void btnSpremiPTR_Click(object sender, RoutedEventArgs e)
         {
             PregledPTR PTR = new PregledPTR();
-            if (/*provjeriPopunjenostPTR()*/ true)
+            if (provjeriPopunjenostPTR()==true)
             {
                 controller.dodaj(dohvatPodatakaPTR(), dohvatPodatakaRS());
                 PTR.putniRadniListDataGrid.ItemsSource = model.dohvatPTR();
@@ -473,6 +511,114 @@ namespace DesingPi
             {
 
             }
+        }
+
+        private void VozilaServis_Loaded(object sender, RoutedEventArgs e) 
+        {
+            vozilaservisdatagrid.ItemsSource = controller.dohvatiRazlikuKm();
+        }
+
+        private void popisSvih(object sender, RoutedEventArgs e)
+        {
+            string podatak = "sva_vozila";
+            voziloDataGrid.ItemsSource = model.dohvatVozila(podatak); 
+        }
+
+        private void popisSlobodnih(object sender, RoutedEventArgs e)
+        {
+            string podatak = "";
+            voziloDataGrid.ItemsSource=model.dohvatVozila(podatak);
+        }
+
+        private void popisSvihVozaca(object sender, RoutedEventArgs e)
+        {
+            string podatak = "svi_vozaci";
+            zaposleniciDataGrid.ItemsSource = model.dohvatVozaca(podatak);
+        }
+
+        private void popisSlobodnihVozaca(object sender, RoutedEventArgs e)
+        {
+            string podatak = "";
+            zaposleniciDataGrid.ItemsSource = model.dohvatVozaca(podatak);
+        }
+
+        /// <summary>
+        /// Metoda koja prikazuje nadolazeće registracije na otvoreni tab.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void VozilaRegistracija_Loaded(object sender, RoutedEventArgs e)
+        {
+            registracijadatagrid.ItemsSource = controller.vozilaRegistracija();
+        }
+
+        /// <summary>
+        /// Metoda za filtiranje registracija prema mjesecu.
+        /// </summary>
+        private void TjednaRegistracija(object sender, RoutedEventArgs e)
+        {
+            registracijadatagrid.ItemsSource = controller.filtriraneRegistracije("tjedan");
+        }
+
+        /// <summary>
+        /// Metoda koja ispisuje tjedne registracije.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MjesecnaRegistracija(object sender, RoutedEventArgs e)
+        {
+            registracijadatagrid.ItemsSource = controller.filtriraneRegistracije("mjesec");
+        }
+
+        /// <summary>
+        /// Metoda koja ispisuje zaposlenike na godišnjem odmoru
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GodisnjiOdmor(object sender, RoutedEventArgs e)
+        {
+            datagridGodisnjiOdmor.ItemsSource = model.dohvatiGodisnjiOdmor("see");
+        }
+
+        /// <summary>
+        /// Postavlja zaposlenike koji su na godišenjem u datagrid.
+        /// </summary>
+        private void prikaziPodatkeDatum(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime odabraniDat = calGodisnji.SelectedDate.Value;
+
+            datagridGodisnjiOdmor.ItemsSource = controller.godisnjiOdmorNaDatum(odabraniDat);
+
+        }
+        
+        /// <summary>
+        /// dohvaća sve zaposlenike koj su danas na godišnjem
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void odmorDanas(object sender, RoutedEventArgs e)
+        {
+            datagridGodisnjiOdmor.ItemsSource = model.dohvatiGodisnjiOdmor("danas");
+        }
+
+        /// <summary>
+        /// dohvaća sve zaposlenike koj su sljedećih tjedan dana na godišnjem
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void odmorTjedan(object sender, RoutedEventArgs e)
+        {
+            datagridGodisnjiOdmor.ItemsSource = controller.filtiranjeGO("tjedan");
+        }
+
+        /// <summary>
+        /// dohvaća sve zaposlenike koj su u sljedećih mjesec dana na godišnjem
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void odmorMjesec(object sender, RoutedEventArgs e)
+        {
+            datagridGodisnjiOdmor.ItemsSource = controller.filtiranjeGO("mjesec");
         }
     }
 }

@@ -16,7 +16,6 @@ namespace DesingPi
     {
         public vozilo()
         {
-            this.dnevnik = new HashSet<dnevnik>();
             this.PutniRadniList = new HashSet<PutniRadniList>();
             this.servis = new HashSet<servis>();
             this.tehnicki_pregled = new HashSet<tehnicki_pregled>();
@@ -32,7 +31,6 @@ namespace DesingPi
         public Nullable<int> nosivost { get; set; }
         public Nullable<int> servisni_interval { get; set; }
     
-        public virtual ICollection<dnevnik> dnevnik { get; set; }
         public virtual ICollection<PutniRadniList> PutniRadniList { get; set; }
         public virtual ICollection<servis> servis { get; set; }
         public virtual ICollection<tehnicki_pregled> tehnicki_pregled { get; set; }

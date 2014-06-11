@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\TrAppData.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\TrAppData.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

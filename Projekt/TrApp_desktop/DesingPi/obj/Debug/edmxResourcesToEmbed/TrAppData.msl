@@ -1,16 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="T25_DBModelStoreContainer" CdmEntityContainer="T25_DBEntities">
-    <EntitySetMapping Name="dnevnik">
-      <EntityTypeMapping TypeName="T25_DBModel.dnevnik">
-        <MappingFragment StoreEntitySet="dnevnik">
-          <ScalarProperty Name="id_zapisa" ColumnName="id_zapisa" />
-          <ScalarProperty Name="datum" ColumnName="datum" />
-          <ScalarProperty Name="vozilo_id_vozilo" ColumnName="vozilo_id_vozilo" />
-          <ScalarProperty Name="status_id_statusa" ColumnName="status_id_statusa" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+  <EntityContainerMapping StorageEntityContainer="T25_DBModelStoreContainer" CdmEntityContainer="T25_DBEntities1">
     <EntitySetMapping Name="godisnji_odmor">
       <EntityTypeMapping TypeName="T25_DBModel.godisnji_odmor">
         <MappingFragment StoreEntitySet="godisnji_odmor">
@@ -43,6 +33,8 @@
           <ScalarProperty Name="kraj" ColumnName="kraj" />
           <ScalarProperty Name="mjesto_utovara" ColumnName="mjesto_utovara" />
           <ScalarProperty Name="mjesto_istovara" ColumnName="mjesto_istovara" />
+          <ScalarProperty Name="teret" ColumnName="teret" />
+          <ScalarProperty Name="napomene" ColumnName="napomene" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -66,14 +58,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="status">
-      <EntityTypeMapping TypeName="T25_DBModel.status">
-        <MappingFragment StoreEntitySet="status">
-          <ScalarProperty Name="id_statusa" ColumnName="id_statusa" />
-          <ScalarProperty Name="naziv" ColumnName="naziv" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="T25_DBModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -85,24 +69,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tankiranje">
-      <EntityTypeMapping TypeName="T25_DBModel.tankiranje">
-        <MappingFragment StoreEntitySet="tankiranje">
-          <ScalarProperty Name="id_tankiranja" ColumnName="id_tankiranja" />
-          <ScalarProperty Name="vrsta_goriva" ColumnName="vrsta_goriva" />
-          <ScalarProperty Name="zaposlenik" ColumnName="zaposlenik" />
-          <ScalarProperty Name="PutniRadniList" ColumnName="PutniRadniList" />
-          <ScalarProperty Name="datum" ColumnName="datum" />
-          <ScalarProperty Name="kolicina" ColumnName="kolicina" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tehnicki_pregled">
       <EntityTypeMapping TypeName="T25_DBModel.tehnicki_pregled">
         <MappingFragment StoreEntitySet="tehnicki_pregled">
           <ScalarProperty Name="id_tehnickog_pregleda" ColumnName="id_tehnickog_pregleda" />
           <ScalarProperty Name="vozilo" ColumnName="vozilo" />
           <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="napomena" ColumnName="napomena" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -126,14 +99,6 @@
           <ScalarProperty Name="pocetno_stanje_km" ColumnName="pocetno_stanje_km" />
           <ScalarProperty Name="nosivost" ColumnName="nosivost" />
           <ScalarProperty Name="servisni_interval" ColumnName="servisni_interval" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="vrsta_goriva">
-      <EntityTypeMapping TypeName="T25_DBModel.vrsta_goriva">
-        <MappingFragment StoreEntitySet="vrsta_goriva">
-          <ScalarProperty Name="id_vrste_goriva" ColumnName="id_vrste_goriva" />
-          <ScalarProperty Name="naziv" ColumnName="naziv" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

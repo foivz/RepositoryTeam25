@@ -19,7 +19,6 @@ namespace DesingPi
             this.godisnji_odmor = new HashSet<godisnji_odmor>();
             this.PutniRadniList = new HashSet<PutniRadniList>();
             this.radni_sati = new HashSet<radni_sati>();
-            this.tankiranje = new HashSet<tankiranje>();
         }
     
         public int id_zaposlenici { get; set; }
@@ -38,7 +37,6 @@ namespace DesingPi
         public virtual ICollection<godisnji_odmor> godisnji_odmor { get; set; }
         public virtual ICollection<PutniRadniList> PutniRadniList { get; set; }
         public virtual ICollection<radni_sati> radni_sati { get; set; }
-        public virtual ICollection<tankiranje> tankiranje { get; set; }
         public virtual uloga uloga1 { get; set; }
     }
 }

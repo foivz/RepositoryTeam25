@@ -13,10 +13,10 @@ namespace DesingPi
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class T25_DBEntities : DbContext
+    public partial class T25_DBEntities1 : DbContext
     {
-        public T25_DBEntities()
-            : base("name=T25_DBEntities")
+        public T25_DBEntities1()
+            : base("name=T25_DBEntities1")
         {
         }
     
@@ -25,19 +25,15 @@ namespace DesingPi
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<dnevnik> dnevnik { get; set; }
         public virtual DbSet<godisnji_odmor> godisnji_odmor { get; set; }
         public virtual DbSet<lokacija> lokacija { get; set; }
         public virtual DbSet<PutniRadniList> PutniRadniList { get; set; }
         public virtual DbSet<radni_sati> radni_sati { get; set; }
         public virtual DbSet<servis> servis { get; set; }
-        public virtual DbSet<status> status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<tankiranje> tankiranje { get; set; }
         public virtual DbSet<tehnicki_pregled> tehnicki_pregled { get; set; }
         public virtual DbSet<uloga> uloga { get; set; }
         public virtual DbSet<vozilo> vozilo { get; set; }
-        public virtual DbSet<vrsta_goriva> vrsta_goriva { get; set; }
         public virtual DbSet<vrsta_vozila> vrsta_vozila { get; set; }
         public virtual DbSet<zaposlenici> zaposlenici { get; set; }
     }

@@ -23,7 +23,8 @@ namespace DesingPi
         public SlobodniVozaci()
         {
             InitializeComponent();
-            zaposleniciDataGrid3.ItemsSource = model.dohvatVozaca();
+            string podatak = "";
+            zaposleniciDataGrid3.ItemsSource = model.dohvatVozaca(podatak);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

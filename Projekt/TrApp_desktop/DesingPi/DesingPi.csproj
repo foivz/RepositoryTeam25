@@ -62,17 +62,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="dnevnik.cs">
-      <DependentUpon>TrAppData.tt</DependentUpon>
+    <Compile Include="frmPregledPTR.xaml.cs">
+      <DependentUpon>frmPregledPTR.xaml</DependentUpon>
     </Compile>
+    <Compile Include="frmOdabirVozila.xaml.cs">
+      <DependentUpon>frmOdabirVozila.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmSlobodniVozaci.xaml.cs">
+      <DependentUpon>frmSlobodniVozaci.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GodisnjiOdmor.cs" />
     <Compile Include="godisnji_odmor.cs">
       <DependentUpon>TrAppData.tt</DependentUpon>
     </Compile>
     <Compile Include="lokacija.cs">
       <DependentUpon>TrAppData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="frmPregledPTR.xaml.cs">
-      <DependentUpon>frmPregledPTR.xaml</DependentUpon>
     </Compile>
     <Compile Include="PutniRadniList.cs">
       <DependentUpon>TrAppData.tt</DependentUpon>
@@ -83,19 +87,7 @@
     <Compile Include="servis.cs">
       <DependentUpon>TrAppData.tt</DependentUpon>
     </Compile>
-    <Compile Include="frmOdabirVozila.xaml.cs">
-      <DependentUpon>frmOdabirVozila.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="frmSlobodniVozaci.xaml.cs">
-      <DependentUpon>frmSlobodniVozaci.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="status.cs">
-      <DependentUpon>TrAppData.tt</DependentUpon>
-    </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>TrAppData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tankiranje.cs">
       <DependentUpon>TrAppData.tt</DependentUpon>
     </Compile>
     <Compile Include="tehnicki_pregled.cs">
@@ -121,10 +113,9 @@
     <Compile Include="uloga.cs">
       <DependentUpon>TrAppData.tt</DependentUpon>
     </Compile>
+    <Compile Include="VozilaRegistracija.cs" />
+    <Compile Include="VozilaServis.cs" />
     <Compile Include="vozilo.cs">
-      <DependentUpon>TrAppData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vrsta_goriva.cs">
       <DependentUpon>TrAppData.tt</DependentUpon>
     </Compile>
     <Compile Include="vrsta_vozila.cs">
