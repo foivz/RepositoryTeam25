@@ -132,6 +132,14 @@ namespace DesingPi
                 return upit.ToList();
             }
         }
+
+        /// <summary>
+        /// Metoda za unos novog vozila i servisa istovremeno.
+        /// Servis za svako novo dodano vozilo mora biti upisan kako bi se moglo znati
+        /// kad će vozilo ići na servis ovisno o prijeđenom broju km. Odmah se zapisuje 
+        /// u tablicu tehnički pregled datum zadnjeg tehničkog pregleda.
+        /// </summary>
+        /// <param name="vozilo"></param>
         public void dodaj(vozilo vozilo)
         {
             using (var db = new T25_DBEntities1())
@@ -141,6 +149,10 @@ namespace DesingPi
                 tehPregled.vozilo = vozilo.id_vozilo;
                 tehPregled.datum = vozilo.datum_registracije;
                 db.tehnicki_pregled.Add(tehPregled);
+                servis unosServisa = new servis();
+                unosServisa.vozilo = vozilo.id_vozilo;
+                unosServisa.prijedjeni_km = vozilo.pocetno_stanje_km;
+                db.servis.Add(unosServisa);
                 db.SaveChanges();
             }
         }

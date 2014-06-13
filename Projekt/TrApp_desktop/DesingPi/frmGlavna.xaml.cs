@@ -427,8 +427,15 @@ namespace DesingPi
                 string.IsNullOrWhiteSpace(kilometrazaTextBox.Text) ||
                 string.IsNullOrWhiteSpace(kreiraTextBox.Text) ||
                 string.IsNullOrWhiteSpace(mjesto_utovaraTextBox.Text) ||
-                string.IsNullOrWhiteSpace(mjesto_istovaraTextBox.Text))
+                string.IsNullOrWhiteSpace(mjesto_istovaraTextBox.Text)||
+                string.IsNullOrWhiteSpace(teretTextBox.Text))
             {
+                MessageBox.Show("Niste unijeli sve podatke!", "Upozorenje");
+                return false;
+            }
+            if (pocetakDatePicker.SelectedDate > krajDatePicker.SelectedDate || krajDatePicker.SelectedDate < pocetakDatePicker.SelectedDate)
+            {
+                MessageBox.Show("Neispravan datum!","Upozorenje");
                 return false;
             }
             return true;
@@ -447,6 +454,8 @@ namespace DesingPi
                     PTR.kraj = Convert.ToDateTime(krajDatePicker.Text);
                 PTR.mjesto_utovara = mjesto_utovaraTextBox.Text;
                 PTR.mjesto_istovara = mjesto_istovaraTextBox.Text;
+                PTR.teret = Convert.ToInt32(teretTextBox.Text);
+                PTR.napomene = napomeneTextBox.Text;
                 return PTR;
            }
             catch (Exception ex)
@@ -496,10 +505,6 @@ namespace DesingPi
                 PTR.radni_satiDataGrid.ItemsSource = model.dohvatRS();
                 MessageBox.Show("Putni radni list uspješno dodan!", "Obavijest");
                 ocistiTextBox(this);
-            }
-            else
-            {
-                MessageBox.Show("Niste unijeli sve podatke!", "Upozorenje");
             }
         }
 

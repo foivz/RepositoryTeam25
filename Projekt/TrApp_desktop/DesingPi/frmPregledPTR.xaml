@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:DesingPi" mc:Ignorable="d" x:Name="Pregled_putnih_radnih_listova" x:Class="DesingPi.PregledPTR"
         Title="Pregled putnih radnih listova" Height="426" Width="587" Loaded="Pregled_putnih_radnih_listova_Loaded">
     <Window.Resources>
-        <CollectionViewSource x:Key="t25_DBEntitiesViewSource" d:DesignSource="{d:DesignInstance {x:Type local:T25_DBEntities}, CreateList=True}"/>
+        <CollectionViewSource x:Key="t25_DBEntitiesViewSource" d:DesignSource="{d:DesignInstance {x:Type local:T25_DBEntities1}, CreateList=True}"/>
         <CollectionViewSource x:Key="t25_DBEntitiesPutniRadniListViewSource" Source="{Binding PutniRadniList, Source={StaticResource t25_DBEntitiesViewSource}}"/>
         <CollectionViewSource x:Key="t25_DBEntitiesradni_satiViewSource" Source="{Binding radni_sati, Source={StaticResource t25_DBEntitiesViewSource}}"/>
     </Window.Resources>
@@ -17,6 +17,7 @@
                 <DataGridTextColumn x:Name="kreiraColumn" Width="80" Header="Kreira" Binding="{Binding kreira}"/>
                 <DataGridTextColumn x:Name="mjesto_utovaraColumn" Width="SizeToHeader" Header="Mjesto utovara" Binding="{Binding mjesto_utovara}"/>
                 <DataGridTextColumn x:Name="mjesto_istovaraColumn" Width="SizeToHeader" Header="Mjesto istovara" Binding="{Binding mjesto_istovara}"/>
+                <DataGridTextColumn x:Name="teret" Width="SizeToHeader" Header="Teret" Binding="{Binding teret}"/>
                 <DataGridTextColumn x:Name="kilometrazaColumn" Width="SizeToHeader" Header="Kilometraža" Binding="{Binding kilometraza}"/>
                 <DataGridTemplateColumn x:Name="pocetakColumn" Width="SizeToHeader" Header="Početak">
                     <DataGridTemplateColumn.CellTemplate>
@@ -32,6 +33,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="napomene" Width="SizeToHeader" Header="Napomene" Binding="{Binding napomene}"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="radni_satiDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource t25_DBEntitiesradni_satiViewSource}}" Margin="10,0,0,41" RowDetailsVisibilityMode="VisibleWhenSelected" HorizontalAlignment="Left" Width="231" Height="103" VerticalAlignment="Bottom">
