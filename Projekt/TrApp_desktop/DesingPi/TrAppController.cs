@@ -30,9 +30,14 @@ namespace DesingPi
             model.izmjeni(zaposlenikId, zaposlenik);
         }
 
-        public void obrisi(int voziloId, string podatak)
+        /// <summary>
+        /// Metoda koja služi za brisanje vozila, zaposlenika, putnog radnog lista prema primljenom id-u.
+        /// </summary>
+        /// <param name="voziloId"></param>
+        /// <param name="podatak"></param>
+        public void obrisi(int Id, string podatak)
         {
-            model.obrisi(voziloId, podatak);
+            model.obrisi(Id, podatak);
         }
 
         public void dodaj(PutniRadniList PTR, List<radni_sati> RS)
@@ -58,6 +63,11 @@ namespace DesingPi
             return;
         }
 
+        public void izmjeni(int PTRId, int vozac1, int vozac2, int brSati)
+        {
+            //model.izmjeni(PTRId, noviPodaci);
+        }
+
         /// <summary>
         /// Metoda za ispis vozila koja idu na servis. U while petlji u prvom uvijetu pregledava se ima li duplikata vozila u listi, ako ima prikazuje se zadnje vozilo s najvecim ID-om,
         /// a ostala se brisu iz liste (ne i iz baze podataka).
@@ -65,20 +75,23 @@ namespace DesingPi
         /// <returns></returns>
         public List<VozilaServis> dohvatiRazlikuKm()
         {
-            List<VozilaServis> razlika = new List<VozilaServis>();
-            razlika = model.dohvatiVozilaServis();
+            List<VozilaServis> vozilaServisBezDuplikata = new List<VozilaServis>();
+            vozilaServisBezDuplikata = model.dohvatiVozilaServis();
+            List<VozilaServis> vozilaServisNovo = new List<VozilaServis>();
             int index = 0;
-            while (index < razlika.Count - 1)
+            while (index < vozilaServisBezDuplikata.Count - 1)
             {
-                if (razlika[index].id_vozilo == razlika[index + 1].id_vozilo)
-                    razlika.RemoveAt(index);
+                if (vozilaServisBezDuplikata[index].id_vozilo == vozilaServisBezDuplikata[index + 1].id_vozilo)
+                    vozilaServisBezDuplikata.RemoveAt(index);
                 else index++;
             }
-            foreach (VozilaServis i in razlika)
+            foreach (VozilaServis i in vozilaServisBezDuplikata)
             {
-                i.razlika_km = i.trenutno_stanje_km - i.stanje_na_zadnjem_servisu;    
+                i.razlika_km = i.trenutno_stanje_km - i.stanje_na_zadnjem_servisu;
+                if (i.razlika_km >= i.servisni_interval)
+                    vozilaServisNovo.Add(i);
             }
-            return razlika;
+            return vozilaServisNovo;
         }
 
         /// <summary>
@@ -187,5 +200,73 @@ namespace DesingPi
             }
             return filtirana;
         }
+
+        public bool provjeraTereta(int teret, int vozilo)
+        {
+            List<vozilo> nosivost = new List<vozilo>();
+            nosivost = model.dohvatVozila("sva_vozila");
+            foreach (vozilo i in nosivost)
+            {
+                if (i.id_vozilo == vozilo)
+                {
+                    if(i.nosivost<teret)
+                        return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Metoda koja prosljeđuje vozilo koje će biti poslano na registraciju.
+        /// </summary>
+        /// <param name="teh"></param>
+        public void dodaj(tehnicki_pregled teh)
+        {
+            model.dodaj(teh);
+        }
+
+
+        /// <summary>
+        /// Metoda koja ispisuje vozila koja su danas poslana na registraciju.
+        /// </summary> // NE RADI
+        /// <returns></returns>
+        /*public List<VozilaRegistracija> ispisRegistracija()
+        {
+            List<VozilaRegistracija> ispisID = new List<VozilaRegistracija>();
+            DateTime danas = DateTime.Now;
+            foreach (VozilaRegistracija i in model.trenutniIspisRegistracija())
+            {
+                if (i.sljedeca_registracija.Date == danas.Date)
+                {
+                    ispisID.Add(i);
+                }
+            }
+            return ispisID;
+        }*/
+
+        /// <summary>
+        /// Metoda koja služi za popunjavanje textboksova podacima iz frmIspisRegistracija na glavnoj formi (tabu nadolazeće registracije).
+        /// Controlleru prosljeđujemo id koji smo odabrali na formi ispisRegistracija.
+        /// </summary>
+        /// <param name="id">Id vozila koji će biti prikazan na textboksovima na glavnoj formi</param>
+        /// <returns></returns>
+        public VozilaRegistracija ispisRegistracija(int id)
+        {
+            VozilaRegistracija ispisID = new VozilaRegistracija();
+            DateTime danas = DateTime.Now;
+            foreach (VozilaRegistracija i in model.dohvatVozila())
+            {
+                if (i.id_vozilo == id)
+                {
+                    if (i.sljedeca_registracija.Date == danas.Date)
+                    {
+                        ispisID = i;
+                    }
+                }
+            }
+            return ispisID;
+        }
+
+
     }
 }

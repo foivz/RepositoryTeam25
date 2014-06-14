@@ -11,6 +11,7 @@
         <CollectionViewSource x:Key="t25_DBEntitiesradni_satiViewSource" Source="{Binding radni_sati, Source={StaticResource t25_DBEntitiesViewSource}}"/>
         <CollectionViewSource x:Key="putniRadniListViewSource" d:DesignSource="{d:DesignInstance {x:Type local:PutniRadniList}, CreateList=True}"/>
         <CollectionViewSource x:Key="godisnji_odmorViewSource" d:DesignSource="{d:DesignInstance {x:Type local:godisnji_odmor}, CreateList=True}"/>
+        <CollectionViewSource x:Key="tehnicki_pregledViewSource" d:DesignSource="{d:DesignInstance {x:Type local:tehnicki_pregled}, CreateList=True}"/>
     </Window.Resources>
     <Grid>
         <!-- Glavni gornji meni -->
@@ -86,25 +87,47 @@
                             </TabItem.Header>
                             <TabItem.Content>
                                 <Grid>
-                                    <DataGrid Name="registracijadatagrid" ItemsSource="{Binding}" IsReadOnly="True" HorizontalAlignment="Left" Margin="60,107,0,0" VerticalAlignment="Top" Height="226" Width="684" AutoGenerateColumns="False">
+                                    <DataGrid Name="registracijadatagrid" ItemsSource="{Binding}" IsReadOnly="True" HorizontalAlignment="Left" Margin="60,107,0,0" VerticalAlignment="Top" Height="156" Width="684" AutoGenerateColumns="False">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn x:Name="sljedeca_registracija" Binding="{Binding sljedeca_registracija}" Header="Vrijedi do" SortDirection="Descending"/>
-                                            <DataGridTextColumn x:Name="id_vozilo1" Binding="{Binding id_vozilo}" Header="#"/>
-                                            <DataGridTextColumn x:Name="vrsta_vozila_id1" Binding="{Binding id_vozilo}" Header="Vrsta vozila"/>
+                                            <DataGridTextColumn x:Name="id_vozilo1" Binding="{Binding id_vozilo}" Header="Id vozila"/>
+                                            <DataGridTextColumn x:Name="vrsta_vozila_id1" Binding="{Binding vrsta_vozila_id}" Header="Vrsta vozila"/>
                                             <DataGridTextColumn x:Name="registracija1" Binding="{Binding registracija}" Header="Registracija"/>
                                             <DataGridTextColumn x:Name="datum_registracije" Binding="{Binding sljedeca_registracija}" Header="Datum prve registracija" />
                                             <DataGridTextColumn x:Name="naziv1" Binding="{Binding naziv}" Header="Naziv"/>
-                                            <DataGridTextColumn x:Name="servisni_interval1" Binding="{Binding servisni_interval}" Header="Servisni interval"/>
-                                            <DataGridTextColumn x:Name="pocetno_stanje_km1" Binding="{Binding pocetno_stanje_km}" Header="Početna kilometraža"/>
+                                            <DataGridTextColumn x:Name="napomena" Binding="{Binding napomena}" Header="Napomena"/>
                                         </DataGrid.Columns>
-
                                     </DataGrid>
                                     <ComboBox Name="cmbReg" SelectedIndex="0" HorizontalAlignment="Left" Margin="60,51,0,0" VerticalAlignment="Top" Width="120">
                                         <ComboBoxItem Content="Tjedni prikaz" HorizontalAlignment="Left" Width="118" Selected="TjednaRegistracija"/>
                                         <ComboBoxItem Content="Mjesečni prikaz" HorizontalAlignment="Left" Width="118" Selected="MjesecnaRegistracija"/>
                                         <ComboBoxItem Content="Cjelokupni prikaz" HorizontalAlignment="Left" Width="118" Selected="VozilaRegistracija_Loaded"/>
                                     </ComboBox>
-
+                                    <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Right" Margin="0,305,703,307" Grid.Row="0" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.541,-0.324"/>
+                                    <TextBox x:Name="id_voziloTextBox3" HorizontalAlignment="Left" Height="30" Margin="112,312,0,307" Grid.Row="0" Text="{Binding ElementName=registracijadatagrid, Path=SelectedItem.id_vozilo}" VerticalAlignment="Center" Width="68" IsEnabled="False" FontSize="24" FontWeight="Bold" BorderThickness="0,0,0,2"/>
+                                    <Label Content="Naziv:" Grid.Column="0" HorizontalAlignment="Left" Margin="294,316,0,307" Grid.Row="0" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="nazivTextBox3" HorizontalAlignment="Left" Height="26" Margin="341,316,0,307" Grid.Row="0" Text="{Binding ElementName=registracijadatagrid, Path=SelectedItem.naziv}" VerticalAlignment="Center" Width="120"/>
+                                    <Label Content="Vrsta vozila:" Grid.Column="0" HorizontalAlignment="Left" Margin="528,316,0,307" Grid.Row="0" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="id_vrsta_vozilaTextBox3" HorizontalAlignment="Left" Height="26" Margin="606,316,0,307" Grid.Row="0" Text="{Binding ElementName=registracijadatagrid, Path=SelectedItem.vrsta_vozila_id}" VerticalAlignment="Center" Width="120"/>
+                                    <Label Content="Registracija:" Grid.Column="0" HorizontalAlignment="Left" Margin="60,385,0,238" Grid.Row="0" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="registracijaTextBox3" HorizontalAlignment="Left" Height="24" Margin="138,387,0,238" Grid.Row="0" Text="{Binding ElementName=registracijadatagrid, Path=SelectedItem.registracija}" VerticalAlignment="Center" Width="120"/>
+                                    <Grid x:Name="grid41" DataContext="{StaticResource tehnicki_pregledViewSource}" HorizontalAlignment="Left" Margin="306,382,0,0" VerticalAlignment="Top">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Content="Datum registracije:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                                        <DatePicker x:Name="datumDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding pocetak, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  Text="{Binding ElementName=registracijadatagrid, Path=SelectedItem.sljedeca_registracija}" VerticalAlignment="Center"/>
+                                    </Grid>
+                                    <Label Content="Napomena" HorizontalAlignment="Left" Margin="64,452,0,0" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="txtNapomena" HorizontalAlignment="Left" Height="92" Margin="60,483,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="272" Text="{Binding ElementName=registracijadatagrid, Path=SelectedItem.napomena}"/>
+                                    <Button x:Name="btnPosaljiNaRegistraciju" Content="Pošalji" HorizontalAlignment="Left" Margin="412,483,0,0" VerticalAlignment="Top" Width="75" Click="btnPosaljiNaRegistraciju_Click"/>
+                                    <Button x:Name="btnIspisRegistracija" Content="Ispis" HorizontalAlignment="Left" Margin="543,483,0,0" VerticalAlignment="Top" Width="75" Click="btnIspisRegistracija_Click"/>
+                                    <Button x:Name="btnObrisiRegistraciju" Content="Obriši" HorizontalAlignment="Left" Margin="669,483,0,0" VerticalAlignment="Top" Width="75" Click="btnObrisiRegistraciju_Click"/>
+                                    <TextBox x:Name="txtIdTehnickog" HorizontalAlignment="Left" Height="23" Margin="669,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
                                 </Grid>
                             </TabItem.Content>
 
@@ -128,6 +151,20 @@
                                             <DataGridTextColumn x:Name="razlika_km" Binding="{Binding razlika_km}" Header="Razlika km"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
+                                    <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Right" Margin="0,368,745,244" Grid.Row="0" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.541,-0.324"/>
+                                    <TextBox x:Name="id_voziloTextBox4" HorizontalAlignment="Left" Height="30" Margin="60,375,0,244" Grid.Row="0" Text="{Binding ElementName=vozilaservisdatagrid, Path=SelectedItem.id_vozilo}" VerticalAlignment="Center" Width="68" IsEnabled="False" FontSize="24" FontWeight="Bold" BorderThickness="0,0,0,2"/>
+                                    <Label Content="Naziv:" Grid.Column="0" HorizontalAlignment="Left" Margin="144,379,0,244" Grid.Row="0" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="nazivTextBox4" HorizontalAlignment="Left" Height="26" Margin="195,379,0,244" Grid.Row="0" Text="{Binding ElementName=vozilaservisdatagrid, Path=SelectedItem.naziv}" VerticalAlignment="Center" Width="120"/>
+                                    <Label Content="Razlika km:" Grid.Column="0" HorizontalAlignment="Left" Margin="342,379,0,244" Grid.Row="0" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="id_vrsta_vozilaTextBox4" HorizontalAlignment="Left" Height="26" Margin="415,379,0,244" Grid.Row="0" Text="{Binding ElementName=vozilaservisdatagrid, Path=SelectedItem.razlika_km}" VerticalAlignment="Center" Width="120"/>
+                                    <Label Content="Registracija:" Grid.Column="0" HorizontalAlignment="Left" Margin="567,379,0,244" Grid.Row="0" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="registracijaTextBox4" HorizontalAlignment="Left" Height="24" Margin="640,382,0,243" Grid.Row="0" Text="{Binding ElementName=vozilaservisdatagrid, Path=SelectedItem.registracija}" VerticalAlignment="Center" Width="120"/>
+                                    <Label Content="Servisni interval" HorizontalAlignment="Left" Margin="21,446,0,0" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="txtServisniInterval" HorizontalAlignment="Left" Height="23" Margin="114,447,0,0" TextWrapping="Wrap" Text="{Binding ElementName=vozilaservisdatagrid, Path=SelectedItem.servisni_interval}" VerticalAlignment="Top" Width="120"/>
+                                    <Label Content="Stanje km na zadnjem servisu" HorizontalAlignment="Left" Margin="250,445,0,0" VerticalAlignment="Top"/>
+                                    <TextBox HorizontalAlignment="Left" Height="23" Margin="416,446,0,0" TextWrapping="Wrap" Text="{Binding ElementName=vozilaservisdatagrid, Path=SelectedItem.stanje_na_zadnjem_servisu}" VerticalAlignment="Top" Width="120"/>
+                                    <Label Content="Trenutno stanje km" HorizontalAlignment="Left" Margin="537,443,0,0" VerticalAlignment="Top"/>
+                                    <TextBox HorizontalAlignment="Left" Height="23" Margin="654,446,0,0" TextWrapping="Wrap" Text="{Binding ElementName=vozilaservisdatagrid, Path=SelectedItem.trenutno_stanje_km}"  VerticalAlignment="Top" Width="120"/>
                                 </Grid>
                             </TabItem.Content>
                         </TabItem>
@@ -295,7 +332,7 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
                                         <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
-                                        <TextBox x:Name="id_putnog_radnog_listaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="3,0,0,3" Grid.Row="0" Text="{Binding id_putnog_radnog_lista, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="68" IsEnabled="True" FontSize="24" FontWeight="Bold" BorderThickness="0,0,0,2"/>
+                                        <TextBox x:Name="id_putnog_radnog_listaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="3,0,0,3" Grid.Row="0" Text="{Binding id_putnog_radnog_lista, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="68" IsEnabled="True" FontSize="24" FontWeight="Bold" BorderThickness="0,0,0,2" IsReadOnly="True" />
                                     </Grid>
                                     <Grid x:Name="grid24" DataContext="{StaticResource t25_DBEntitiesPutniRadniListViewSource}" HorizontalAlignment="Left" Margin="76,160,0,0" VerticalAlignment="Top">
                                         <Grid.ColumnDefinitions>
@@ -421,7 +458,6 @@
                                         <Label Content="Početak:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
                                         <DatePicker x:Name="pocetakDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding pocetak, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
                                     </Grid>
-                                    <TextBox x:Name="proba1" HorizontalAlignment="Left" Height="23" Margin="295,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                                     <Grid x:Name="grid39" DataContext="{StaticResource putniRadniListViewSource}" HorizontalAlignment="Left" Margin="88,226,0,0" VerticalAlignment="Top">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
@@ -444,6 +480,7 @@
                                         <Label Content="Napomene:" Grid.Column="1" HorizontalAlignment="Left" Margin="10,1,0,10" Grid.Row="0" VerticalAlignment="Center"/>
                                         <TextBox x:Name="napomeneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="60" Margin="3,44,-149,-69" Grid.Row="0" Text="{Binding napomene, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="271"/>
                                     </Grid>
+                                    <Button x:Name="btnObrisiPTR" Content="Obriši" HorizontalAlignment="Left" Margin="646,455,0,0" VerticalAlignment="Top" Width="93" Height="26" Click="btnObrisiPTR_Click"/>
                                 </Grid>
                             </TabItem.Content>
                         </TabItem>

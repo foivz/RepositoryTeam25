@@ -38,7 +38,7 @@ namespace DesingPi
         {
             using (var db = new T25_DBEntities1())
             {
-                var upit = db.Database.SqlQuery<VozilaRegistracija>("select *, t2.datum as posljednja_registracija, getdate() as sljedeca_registracija from vozilo, tehnicki_pregled t2 where t2.id_tehnickog_pregleda in (select max(t1.id_tehnickog_pregleda) from tehnicki_pregled t1 group by vozilo) and t2.vozilo = vozilo.id_vozilo order by month(t2.datum), day(t2.datum) asc;").ToList<VozilaRegistracija>();
+                var upit = db.Database.SqlQuery<VozilaRegistracija>("select *, t2.datum as posljednja_registracija, getdate() as sljedeca_registracija, t2.napomena as napomena, t2.id_tehnickog_pregleda from vozilo, tehnicki_pregled t2 where t2.id_tehnickog_pregleda in  (select max(t1.id_tehnickog_pregleda) from tehnicki_pregled t1 group by vozilo) and t2.vozilo = vozilo.id_vozilo order by month(t2.datum), day(t2.datum) asc;").ToList<VozilaRegistracija>();
                 return upit.ToList();
             }
         }
@@ -183,7 +183,7 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// Metoda kojoj je proslijeđen id vozila koji će biti obrisan.
+        /// Metoda kojoj može biti proslijeđen id vozila, zaposlenika ili putnog radnog lista koji će biti obrisan.
         /// </summary>
         /// <param name="vozilo"></param>
         public void obrisi(int id, string podatak)
@@ -200,7 +200,7 @@ namespace DesingPi
                     }
                 }
             }
-            else
+            else if (podatak == "svi_vozaci")
             {
                 using (var db = new T25_DBEntities1())
                 {
@@ -212,7 +212,40 @@ namespace DesingPi
                     }
                 }
             }
+
+            else if (podatak == "obrisi_PTR")
+            {
+                using (var db = new T25_DBEntities1())
+                {
+                    db.radni_sati.RemoveRange(db.radni_sati.Where(x => x.putni_radni_list == id));
+                    db.SaveChanges();
+                }
+
+                using (var db = new T25_DBEntities1())
+                {
+                    var brisanje = db.PutniRadniList.SingleOrDefault(x => x.id_putnog_radnog_lista == id);
+                    if (brisanje != null)
+                    {
+                        db.PutniRadniList.Remove(brisanje);
+                        db.SaveChanges();
+                    }
+                }
+            }
+            else if (podatak == "brisanje_registracije")
+            {
+                using (var db = new T25_DBEntities1())
+                {
+                    var brisanje = db.tehnicki_pregled.SingleOrDefault(x => x.id_tehnickog_pregleda == id);
+                    if (brisanje != null)
+                    {
+                        db.tehnicki_pregled.Remove(brisanje);
+                        db.SaveChanges();
+                    }
+                }
+            }
         }
+
+
         public void dodaj(zaposlenici zaposlenik)
         {
             using (var db = new T25_DBEntities1())
@@ -266,6 +299,23 @@ namespace DesingPi
             }
         }
 
+        public void izmjeni(int PTRId, PutniRadniList novipodaci)
+        {
+            //db.radni_sati.RemoveRange(db.radni_sati.Where(x => x.putni_radni_list == id));
+            using (var db = new T25_DBEntities1())
+            {
+                var RS=db.radni_sati.Where(rs=> rs.putni_radni_list==PTRId).ToList();
+
+                //var some = db.radni_sati.Where(x => ls.Contains(x.friendid)).ToList();
+                foreach (var item in RS)
+                {
+                    item.putni_radni_list = novipodaci.id_putnog_radnog_lista;
+                    item.zaposlenici = novipodaci.zaposlenici;
+                }
+                db.SaveChanges();
+            }
+        }
+
         public List<PutniRadniList> dohvatiIdPTR(PutniRadniList PTR)
         {
             using (var db = new T25_DBEntities1())
@@ -276,21 +326,17 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda koja zbraja na putnim radnim listovima kilometražu
+        /// </summary>
+        /// <returns></returns>
         public List<VozilaServis> dohvatiVozilaServis()
         {
             using (var db = new T25_DBEntities1())
             {
-                var upit = db.Database.SqlQuery<VozilaServis>("select vozilo.id_vozilo, vozilo.registracija, vozilo.naziv, vozilo.servisni_interval, vozilo.pocetno_stanje_km, servis.prijedjeni_km as stanje_na_zadnjem_servisu, sum(kilometraza) as trenutno_stanje_km from vozilo right join PutniRadniList on vozilo.id_vozilo=PutniRadniList.vozilo left join servis on servis.vozilo=(select servis.vozilo from servis where servis.id_servisa in (select max(servis.id_servisa) from servis, PutniRadniList where PutniRadniList.vozilo=servis.vozilo group by servis.vozilo) and PutniRadniList.vozilo=servis.vozilo) group by vozilo.id_vozilo, vozilo.naziv, vozilo.registracija, vozilo.servisni_interval, vozilo.pocetno_stanje_km, servis.prijedjeni_km;").ToList<VozilaServis>();
+                var upit = db.Database.SqlQuery<VozilaServis>("select vozilo.id_vozilo, vozilo.registracija, vozilo.naziv, vozilo.servisni_interval, vozilo.pocetno_stanje_km, servis.prijedjeni_km as stanje_na_zadnjem_servisu, sum(kilometraza) as trenutno_stanje_km from vozilo right join PutniRadniList on vozilo.id_vozilo=PutniRadniList.vozilo left join servis on servis.vozilo=(select servis.vozilo from servis where servis.id_servisa in (select max(servis.id_servisa) from servis, PutniRadniList where PutniRadniList.vozilo=servis.vozilo group by servis.vozilo) and PutniRadniList.vozilo=servis.vozilo) group by vozilo.id_vozilo, vozilo.naziv, vozilo.registracija, vozilo.servisni_interval, vozilo.pocetno_stanje_km, servis.prijedjeni_km order by vozilo.id_vozilo asc;").ToList<VozilaServis>();
                 return upit.ToList();
             }
-        }
-
-        /// <summary>
-        /// Metoda za unos tehničkog pregleda
-        /// </summary>
-        public void unosTehnickogPregleda()
-        {
-
         }
 
         /// <summary>
@@ -313,6 +359,19 @@ namespace DesingPi
                     var upit = db.Database.SqlQuery<GodisnjiOdmor>("select *, godisnji_odmor.pocetak as pocetak_godisnjeg, godisnji_odmor.kraj as kraj_godisnjeg from zaposlenici join godisnji_odmor on zaposlenici.id_zaposlenici=godisnji_odmor.zaposlenik;").ToList<GodisnjiOdmor>();
                     return upit.ToList();
                 }
+            }
+        }
+
+        /// <summary>
+        /// Metoda koja dodaje vozilo poslano na registraciju.
+        /// </summary>
+        /// <param name="teh"></param>
+        public void dodaj(tehnicki_pregled teh)
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                db.tehnicki_pregled.Add(teh);
+                db.SaveChanges();
             }
         }
     }

@@ -100,6 +100,9 @@ namespace DesingPi
             System.Windows.Data.CollectionViewSource godisnji_odmorViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("godisnji_odmorViewSource")));
             // Load data by setting the CollectionViewSource.Source property:
             // godisnji_odmorViewSource.Source = [generic data source]
+            System.Windows.Data.CollectionViewSource tehnicki_pregledViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("tehnicki_pregledViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // tehnicki_pregledViewSource.Source = [generic data source]
         }
 
         /// <summary>
@@ -367,6 +370,13 @@ namespace DesingPi
             voziloTextBox.Text = frmSlobodnaVozila.txtID.Text;
         }
 
+
+        /// <summary>
+        /// Forma koja služi za pregled Putnih radnih listova. Klikom na pregled otvara se nova forma, a na novoj formi možemo odabrati postojeći PTR kojeg onda 
+        /// potom mijenjamo ili brisemo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPregledPTR_Click(object sender, RoutedEventArgs e)
         {
             //kreiranje objekta za prvi objekt u listi
@@ -402,6 +412,9 @@ namespace DesingPi
                 mjesto_istovaraTextBox.Text = odabraniPTRObj.mjesto_istovara.ToString();
                 kreiraTextBox.Text = odabraniPTRObj.kreira.ToString();
                 kilometrazaTextBox.Text = odabraniPTRObj.kilometraza.ToString();
+                teretTextBox.Text = odabraniPTRObj.teret.ToString();
+                if(!string.IsNullOrWhiteSpace(napomeneTextBox.Text))
+                    napomeneTextBox.Text = odabraniPTRObj.napomene.ToString();
             }
         }
 
@@ -419,6 +432,11 @@ namespace DesingPi
             zaposlenikTextBox1.Text = vozaci.txtID.Text;
         }
 
+        /// <summary>
+        /// Metoda koja služi za provjeru popunjenosti textboksova za putni radni list.
+        /// Ako je unesen neispravan datum i teret javlja grešku.
+        /// </summary>
+        /// <returns></returns>
         private bool provjeriPopunjenostPTR()
         {
             if (string.IsNullOrWhiteSpace(voziloTextBox.Text) ||
@@ -433,11 +451,17 @@ namespace DesingPi
                 MessageBox.Show("Niste unijeli sve podatke!", "Upozorenje");
                 return false;
             }
-            if (pocetakDatePicker.SelectedDate > krajDatePicker.SelectedDate || krajDatePicker.SelectedDate < pocetakDatePicker.SelectedDate)
+            else if (pocetakDatePicker.SelectedDate > krajDatePicker.SelectedDate || krajDatePicker.SelectedDate < pocetakDatePicker.SelectedDate)
             {
                 MessageBox.Show("Neispravan datum!","Upozorenje");
                 return false;
             }
+            else if (!(controller.provjeraTereta(Convert.ToInt32(teretTextBox.Text), Convert.ToInt32(voziloTextBox.Text))))
+            {
+                MessageBox.Show("Unijeli ste previše tereta za odabrano vozilo!", "Upozorenje");
+                return false;
+            }
+
             return true;
         }
 
@@ -497,9 +521,9 @@ namespace DesingPi
 
         private void btnSpremiPTR_Click(object sender, RoutedEventArgs e)
         {
-            PregledPTR PTR = new PregledPTR();
             if (provjeriPopunjenostPTR()==true)
             {
+                PregledPTR PTR = new PregledPTR();
                 controller.dodaj(dohvatPodatakaPTR(), dohvatPodatakaRS());
                 PTR.putniRadniListDataGrid.ItemsSource = model.dohvatPTR();
                 PTR.radni_satiDataGrid.ItemsSource = model.dohvatRS();
@@ -511,11 +535,23 @@ namespace DesingPi
 
         private void btnIzmijeniPTR_Click(object sender, RoutedEventArgs e)
         {
-            PregledPTR PTR = new PregledPTR();
-            if (provjeriPopunjenostPTR())
-            {
+            radni_sati rsIzmjenjenipodaci = new radni_sati();
+            PregledPTR pregled = new PregledPTR();
+            int PTRId = Convert.ToInt32(id_putnog_radnog_listaTextBox.Text);
+            int rsIzmjenjenVozac1;
+            int rsIzmjenjenVozac2;
+            int brojSati;
+            if (!string.IsNullOrWhiteSpace(zaposlenikTextBox.Text))
+                rsIzmjenjenVozac1 = Convert.ToInt32(zaposlenikTextBox.Text);
+            if (!string.IsNullOrWhiteSpace(zaposlenikTextBox1.Text))
+                rsIzmjenjenVozac2 = Convert.ToInt32(zaposlenikTextBox1.Text);
+            if (!string.IsNullOrWhiteSpace(zaposlenikTextBox1.Text))
+                rsIzmjenjenVozac2 = Convert.ToInt32(zaposlenikTextBox1.Text);
+            //controller.izmjeni(PTRId, rsIzmjenjenVozac1, rsIzmjenjenVozac2);
+            MessageBox.Show("Putni radni list uspješno izmjenjen!", "Obavijest");
+            pregled.putniRadniListDataGrid.ItemsSource = model.dohvatPTR();
+            pregled.radni_satiDataGrid.ItemsSource = model.dohvatRS();
 
-            }
         }
 
         private void VozilaServis_Loaded(object sender, RoutedEventArgs e) 
@@ -624,6 +660,99 @@ namespace DesingPi
         private void odmorMjesec(object sender, RoutedEventArgs e)
         {
             datagridGodisnjiOdmor.ItemsSource = controller.filtiranjeGO("mjesec");
+        }
+
+        /// <summary>
+        /// Metoda kojom brišemo Putni radni list i vozače koji su mu dodjeljeni.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnObrisiPTR_Click(object sender, RoutedEventArgs e)
+        {
+            string podatak = "obrisi_PTR";
+            int PTRId = Convert.ToInt32(id_putnog_radnog_listaTextBox.Text);
+            controller.obrisi(PTRId, podatak);
+            PregledPTR PTR = new PregledPTR();
+            MessageBox.Show("Putni radni list uspješno obrisan!", "Obavijest");
+            PTR.putniRadniListDataGrid.ItemsSource = model.dohvatPTR();
+            PTR.radni_satiDataGrid.ItemsSource = model.dohvatRS();
+            ocistiTextBox(this);
+        }
+
+        /// <summary>
+        /// Meotda koja provjerava dal su uneseni svi podaci potrebni za registraciju vozila.
+        /// </summary>
+        /// <returns></returns>
+        private bool provjeriPopunjenostRegistracija()
+        {
+            if (string.IsNullOrWhiteSpace(id_vrsta_vozilaTextBox3.Text) ||
+               string.IsNullOrWhiteSpace(registracijaTextBox3.Text) ||
+               string.IsNullOrWhiteSpace(nazivTextBox3.Text) ||
+               string.IsNullOrWhiteSpace(datumDatePicker.Text) ||
+               string.IsNullOrWhiteSpace(txtNapomena.Text))
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+        /// <summary>
+        /// Metoda za dohvat podataka za unos nove registracije.
+        /// </summary>
+        /// <returns></returns>
+        private tehnicki_pregled unosRegistracije()
+        {
+            tehnicki_pregled teh = new tehnicki_pregled();
+            teh.vozilo = Convert.ToInt32(id_voziloTextBox3.Text);
+            teh.datum = Convert.ToDateTime(datumDatePicker.Text);
+            teh.napomena = txtNapomena.Text;
+            return teh;
+        }
+
+        private void btnPosaljiNaRegistraciju_Click(object sender, RoutedEventArgs e)
+        {
+            if (provjeriPopunjenostRegistracija())
+            {
+                controller.dodaj(unosRegistracije());
+                MessageBox.Show("Vozilo poslano na registraciju!", "Obavijest");
+                ocistiTextBox(this);
+            }
+            else MessageBox.Show("Niste unijeli sve podatke!", "Upozorenje!");
+
+        }
+
+        /// <summary>
+        /// Metoda za ispis vozila koja su danas poslana na registraciju. Poslana vozila se prikazju na novoj formi, odabirom nekog vozila na ispisu
+        /// prikazuju se podaci za vozilo na glavnoj formi (njezinim textboksovima).
+        /// </summary> METODA NE RADI SKROZ DOBRO JER NE PRIKAZUJE TOČNO ONA VOZILA KOJA SAD POSALJES
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnIspisRegistracija_Click(object sender, RoutedEventArgs e)
+        {
+            frmIspisRegistracija frmIspisReg = new frmIspisRegistracija();
+            frmIspisReg.ShowDialog();
+            VozilaRegistracija reg=new VozilaRegistracija();
+            int idVozila;
+            if (!string.IsNullOrWhiteSpace(frmIspisReg.id_voziloTextBox3.Text))
+            {
+                idVozila = Convert.ToInt32(frmIspisReg.id_voziloTextBox3.Text);
+                reg = controller.ispisRegistracija(idVozila);
+                id_voziloTextBox3.Text = Convert.ToString(reg.id_vozilo);
+                nazivTextBox3.Text = reg.naziv;
+                id_vrsta_vozilaTextBox3.Text = Convert.ToString(reg.vrsta_vozila_id);
+                registracijaTextBox3.Text = reg.registracija;
+                datumDatePicker.Text = Convert.ToString(reg.sljedeca_registracija);
+                txtNapomena.Text = reg.napomena;
+                txtIdTehnickog.Text = Convert.ToString(reg.id_tehnickog_pregleda);
+            }
+        }
+
+        private void btnObrisiRegistraciju_Click(object sender, RoutedEventArgs e)
+        {
+            controller.obrisi(Convert.ToInt32(txtIdTehnickog.Text), "brisanje_registracije");
+            MessageBox.Show("Registracija uspješno obrisana!", "Obavijest");
+            ocistiTextBox(this);
         }
     }
 }
