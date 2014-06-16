@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\
 DesingPi
 none
 false
 DEBUG;TRACE
-C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\App.xaml
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\App.xaml
 5-852561502
 
 32791438913
-17471391606
+17195770137
 frmGlavna.xaml;frmIspisRegistracija.xaml;frmOdabirVozila.xaml;frmPregledPTR.xaml;frmSlobodniVozaci.xaml;
 
-False
+True
 

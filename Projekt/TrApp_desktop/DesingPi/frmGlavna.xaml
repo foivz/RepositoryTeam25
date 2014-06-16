@@ -12,6 +12,7 @@
         <CollectionViewSource x:Key="putniRadniListViewSource" d:DesignSource="{d:DesignInstance {x:Type local:PutniRadniList}, CreateList=True}"/>
         <CollectionViewSource x:Key="godisnji_odmorViewSource" d:DesignSource="{d:DesignInstance {x:Type local:godisnji_odmor}, CreateList=True}"/>
         <CollectionViewSource x:Key="tehnicki_pregledViewSource" d:DesignSource="{d:DesignInstance {x:Type local:tehnicki_pregled}, CreateList=True}"/>
+        <CollectionViewSource x:Key="servisViewSource" d:DesignSource="{d:DesignInstance {x:Type local:servis}, CreateList=True}"/>
     </Window.Resources>
     <Grid>
         <!-- Glavni gornji meni -->
@@ -58,7 +59,7 @@
                                 <DataGrid x:Name="voziloDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="28,71,95,354" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" IsReadOnly="True">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn x:Name="id_voziloColumn" Width="SizeToHeader" Header="#" Binding="{Binding id_vozilo}"/>
-                                        <DataGridTextColumn x:Name="registracijaColumn" Width="SizeToHeader" Header="Registracija" Binding="{Binding registracija}"/>
+                                        <DataGridTextColumn x:Name="registracijaColumn" Width="SizeToHeader" Header="Registracija" Binding="{Binding registracija}" Foreground="Blue"/>
                                         <DataGridTextColumn x:Name="nazivColumn" Width="SizeToHeader" Header="Naziv" Binding="{Binding naziv}"/>
                                         <DataGridTextColumn x:Name="vrsta_vozila_idColumn" Width="SizeToHeader" Header="Vrsta vozila" Binding="{Binding vrsta_vozila_id}"/>
                                         <DataGridTextColumn x:Name="godina_proizvodnjeColumn" Width="SizeToHeader" Header="Godina proizvodnje" Binding="{Binding godina_proizvodnje}"/>
@@ -149,6 +150,7 @@
                                             <DataGridTextColumn x:Name="stanje_na_zadnjem_servisu" Binding="{Binding stanje_na_zadnjem_servisu}" Header="Stanje na zadnjem servisu"/>
                                             <DataGridTextColumn x:Name="trenutno_stanje_km" Binding="{Binding trenutno_stanje_km}" Header="Trenutno stanje"/>
                                             <DataGridTextColumn x:Name="razlika_km" Binding="{Binding razlika_km}" Header="Razlika km"/>
+                                            <DataGridTextColumn x:Name="datum" Binding="{Binding datum_servisa}" Header="Datum"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
                                     <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Right" Margin="0,368,745,244" Grid.Row="0" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" RenderTransformOrigin="0.541,-0.324"/>
@@ -162,9 +164,34 @@
                                     <Label Content="Servisni interval" HorizontalAlignment="Left" Margin="21,446,0,0" VerticalAlignment="Top"/>
                                     <TextBox x:Name="txtServisniInterval" HorizontalAlignment="Left" Height="23" Margin="114,447,0,0" TextWrapping="Wrap" Text="{Binding ElementName=vozilaservisdatagrid, Path=SelectedItem.servisni_interval}" VerticalAlignment="Top" Width="120"/>
                                     <Label Content="Stanje km na zadnjem servisu" HorizontalAlignment="Left" Margin="250,445,0,0" VerticalAlignment="Top"/>
-                                    <TextBox HorizontalAlignment="Left" Height="23" Margin="416,446,0,0" TextWrapping="Wrap" Text="{Binding ElementName=vozilaservisdatagrid, Path=SelectedItem.stanje_na_zadnjem_servisu}" VerticalAlignment="Top" Width="120"/>
-                                    <Label Content="Trenutno stanje km" HorizontalAlignment="Left" Margin="537,443,0,0" VerticalAlignment="Top"/>
-                                    <TextBox HorizontalAlignment="Left" Height="23" Margin="654,446,0,0" TextWrapping="Wrap" Text="{Binding ElementName=vozilaservisdatagrid, Path=SelectedItem.trenutno_stanje_km}"  VerticalAlignment="Top" Width="120"/>
+                                    <TextBox x:Name="txtStanjeNaZadnjemServisu" HorizontalAlignment="Left" Height="23" Margin="416,446,0,0" TextWrapping="Wrap" Text="{Binding ElementName=vozilaservisdatagrid, Path=SelectedItem.stanje_na_zadnjem_servisu}" VerticalAlignment="Top" Width="120"/>
+                                    <Label Content="Trenutno stanje km" HorizontalAlignment="Left" Margin="537,443,0,0" VerticalAlignment="Top" Width="112"/>
+                                    <TextBox x:Name="txtTrenutnoStanje" HorizontalAlignment="Left" Height="23" Margin="654,446,0,0" TextWrapping="Wrap" Text="{Binding ElementName=vozilaservisdatagrid, Path=SelectedItem.trenutno_stanje_km}"  VerticalAlignment="Top" Width="106"/>
+                                    <Button x:Name="btnPosaljiNaServis" Content="Pošalji" HorizontalAlignment="Left" Margin="640,524,0,0" VerticalAlignment="Top" Width="104" Height="31" Click="btnPosaljiNaServis_Click"/>
+                                    <Grid x:Name="grid42" DataContext="{StaticResource servisViewSource}" HorizontalAlignment="Left" Margin="21,500,0,0" VerticalAlignment="Top" Height="102" Width="283">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Content="Opis:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                                        <TextBox x:Name="opisTextBox" HorizontalAlignment="Left" Height="62" Margin="0,30,-151,-56" Grid.Row="0" Text="{Binding opis, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="273" Grid.ColumnSpan="2"/>
+
+                                    </Grid>
+                                    <Grid x:Name="grid43" DataContext="{StaticResource servisViewSource}" HorizontalAlignment="Left" Margin="325,534,0,0" VerticalAlignment="Top">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Content="Datum:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                                        <DatePicker x:Name="datumDatePicker1" Text="{Binding ElementName=vozilaservisdatagrid, Path=SelectedItem.datum_servisa}" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding datum, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+                                    </Grid>
+
                                 </Grid>
                             </TabItem.Content>
                         </TabItem>
@@ -259,9 +286,9 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
                                         <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
-                                        <TextBox x:Name="id_godinjeg_odmoraTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="3,0,0,3" Grid.Row="0" Text="{Binding id_putnog_radnog_lista, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="68" IsEnabled="True" FontSize="24" FontWeight="Bold" BorderThickness="0,0,0,2"/>
+                                        <TextBox x:Name="id_godinjeg_odmoraTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="3,0,0,3" Grid.Row="0" Text="{Binding ElementName=datagridGodisnjiOdmor, Path=SelectedItem.naziv}" VerticalAlignment="Center" Width="68" IsEnabled="False" FontSize="24" FontWeight="Bold" BorderThickness="0,0,0,2"/>
                                     </Grid>
-                                    <Grid x:Name="grid36" DataContext="{StaticResource godisnji_odmorViewSource}" HorizontalAlignment="Left" Margin="65,154,0,0" VerticalAlignment="Top">
+                                    <Grid x:Name="grid36" DataContext="{StaticResource godisnji_odmorViewSource}" HorizontalAlignment="Left" Margin="65,154,0,0" VerticalAlignment="Top" IsEnabled="False">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="Auto"/>
@@ -269,8 +296,6 @@
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
-                                        <Label Content="Kraj:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-                                        <DatePicker x:Name="krajDatePicker1" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding kraj, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
                                     </Grid>
                                     <Grid x:Name="grid37" DataContext="{StaticResource godisnji_odmorViewSource}" HorizontalAlignment="Left" Margin="44,103,0,0" VerticalAlignment="Top">
                                         <Grid.ColumnDefinitions>
@@ -282,6 +307,7 @@
                                         </Grid.RowDefinitions>
                                         <Label Content="Početak:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
                                         <DatePicker x:Name="pocetakDatePicker1" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding pocetak, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+                                        
                                     </Grid>
                                     <Grid x:Name="grid38" DataContext="{StaticResource godisnji_odmorViewSource}" HorizontalAlignment="Left" Margin="38,232,0,0" VerticalAlignment="Top">
                                         <Grid.ColumnDefinitions>
@@ -294,7 +320,18 @@
                                         <Label Content="Zaposlenik:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
                                         <TextBox x:Name="zaposlenikTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding zaposlenik, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
                                     </Grid>
-
+                                    <Button x:Name="btnPosaljiGodisnji" Content="Pošalji" HorizontalAlignment="Left" Margin="197,295,0,0" VerticalAlignment="Top" Width="75" Height="32" Click="posaljiGodisnji_Click"/>
+                                    <Grid x:Name="grid44" DataContext="{StaticResource godisnji_odmorViewSource}" HorizontalAlignment="Left" Margin="53,154,0,0" VerticalAlignment="Top" Width="159">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Content="Kraj:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                                        <DatePicker x:Name="krajDatePicker1" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding kraj, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
+                                    </Grid>
                                 </Grid>
                             </TabItem.Content>
                         </TabItem>

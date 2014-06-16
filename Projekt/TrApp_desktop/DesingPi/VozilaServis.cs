@@ -12,5 +12,6 @@ namespace DesingPi
         public int stanje_na_zadnjem_servisu { get; set; }
 
         public int razlika_km { get; set; }
+        public Nullable<System.DateTime> datum_servisa { get; set; }
     }
 }

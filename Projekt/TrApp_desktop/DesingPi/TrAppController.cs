@@ -267,6 +267,24 @@ namespace DesingPi
             return ispisID;
         }
 
+        /// <summary>
+        /// Metoda koja prosljeđuje vozilo na servis modelu. 
+        /// </summary>
+        /// <param name="vozilo">Vozilo koje je prosljeđeno na servis</param>
+        public void dodaj(servis vozilo)
+        {
+            model.dodaj(vozilo);
+        }
+
+        /// <summary>
+        /// Metoda koja prosljeđuje zaposlenika koji će biti dodan na godišnji odmor.
+        /// </summary>
+        /// <param name="odmor"></param>
+        public void dodaj(godisnji_odmor odmor)
+        {
+            model.dodaj(odmor);
+        }
+
 
     }
 }

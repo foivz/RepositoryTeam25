@@ -11,7 +11,7 @@ namespace DesingPi
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class servis
     {
         public int id_servisa { get; set; }
@@ -19,7 +19,7 @@ namespace DesingPi
         public Nullable<int> prijedjeni_km { get; set; }
         public string opis { get; set; }
         public Nullable<System.DateTime> datum { get; set; }
-    
+
         public virtual vozilo vozilo1 { get; set; }
     }
 }

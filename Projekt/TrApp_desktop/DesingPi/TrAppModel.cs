@@ -334,7 +334,7 @@ namespace DesingPi
         {
             using (var db = new T25_DBEntities1())
             {
-                var upit = db.Database.SqlQuery<VozilaServis>("select vozilo.id_vozilo, vozilo.registracija, vozilo.naziv, vozilo.servisni_interval, vozilo.pocetno_stanje_km, servis.prijedjeni_km as stanje_na_zadnjem_servisu, sum(kilometraza) as trenutno_stanje_km from vozilo right join PutniRadniList on vozilo.id_vozilo=PutniRadniList.vozilo left join servis on servis.vozilo=(select servis.vozilo from servis where servis.id_servisa in (select max(servis.id_servisa) from servis, PutniRadniList where PutniRadniList.vozilo=servis.vozilo group by servis.vozilo) and PutniRadniList.vozilo=servis.vozilo) group by vozilo.id_vozilo, vozilo.naziv, vozilo.registracija, vozilo.servisni_interval, vozilo.pocetno_stanje_km, servis.prijedjeni_km order by vozilo.id_vozilo asc;").ToList<VozilaServis>();
+                var upit = db.Database.SqlQuery<VozilaServis>("select vozilo.id_vozilo, vozilo.registracija, vozilo.naziv, vozilo.servisni_interval, vozilo.pocetno_stanje_km, servis.prijedjeni_km as stanje_na_zadnjem_servisu, sum(kilometraza) as trenutno_stanje_km, servis.opis, servis.datum as datum_servisa from vozilo right join PutniRadniList on vozilo.id_vozilo=PutniRadniList.vozilo left join servis on servis.vozilo=(select servis.vozilo from servis where servis.id_servisa in (select max(servis.id_servisa) from servis, PutniRadniList where PutniRadniList.vozilo=servis.vozilo group by servis.vozilo) and PutniRadniList.vozilo=servis.vozilo) group by vozilo.id_vozilo, vozilo.naziv, vozilo.registracija, vozilo.servisni_interval, vozilo.pocetno_stanje_km, servis.prijedjeni_km, servis.opis, servis.datum order by vozilo.id_vozilo asc;").ToList<VozilaServis>();
                 return upit.ToList();
             }
         }
@@ -371,6 +371,32 @@ namespace DesingPi
             using (var db = new T25_DBEntities1())
             {
                 db.tehnicki_pregled.Add(teh);
+                db.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Metoda koja služi za dodavnje vozila na servis.
+        /// </summary>
+        /// <param name="vozilo"></param>
+        public void dodaj(servis vozilo)
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                db.servis.Add(vozilo);
+                db.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Metoda koja zapisuje u bazu zaposlenike koji su na godišnjem odmoru.
+        /// </summary>
+        /// <param name="odmor"></param>
+        public void dodaj(godisnji_odmor odmor)
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                db.godisnji_odmor.Add(odmor);
                 db.SaveChanges();
             }
         }

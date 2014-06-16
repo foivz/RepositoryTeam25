@@ -11,7 +11,7 @@ namespace DesingPi
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class PutniRadniList
     {
         public PutniRadniList()
@@ -19,7 +19,7 @@ namespace DesingPi
             this.lokacija = new HashSet<lokacija>();
             this.radni_sati = new HashSet<radni_sati>();
         }
-    
+
         public int id_putnog_radnog_lista { get; set; }
         public int vozilo { get; set; }
         public int kreira { get; set; }
@@ -30,7 +30,7 @@ namespace DesingPi
         public string mjesto_istovara { get; set; }
         public Nullable<int> teret { get; set; }
         public string napomene { get; set; }
-    
+
         public virtual ICollection<lokacija> lokacija { get; set; }
         public virtual zaposlenici zaposlenici { get; set; }
         public virtual ICollection<radni_sati> radni_sati { get; set; }

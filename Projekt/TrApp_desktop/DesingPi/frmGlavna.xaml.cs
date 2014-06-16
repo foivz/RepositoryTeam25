@@ -103,6 +103,9 @@ namespace DesingPi
             System.Windows.Data.CollectionViewSource tehnicki_pregledViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("tehnicki_pregledViewSource")));
             // Load data by setting the CollectionViewSource.Source property:
             // tehnicki_pregledViewSource.Source = [generic data source]
+            System.Windows.Data.CollectionViewSource servisViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("servisViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // servisViewSource.Source = [generic data source]
         }
 
         /// <summary>
@@ -754,5 +757,85 @@ namespace DesingPi
             MessageBox.Show("Registracija uspješno obrisana!", "Obavijest");
             ocistiTextBox(this);
         }
+
+        /// <summary>
+        /// Metoda koja provjerava dal su unijeti svi potrebni podaci za slanje vozila na servis.
+        /// </summary>
+        /// <returns></returns>
+        private bool provjeriPopunjenostServisa()
+        {
+            if (string.IsNullOrWhiteSpace(id_voziloTextBox4.Text) 
+                || string.IsNullOrWhiteSpace(nazivTextBox4.Text) 
+                || string.IsNullOrWhiteSpace(id_vrsta_vozilaTextBox4.Text)
+                || string.IsNullOrWhiteSpace(registracijaTextBox4.Text) 
+                || string.IsNullOrWhiteSpace(txtServisniInterval.Text) 
+                || string.IsNullOrWhiteSpace(txtStanjeNaZadnjemServisu.Text)
+                || string.IsNullOrWhiteSpace(txtTrenutnoStanje.Text)
+                || string.IsNullOrWhiteSpace(opisTextBox.Text)
+                || string.IsNullOrWhiteSpace(datumDatePicker1.Text)
+                || string.IsNullOrWhiteSpace(opisTextBox.Text)
+                || string.IsNullOrWhiteSpace(datumDatePicker1.Text))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private servis dohvatServisa()
+        {
+            servis vozilo = new servis();
+            vozilo.vozilo = Convert.ToInt32(id_voziloTextBox4.Text);
+            vozilo.prijedjeni_km = Convert.ToInt32(txtTrenutnoStanje.Text);
+            vozilo.opis = opisTextBox.Text;
+            vozilo.datum = Convert.ToDateTime(datumDatePicker1.Text);
+            return vozilo;
+        }
+
+        private void btnPosaljiNaServis_Click(object sender, RoutedEventArgs e)
+        {
+            if (provjeriPopunjenostServisa())
+            {
+                controller.dodaj(dohvatServisa());
+                MessageBox.Show("Vozilo poslano na servis!", "Obavijest");
+                ocistiTextBox(this);
+                vozilaservisdatagrid.ItemsSource = controller.dohvatiRazlikuKm();
+            }
+            else MessageBox.Show("Niste unijeli sve podatke!", "Upozorenje!");
+        }
+
+        /// <summary>
+        /// Metoda koja provjerava dal su uneseni svi podaci potrebni za godišnji odmor.
+        /// </summary>
+        /// <returns></returns>
+        private bool provjeriPopunjenostGodisnjeg()
+        {
+            if (string.IsNullOrWhiteSpace(pocetakDatePicker1.Text)
+                || string.IsNullOrWhiteSpace(krajDatePicker1.Text)
+                || string.IsNullOrWhiteSpace(zaposlenikTextBox2.Text))
+                return false;
+            return true;
+        }
+
+        private godisnji_odmor dohvatGodisnjeg()
+        {
+            godisnji_odmor odmor = new godisnji_odmor();
+            odmor.zaposlenik = Convert.ToInt32(zaposlenikTextBox2.Text);
+            odmor.pocetak = Convert.ToDateTime(pocetakDatePicker1.Text);
+            odmor.kraj = Convert.ToDateTime(krajDatePicker1.Text);
+            return odmor;
+        }
+
+        private void posaljiGodisnji_Click(object sender, RoutedEventArgs e)
+        {
+            if (provjeriPopunjenostGodisnjeg())
+            {
+                controller.dodaj(dohvatGodisnjeg());
+                MessageBox.Show("Zaposlenik dodan na godišnji odmor!", "Obavijest");
+                ocistiTextBox(this);
+                datagridGodisnjiOdmor.ItemsSource = model.dohvatiGodisnjiOdmor("see");
+            }
+            else MessageBox.Show("Niste unijeli sve podatke!", "Upozorenje!");
+        }
+
     }
 }
