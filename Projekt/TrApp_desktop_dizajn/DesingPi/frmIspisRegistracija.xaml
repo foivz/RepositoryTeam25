@@ -6,11 +6,10 @@
         <DataGrid Name="registracijadatagrid2" ItemsSource="{Binding}" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Height="116" Width="674" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="id_tehnickog_pregleda5" Binding="{Binding id_tehnickog_pregleda}" Header="#"/>
-                <DataGridTextColumn x:Name="sljedeca_registracija5" Binding="{Binding sljedeca_registracija}" Header="Vrijedi do" SortDirection="Descending"/>
+                <DataGridTextColumn x:Name="sljedeca_registracija5" Binding="{Binding sljedeca_registracija}" Header="Datum" SortDirection="Descending"/>
                 <DataGridTextColumn x:Name="id_vozilo5" Binding="{Binding id_vozilo}" Header="Id vozila"/>
                 <DataGridTextColumn x:Name="vrsta_vozila_id5" Binding="{Binding vrsta_vozila_id}" Header="Vrsta vozila"/>
                 <DataGridTextColumn x:Name="registracija5" Binding="{Binding registracija}" Header="Registracija"/>
-                <DataGridTextColumn x:Name="datum_registracije5" Binding="{Binding sljedeca_registracija}" Header="Datum prve registracija" />
                 <DataGridTextColumn x:Name="naziv5" Binding="{Binding naziv}" Header="Naziv"/>
                 <DataGridTextColumn x:Name="napomena" Binding="{Binding napomena}" Header="Napomena"/>
             </DataGrid.Columns>

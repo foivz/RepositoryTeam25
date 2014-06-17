@@ -726,9 +726,9 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// Metoda za ispis vozila koja su danas poslana na registraciju. Poslana vozila se prikazju na novoj formi, odabirom nekog vozila na ispisu
+        /// Metoda za ispis vozila koja su DANAS (znaci odabrana u datagridu na tabu nadolazeće registracije) poslana na registraciju. Poslana vozila se prikazuju na novoj formi, odabirom nekog vozila na ispisu
         /// prikazuju se podaci za vozilo na glavnoj formi (njezinim textboksovima).
-        /// </summary> METODA NE RADI SKROZ DOBRO JER NE PRIKAZUJE TOČNO ONA VOZILA KOJA SAD POSALJES
+        /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnIspisRegistracija_Click(object sender, RoutedEventArgs e)

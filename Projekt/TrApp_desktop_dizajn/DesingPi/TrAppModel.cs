@@ -375,6 +375,21 @@ namespace DesingPi
             }
         }
 
+
+        /// <summary>
+        /// Metoda koja vraća listu vozila koje smo DANAS ODABRALI i koje danas šeljemo na registraciju.
+        /// Njezin rezultat se prikazuje na frmIspisRegistracija.
+        /// </summary>
+        /// <returns></returns>
+        public List<VozilaRegistracija> ispisPoslanihRegistracija() 
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                var upit = db.Database.SqlQuery<VozilaRegistracija>("select t1.datum as sljedeca_registracija, v1.id_vozilo, v1.vrsta_vozila_id, v1.registracija, v1.naziv, t1.napomena from vozilo v1, tehnicki_pregled t1 where v1.id_vozilo=t1.vozilo and year(GETDATE())=year(t1.datum) and MONTH(GETDATE())=MONTH(t1.datum) and DAY(GETDATE())=day(t1.datum);").ToList<VozilaRegistracija>();
+                return upit;
+            }
+        }
+
         /// <summary>
         /// Metoda koja služi za dodavnje vozila na servis.
         /// </summary>

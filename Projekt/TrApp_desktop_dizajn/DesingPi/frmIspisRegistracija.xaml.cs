@@ -19,7 +19,7 @@ namespace DesingPi
     /// </summary>
     public partial class frmIspisRegistracija : Window
     {
-        TrAppController controller = new TrAppController();
+        TrAppModel model = new TrAppModel();
         public frmIspisRegistracija()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace DesingPi
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-           // registracijadatagrid2.ItemsSource = controller.ispisRegistracija();
+            registracijadatagrid2.ItemsSource = model.ispisPoslanihRegistracija();
         }
     }
 }

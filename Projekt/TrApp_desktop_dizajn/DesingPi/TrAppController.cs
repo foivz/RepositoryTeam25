@@ -225,25 +225,6 @@ namespace DesingPi
             model.dodaj(teh);
         }
 
-
-        /// <summary>
-        /// Metoda koja ispisuje vozila koja su danas poslana na registraciju.
-        /// </summary> // NE RADI
-        /// <returns></returns>
-        /*public List<VozilaRegistracija> ispisRegistracija()
-        {
-            List<VozilaRegistracija> ispisID = new List<VozilaRegistracija>();
-            DateTime danas = DateTime.Now;
-            foreach (VozilaRegistracija i in model.trenutniIspisRegistracija())
-            {
-                if (i.sljedeca_registracija.Date == danas.Date)
-                {
-                    ispisID.Add(i);
-                }
-            }
-            return ispisID;
-        }*/
-
         /// <summary>
         /// Metoda koja služi za popunjavanje textboksova podacima iz frmIspisRegistracija na glavnoj formi (tabu nadolazeće registracije).
         /// Controlleru prosljeđujemo id koji smo odabrali na formi ispisRegistracija.
