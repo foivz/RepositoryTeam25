@@ -1,0 +1,494 @@
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\bin\Debug\DesingPi.exe
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\bin\Debug\DesingPi.pdb
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\MainWindow.baml
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\MainWindow.g.cs
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\App.g.cs
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi.g.resources
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+c:\users\matej\documents\visual studio 2013\Projects\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Ivan\Dropbox\Echo\TrApp_desktop2\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Ivan\Dropbox\Echo\TrApp_desktop2\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Ivan\Dropbox\Echo\TrApp_desktop2\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program\TrApp_desktop2-28.5\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program\TrApp_desktop2-28.5\DesingPi\DesingPi\bin\Debug\DesingPi.exe
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program\TrApp_desktop2-28.5\DesingPi\DesingPi\bin\Debug\DesingPi.pdb
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\MainWindow.baml
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\MainWindow.g.cs
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\App.g.cs
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.g.resources
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\TrApp_desktop2-28.5\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\TrApp_desktop2-28.5\DesingPi\DesingPi\bin\Debug\DesingPi.exe
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\TrApp_desktop2-28.5\DesingPi\DesingPi\bin\Debug\DesingPi.pdb
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\MainWindow.baml
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\MainWindow.g.cs
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\App.g.cs
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.g.resources
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\sesta_000\Dropbox\Echo\TrApp_desktop2\TrApp_desktop2-28.5\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\sesta_000\Dropbox\Echo\TrApp_desktop2\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\sesta_000\Dropbox\Echo\TrApp_desktop2\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Dropbox\Echo\TrApp_desktop2\TrApp_desktop2-28.5\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Dropbox\Echo\TrApp_desktop2\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Dropbox\Echo\TrApp_desktop2\TrApp_desktop2-28.5\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\DesingPi\DesingPi\bin\Debug\DesingPi.exe
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\DesingPi\DesingPi\bin\Debug\DesingPi.pdb
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\DesingPi\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\DesingPi\DesingPi\obj\Debug\MainWindow.baml
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\DesingPi\DesingPi\obj\Debug\MainWindow.g.cs
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\DesingPi\DesingPi\obj\Debug\App.g.cs
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\DesingPi\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\DesingPi\DesingPi\obj\Debug\DesingPi.g.resources
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\DesingPi\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\DesingPi\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Goran\Desktop\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Desktop\DesingPi\DesingPi\obj\Debug\MainWindow.baml
+C:\Users\Goran\Desktop\DesingPi\DesingPi\obj\Debug\MainWindow.g.cs
+C:\Users\Goran\Desktop\DesingPi\DesingPi\obj\Debug\App.g.cs
+C:\Users\Goran\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Goran\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Goran\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Goran\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi\DesingPi\obj\Debug\MainWindow.baml
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi\DesingPi\obj\Debug\MainWindow.g.cs
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi\DesingPi\obj\Debug\App.g.cs
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\sesta_000\Desktop\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\sesta_000\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\sesta_000\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\sesta_000\Desktop\DesingPi\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\sesta_000\Desktop\DesingPi\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\sesta_000\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\sesta_000\Desktop\DesingPi\DesingPi\obj\Debug\MainWindow.baml
+C:\Users\sesta_000\Desktop\DesingPi\DesingPi\obj\Debug\MainWindow.g.cs
+C:\Users\sesta_000\Desktop\DesingPi\DesingPi\obj\Debug\App.g.cs
+C:\Users\sesta_000\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\sesta_000\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\sesta_000\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\sesta_000\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\Aplikacija\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\Aplikacija\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+D:\FAKS\3. TRECA GODINA\Programsko inženjerstvo\program GLAVNI\Aplikacija\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\obj\Debug\MainWindow.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\obj\Debug\MainWindow.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\obj\Debug\App.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Goran\Desktop\DesingPi\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Goran\Desktop\DesingPi\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Goran\Desktop\DesingPi\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Goran\Desktop\DesingPi\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Goran\Desktop\DesingPi\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Goran\Desktop\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Ivan\Dropbox\Echo\Aplikacija\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Ivan\Dropbox\Echo\Aplikacija\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Ivan\Dropbox\Echo\Aplikacija\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\obj\Debug\MainWindow.g.cs
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\obj\Debug\App.g.cs
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\obj\Debug\MainWindow.baml
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\obj\Debug\OdabirVozila.g.cs
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 2.6\DesingPi\obj\Debug\OdabirVozila.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\App.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 2.6\DesingPi 2.6\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\App.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Ivan\Dropbox\Echo\Aplikacija\DesingPi 3.6\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Ivan\Dropbox\Echo\Aplikacija\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Ivan\Dropbox\Echo\Aplikacija\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi 3.6\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\sesta_000\Dropbox\Echo\Aplikacija\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.pdb
+D:\Dropbox\Dropbox\Echo\Aplikacija\DesingPi 3.6\DesingPi 2.6\DesingPi\bin\Debug\DesingPi.exe.config
+D:\Dropbox\Dropbox\Echo\Aplikacija\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.exe
+D:\Dropbox\Dropbox\Echo\Aplikacija\DesingPi 3.6\DesingPi 2.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\App.g.cs
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Matej\Documents\Visual Studio 2013\Projects\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\App.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\App.g.cs
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Goran\Desktop\DesingPi 4.6\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\App.g.cs
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Goran\Desktop\DesingPi 9.6\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\App.g.cs
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 9.6\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 10.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 10.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 10.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\App.g.cs
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Goran\Desktop\DesingPi 10.6\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 11.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 11.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\vjezbanje\DesingPi 11.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\App.g.cs
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Goran\Desktop\DesingPi 11.6\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Goran\Desktop\DesingPi 13.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\DesingPi 13.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 13.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\App.g.cs
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\frmIspisRegistracija.baml
+C:\Users\Goran\Desktop\DesingPi 14.6\DesingPi\obj\Debug\frmIspisRegistracija.g.cs
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\frmIspisRegistracija.baml
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\frmIspisRegistracija.g.cs
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\App.g.cs
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Goran\Desktop\DesingPi 16.6\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\frmIspisRegistracija.baml
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\Tabovi.baml
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\App.baml
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\frmIspisRegistracija.g.cs
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\App.g.cs
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Nino\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\frmIspisRegistracija.baml
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\Tabovi.baml
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\App.baml
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\frmIspisRegistracija.g.cs
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\App.g.cs
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\DesingPi.pdb

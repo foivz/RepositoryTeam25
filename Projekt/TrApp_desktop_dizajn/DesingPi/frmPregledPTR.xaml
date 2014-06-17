@@ -1,0 +1,50 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:DesingPi" mc:Ignorable="d" x:Name="Pregled_putnih_radnih_listova" x:Class="DesingPi.PregledPTR"
+        Title="Pregled putnih radnih listova" Height="426" Width="587" Loaded="Pregled_putnih_radnih_listova_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="t25_DBEntitiesViewSource" d:DesignSource="{d:DesignInstance {x:Type local:T25_DBEntities1}, CreateList=True}"/>
+        <CollectionViewSource x:Key="t25_DBEntitiesPutniRadniListViewSource" Source="{Binding PutniRadniList, Source={StaticResource t25_DBEntitiesViewSource}}"/>
+        <CollectionViewSource x:Key="t25_DBEntitiesradni_satiViewSource" Source="{Binding radni_sati, Source={StaticResource t25_DBEntitiesViewSource}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource t25_DBEntitiesPutniRadniListViewSource}">
+        <Label Content="Pregled putnih radnih listova" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <DataGrid x:Name="putniRadniListDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,0,10,160" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" Height="143" VerticalAlignment="Bottom">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="id_putnog_radnog_listaColumn" Width="SizeToHeader" Header="#" Binding="{Binding id_putnog_radnog_lista}"/>
+                <DataGridTextColumn x:Name="voziloColumn" Width="90" Header="Vozilo" Binding="{Binding vozilo}"/>
+                <DataGridTextColumn x:Name="kreiraColumn" Width="80" Header="Kreira" Binding="{Binding kreira}"/>
+                <DataGridTextColumn x:Name="mjesto_utovaraColumn" Width="SizeToHeader" Header="Mjesto utovara" Binding="{Binding mjesto_utovara}"/>
+                <DataGridTextColumn x:Name="mjesto_istovaraColumn" Width="SizeToHeader" Header="Mjesto istovara" Binding="{Binding mjesto_istovara}"/>
+                <DataGridTextColumn x:Name="teret" Width="SizeToHeader" Header="Teret" Binding="{Binding teret}"/>
+                <DataGridTextColumn x:Name="kilometrazaColumn" Width="SizeToHeader" Header="Kilometraža" Binding="{Binding kilometraza}"/>
+                <DataGridTemplateColumn x:Name="pocetakColumn" Width="SizeToHeader" Header="Početak">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding pocetak, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="krajColumn" Width="63" Header="Kraj">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding kraj, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="napomene" Width="SizeToHeader" Header="Napomene" Binding="{Binding napomene}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="radni_satiDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource t25_DBEntitiesradni_satiViewSource}}" Margin="10,0,0,41" RowDetailsVisibilityMode="VisibleWhenSelected" HorizontalAlignment="Left" Width="231" Height="103" VerticalAlignment="Bottom">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="putni_radni_listColumn" Binding="{Binding putni_radni_list}" Header="Putni radni list" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="zaposlenikColumn" Binding="{Binding zaposlenik}" Header="Zaposlenik" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="br_satiColumn" Binding="{Binding br_sati}" Header="Broj sati" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="btnOdaberiPTR" Content="Odaberi" HorizontalAlignment="Left" Margin="338,310,0,0" VerticalAlignment="Top" Width="85" Height="33" Click="btnOdaberiPTR_Click"/>
+        <TextBox Name="txtIDPTR" HorizontalAlignment="Left" Height="23" Margin="67,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42" BorderThickness="0,0,0,1" Text="{Binding ElementName=putniRadniListDataGrid, Path=SelectedItem.id_putnog_radnog_lista}" />
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="38,45,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
