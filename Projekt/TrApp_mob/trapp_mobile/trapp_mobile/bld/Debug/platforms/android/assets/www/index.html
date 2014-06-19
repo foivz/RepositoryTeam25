@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>trapp_mobile</title>
+
+    <!-- trapp_mobile references -->
+    <link href="css/index.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.css">
+    
+</head>
+<body>
+
+    <!-- Cordova reference, this is added to your app when it's built. -->
+    <script src="cordova.js"></script>
+    <script src="scripts/index.js"></script>
+
+    <script type="text/javascript">
+        //Čekaj da se cordova loada
+        document.addEventListener("deviceready", onDeviceReady, false);
+        //globalni obj
+        var currLocation = {
+            lat: 0,
+            lon: 0
+        };
+        
+
+        //postavlja interval za zadanu frekvenciju...
+        function setupWatch(freq) {
+            activeWatch = setInterval(watchLocation, freq);
+        }
+        
+        //osnovna funkcija za dobivanje koordinata
+        function watchLocation() {
+            var geoId = navigator.geolocation.getCurrentPosition(updateLoc, updateErr, { enableHighAccuracy: true });
+            console.log("GeoId: "+geoId );
+        }
+        function updateLoc(position) {
+           
+             currLocation = {
+                lat : position.coords.latitude,
+                lon : position.coords.longitude 
+            };
+            console.log("Pos: " + " " + currLocation.lat + " " + currLocation.lon);
+            var elem = document.getElementById('geolocation');
+            elem.innerHTML = "Brzina: " + position.coords.speed + "<br>"
+                           + "Lat: " + position.coords.latitude + "<br>"
+                           + "Long: " + position.coords.longitude + "<br>";
+            //zapisivanje u bazu (slanje php-u blah blah...)
+            zapisi(currLocation);
+        }
+
+        function updateErr(error) {
+            alert("Kod: " + error.code + "\n" + "Poruka: " + error.message + "\n");
+        }
+        function kraj() {
+            clearInterval(activeWatch);
+        }
+        function onDeviceReady() {
+            //to do?
+          
+        }
+
+        //pokrece hvatanje lokacije
+        function spremi() {
+            setupWatch(3000);
+        }
+
+        //salje ajax post 
+        function zapisi(currLocation) {
+            console.log(currLocation.lat + " " + currLocation.lon + " asjdkfačsdlfkasčdf");
+            var idPtr = $('#IdPtr').val();
+            console.log("Id ptr je: " + idPtr+"lat: "+currLocation.lat+" lon: "+currLocation.lon);
+            $.ajax({
+                type: "POST",
+                url: "http://arka.foi.hr/~mvukovic2/Pi/postgre.php",
+                data: { "lat": currLocation.lat, "lon" : currLocation.lon, "idPtr" : idPtr }
+            })
+  .done(function (msg) {
+      alert("Data Saved: " + msg);
+  });
+        }
+        
+
+
+    </script>
+
+
+
+
+    
+    <div data-role="page" id="pocetna">
+        <div data-role="header">
+            <h1>TrApp Mobile</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <div data-role="tabs">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#fragment-1">Nova ruta</a></li>
+                        <li><a href="#fragment-2">Unos radnih sati</a></li>
+                    </ul>
+                </div>
+                <div id="fragment-1">
+                    <br>
+                    <h2>TrApp: Lokacija</h2><br>
+                    <hr>
+                    <br>
+                    <p id="pepe">Broj putnog radnog lista: </p>
+                    <input type="text" placeholder="Unesite br. PTR..." id="IdPtr" />
+                    <p id="trenutnaLokacija">Lokacija: </p>
+                    <p id="geolocation"></p>
+                    <br><br>
+                    <button class="ui-btn-inline ui-input-btn ui-shadow" id="pratiMe" value="Započni" onclick="spremi()">Započni</button>
+                    <button class="ui-btn-inline ui-input-btn ui-shadow" value="Završi" onclick="kraj()">Završi</button>
+                </div>
+
+                <div id="fragment-2">
+                    <br>
+                    <h2>TrApp: Radni sati</h2><br>
+                    <hr>
+                    <br>
+                    <p>Zaposlenik </p>
+                    <input type="text" placeholder="Unesite sifru zaposlenika" id="zapId" />
+                    <p>Putni radni list </p>
+                    <input type="text" placeholder="Unesite br. PTR..." id="ptrId" />
+                    <p>Broj sati </p>
+                    <input type="text" placeholder="Unesite br. sati" id="brSati" />
+                    <br><br>
+                    <button class="ui-btn-inline ui-input-btn ui-shadow" value="predaj">Predaj</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.mobile-1.4.2.min.js"></script>
+</body>
+</html>
