@@ -41,6 +41,10 @@
     <Reference Include="GMap.NET.WindowsPresentation">
       <HintPath>..\..\..\..\..\Downloads\GMap.NET Build 35bb833b03a1\GMap.NET.WindowsPresentation.dll</HintPath>
     </Reference>
+    <Reference Include="mysql.data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\mysql-connector-net-6.0.7-noinstall\mysql.data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,12 +63,206 @@
       <DependentUpon>frmPracenje.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="T25_DBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>T25_DBDataSet.xsd</DependentUpon>
+    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmPracenje.resx">
       <DependentUpon>frmPracenje.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\Mono.Math.Prime.Generator.NextPrimeFinder.datasource" />
+    <None Include="Properties\DataSources\Mono.Math.Prime.Generator.PrimeGeneratorBase.datasource" />
+    <None Include="Properties\DataSources\Mono.Math.Prime.Generator.SequentialSearchPrimeGeneratorBase.datasource" />
+    <None Include="Properties\DataSources\Mono.Math.Prime.PrimalityTest.datasource" />
+    <None Include="Properties\DataSources\Mono.Math.Prime.PrimalityTests.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.ASN1.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.ASN1Convert.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Authenticode.AuthenticodeBase.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Authenticode.AuthenticodeDeformatter.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Authenticode.AuthenticodeFormatter.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Authenticode.PrivateKey.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Authenticode.SoftwarePublisherCertificate.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.ARC4Managed.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.BlockProcessor.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.CryptoConvert.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.DHParameters.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.DiffieHellman.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.DiffieHellmanManaged.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.KeyBuilder.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.KeyPairPersistence.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.MD2.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.MD2Managed.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.MD4.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.MD4Managed.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.PKCS1.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.PKCS8+EncryptedPrivateKeyInfo.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.PKCS8+KeyInfo.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.PKCS8+PrivateKeyInfo.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.PKCS8.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.RC4.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.RSAManaged+KeyGeneratedEventHandler.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.RSAManaged.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.SHA224.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Cryptography.SHA224Managed.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.PKCS7+ContentInfo.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.PKCS7+EncryptedData.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.PKCS7+EnvelopedData.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.PKCS7+Oid.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.PKCS7+RecipientInfo.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.PKCS7+SignedData.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.PKCS7+SignerInfo.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.PKCS7.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Protocol.Ntlm.ChallengeResponse.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Protocol.Ntlm.MessageBase.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Protocol.Ntlm.Type1Message.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Protocol.Ntlm.Type2Message.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Protocol.Ntlm.Type3Message.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Protocol.Tls.CertificateSelectionCallback.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Protocol.Tls.CertificateValidationCallback.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Protocol.Tls.PrivateKeySelectionCallback.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Protocol.Tls.SslClientStream.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Protocol.Tls.SslServerStream.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.Protocol.Tls.SslStreamBase.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.StrongName.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.Extensions.AuthorityKeyIdentifierExtension.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.Extensions.BasicConstraintsExtension.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.Extensions.CertificatePoliciesExtension.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.Extensions.CRLDistributionPointsExtension+ReasonFlags.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.Extensions.CRLDistributionPointsExtension.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.Extensions.ExtendedKeyUsageExtension.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.Extensions.KeyAttributesExtension.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.Extensions.KeyUsageExtension.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.Extensions.NetscapeCertTypeExtension+CertTypes.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.Extensions.NetscapeCertTypeExtension.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.Extensions.PrivateKeyUsagePeriodExtension.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.Extensions.SubjectAltNameExtension.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.Extensions.SubjectKeyIdentifierExtension.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.PKCS12+DeriveBytes+Purpose.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.PKCS12+DeriveBytes.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.PKCS12.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.PKCS5.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.PKCS9.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X501.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509Builder.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509Certificate.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509CertificateBuilder.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509CertificateCollection+X509CertificateEnumerator.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509CertificateCollection.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509Chain.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509Crl+X509CrlEntry.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509Crl.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509Extension.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509ExtensionCollection.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509Store.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509StoreManager.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509Stores+Names.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X509Stores.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+AttributeTypeAndValue.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+CommonName.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+CountryName.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+DnQualifier.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+DomainComponent.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+EmailAddress.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+GivenName.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+Initial.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+LocalityName.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+Name.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+Oid.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+OrganizationalUnitName.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+OrganizationName.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+SerialNumber.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+StateOrProvinceName.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+Surname.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+Title.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520+UserId.datasource" />
+    <None Include="Properties\DataSources\Mono.Security.X509.X520.datasource" />
+    <None Include="Properties\DataSources\Mono.Xml.MiniParser+AttrListImpl.datasource" />
+    <None Include="Properties\DataSources\Mono.Xml.MiniParser+HandlerAdapter.datasource" />
+    <None Include="Properties\DataSources\Mono.Xml.MiniParser+IAttrList.datasource" />
+    <None Include="Properties\DataSources\Mono.Xml.MiniParser+IHandler.datasource" />
+    <None Include="Properties\DataSources\Mono.Xml.MiniParser+IMutableAttrList.datasource" />
+    <None Include="Properties\DataSources\Mono.Xml.MiniParser+IReader.datasource" />
+    <None Include="Properties\DataSources\Mono.Xml.MiniParser+XMLError.datasource" />
+    <None Include="Properties\DataSources\Mono.Xml.MiniParser.datasource" />
+    <None Include="Properties\DataSources\Mono.Xml.SecurityParser.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NoticeEventHandler.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NotificationEventHandler.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlCommand.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlCommandBuilder.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlConnection.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlConnectionStringBuilder.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlCopyFormat.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlCopyIn.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlCopyOut.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlCopySerializer.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlDataAdapter.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlDataReader.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlError.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlEventLog.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlException.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlFactory.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlNoticeEventArgs.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlNotificationEventArgs.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlParameter.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlParameterCollection.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlRowUpdatedEventHandler.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlRowUpdatingEventHandler.datasource" />
+    <None Include="Properties\DataSources\Npgsql.NpgsqlTransaction.datasource" />
+    <None Include="Properties\DataSources\Npgsql.ProvideClientCertificatesCallback.datasource" />
+    <None Include="Properties\DataSources\Npgsql.ServerVersion.datasource" />
+    <None Include="Properties\DataSources\Npgsql.ValidateRemoteCertificateCallback.datasource" />
+    <None Include="Properties\DataSources\NpgsqlRowUpdatedEventArgs.datasource" />
+    <None Include="Properties\DataSources\NpgsqlRowUpdatingEventArgs.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.BitString.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.Fastpath.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.FastpathArg.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.LargeObject.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.LargeObjectManager.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlBox.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlCircle.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlDate.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlInet.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlInterval.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlLSeg.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlMacAddress.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlPath.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlPoint.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlPolygon.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlTime.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlTimeStamp.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlTimeStampTZ.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlTimeTZ.datasource" />
+    <None Include="Properties\DataSources\NpgsqlTypes.NpgsqlTimeZone.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="T25_DBDataSet.xsc">
+      <DependentUpon>T25_DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="T25_DBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>T25_DBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="T25_DBDataSet.xss">
+      <DependentUpon>T25_DBDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

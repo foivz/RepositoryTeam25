@@ -11,3 +11,5 @@ c:\users\sesta_000\documents\visual studio 2013\Projects\PracenjeVozila\Pracenje
 c:\users\sesta_000\documents\visual studio 2013\Projects\PracenjeVozila\PracenjeVozila\obj\Debug\PracenjeVozila.pdb
 C:\Users\sesta_000\Documents\Visual Studio 2013\Projects\PracenjeVozila\PracenjeVozila\bin\Debug\GMap.NET.WindowsPresentation.dll
 C:\Users\sesta_000\Documents\Visual Studio 2013\Projects\PracenjeVozila\PracenjeVozila\bin\Debug\GMap.NET.WindowsPresentation.xml
+C:\Users\sesta_000\Documents\Visual Studio 2013\Projects\PracenjeVozila\PracenjeVozila\bin\Debug\mysql.data.dll
+C:\Users\sesta_000\Documents\Visual Studio 2013\Projects\PracenjeVozila\PracenjeVozila\bin\Debug\PracenjeVozila.dll.config
