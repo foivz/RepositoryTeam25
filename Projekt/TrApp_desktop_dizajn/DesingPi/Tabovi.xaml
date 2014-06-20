@@ -220,19 +220,261 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type TabItem}">
+					<ControlTemplate.Resources>
+						<Storyboard x:Key="Storyboard1">
+							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+								<EasingColorKeyFrame KeyTime="0" Value="White"/>
+								<EasingColorKeyFrame KeyTime="0:0:0.7" Value="#FF0C95F0"/>
+							</ColorAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Key="mekni">
+							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+								<EasingColorKeyFrame KeyTime="0" Value="#FF0C95F0"/>
+								<EasingColorKeyFrame KeyTime="0:0:0.5" Value="White"/>
+							</ColorAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="rectangle">
+								<EasingDoubleKeyFrame KeyTime="0" Value="1.041"/>
+								<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="rectangle">
+								<EasingDoubleKeyFrame KeyTime="0" Value="-1.75"/>
+								<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-0.167"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+					</ControlTemplate.Resources>
+					<Grid x:Name="templateRoot" SnapsToDevicePixels="true" Background="Black">
+						<Border x:Name="mainBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="{TemplateBinding Background}" Margin="0">
+							<Border x:Name="innerBorder" BorderBrush="#FF0C95F0" BorderThickness="0" Background="#FFFFFF" Margin="-1" Opacity="1"/>
+						</Border>
+						<ContentPresenter x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" Margin="10,2,6,2" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+						<Rectangle x:Name="rectangle" Fill="White" HorizontalAlignment="Left" Height="84.958" Stroke="White" VerticalAlignment="Top" Width="10.917" Margin="-0.917,2,0,-1" RenderTransformOrigin="0.5,0.5">
+							<Rectangle.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform/>
+									<SkewTransform/>
+									<RotateTransform/>
+									<TranslateTransform/>
+								</TransformGroup>
+							</Rectangle.RenderTransform>
+						</Rectangle>
+						<Rectangle x:Name="rectangle_Copy" Fill="White" HorizontalAlignment="Left" Height="11.708" Stroke="White" VerticalAlignment="Top" Width="216.417" Margin="10,75.25,-4.75,-1"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="Selector.IsSelected" Value="True">
+							<Trigger.ExitActions>
+								<BeginStoryboard x:Name="mekni_BeginStoryboard" Storyboard="{StaticResource mekni}"/>
+							</Trigger.ExitActions>
+							<Trigger.EnterActions>
+								<BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+							</Trigger.EnterActions>
+						</Trigger>
+						<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+							<Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+							<Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+							<Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Background}"/>
+							<Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.MouseOver.Border}"/>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+							<Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+							<Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+							<Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+							<Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+							<Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+							<Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" Value="false"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="Opacity" TargetName="contentPresenter" Value="0.56"/>
+							<Setter Property="Background" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Background}"/>
+							<Setter Property="BorderBrush" TargetName="mainBorder" Value="{StaticResource TabItem.Disabled.Border}"/>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Left"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="Panel.ZIndex" Value="1"/>
+							<Setter Property="Margin" Value="-2,-2,0,-2"/>
+							<Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,0,1"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,0,1"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Bottom"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="Panel.ZIndex" Value="1"/>
+							<Setter Property="Margin" Value="-2,0,-2,-2"/>
+							<Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="1,0,1,1"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="1,0,1,1"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Right"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="Panel.ZIndex" Value="1"/>
+							<Setter Property="Margin" Value="0,-2,-2,-2"/>
+							<Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="0,1,1,1"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="0,1,1,1"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+						</MultiDataTrigger>
+						<MultiDataTrigger>
+							<MultiDataTrigger.Conditions>
+								<Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
+								<Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType={x:Type TabControl}}}" Value="Top"/>
+							</MultiDataTrigger.Conditions>
+							<Setter Property="Panel.ZIndex" Value="1"/>
+							<Setter Property="Margin" Value="-2,-2,-2,0"/>
+							<Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+							<Setter Property="BorderThickness" TargetName="innerBorder" Value="1,1,1,0"/>
+							<Setter Property="BorderThickness" TargetName="mainBorder" Value="1,1,1,0"/>
+						</MultiDataTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="DizajnVecegTaba2" TargetType="{x:Type TabItem}">
+		<Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+		<Setter Property="Foreground" Value="Black"/>
+		<Setter Property="Background" Value="{StaticResource TabItem.Static.Background}"/>
+		<Setter Property="BorderBrush" Value="{StaticResource TabItem.Static.Border}"/>
+		<Setter Property="Margin" Value="0"/>
+		<Setter Property="Padding" Value="6,2,6,2"/>
+		<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+		<Setter Property="VerticalContentAlignment" Value="Stretch"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type TabItem}">
+					<ControlTemplate.Resources>
+						<Storyboard x:Key="Storyboard1">
+							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+								<EasingColorKeyFrame KeyTime="0" Value="White"/>
+								<EasingColorKeyFrame KeyTime="0:0:0.7" Value="#FF0C95F0"/>
+							</ColorAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Key="makni">
+							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
+								<EasingColorKeyFrame KeyTime="0" Value="#FF0C95F0"/>
+								<EasingColorKeyFrame KeyTime="0:0:0.5" Value="White"/>
+							</ColorAnimationUsingKeyFrames>
+						</Storyboard>
+					</ControlTemplate.Resources>
 					<Grid x:Name="templateRoot" SnapsToDevicePixels="true">
 						<Border x:Name="mainBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="{TemplateBinding Background}" Margin="0">
 							<Border x:Name="innerBorder" BorderBrush="White" BorderThickness="0" Background="#FFFFFF" Margin="-1" Opacity="1"/>
 						</Border>
 						<ContentPresenter x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" Margin="10,2,6,2" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-						<Rectangle x:Name="rectangle" Fill="White" HorizontalAlignment="Left" Height="85.958" Stroke="White" VerticalAlignment="Top" Width="9.5" Margin="-0.917,1,0,-0.958"/>
+						<Rectangle x:Name="rectangle" Fill="White" HorizontalAlignment="Left" Height="85.958" Stroke="White" VerticalAlignment="Top" Width="10.917" Margin="-0.917,1,0,0"/>
 					</Grid>
 					<ControlTemplate.Triggers>
 						<Trigger Property="Selector.IsSelected" Value="True">
-							<Setter Property="Width" TargetName="rectangle" Value="10.417"/>
-							<Setter Property="Margin" TargetName="rectangle" Value="-0.917,1,0,-1"/>
-							<Setter Property="Fill" TargetName="rectangle" Value="#FF0C95F0"/>
-							<Setter Property="Stroke" TargetName="rectangle" Value="#FF0C95F0"/>
+							<Trigger.ExitActions>
+								<BeginStoryboard x:Name="makni_BeginStoryboard" Storyboard="{StaticResource makni}"/>
+							</Trigger.ExitActions>
+							<Trigger.EnterActions>
+								<BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+							</Trigger.EnterActions>
 						</Trigger>
 						<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
 						<MultiDataTrigger>

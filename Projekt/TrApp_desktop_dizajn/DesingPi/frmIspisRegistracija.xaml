@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Ispis dnevnih registracija" Height="314" Width="743" Loaded="Window_Loaded">
     <Grid>
-        <DataGrid Name="registracijadatagrid2" ItemsSource="{Binding}" IsReadOnly="True" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Height="116" Width="674" AutoGenerateColumns="False">
+        <DataGrid Name="registracijadatagrid2" ItemsSource="{Binding}" IsReadOnly="True" HorizontalAlignment="Left" Margin="35,78,0,0" VerticalAlignment="Top" Height="116" Width="649" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="id_tehnickog_pregleda5" Binding="{Binding id_tehnickog_pregleda}" Header="#"/>
                 <DataGridTextColumn x:Name="sljedeca_registracija5" Binding="{Binding sljedeca_registracija}" Header="Datum" SortDirection="Descending"/>
@@ -14,10 +14,10 @@
                 <DataGridTextColumn x:Name="napomena" Binding="{Binding napomena}" Header="Napomena"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Right" Margin="0,10,693,238" Grid.Row="0" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Height="35">
+        <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Right" Margin="0,21,660.412,227" Grid.Row="0" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Height="35">
         </Label>
-        <TextBox x:Name="id_tehnickog_pregleda" HorizontalAlignment="Left" Height="30" Margin="42,10,0,243" Grid.Row="0" Text="{Binding ElementName=registracijadatagrid2, Path=SelectedItem.id_tehnickog_pregleda}" VerticalAlignment="Center" Width="68" IsEnabled="False" FontSize="24" FontWeight="Bold" BorderThickness="0,0,0,2"/>
-        <Button Content="Odaberi" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" Width="75" Click="btnOdaberi_Click"/>
+        <TextBox x:Name="id_tehnickog_pregleda" HorizontalAlignment="Left" Height="30" Margin="74.588,21,0,232" Grid.Row="0" Text="{Binding ElementName=registracijadatagrid2, Path=SelectedItem.id_tehnickog_pregleda}" VerticalAlignment="Center" Width="68" IsEnabled="False" FontSize="24" FontWeight="Bold" BorderThickness="0,0,0,2"/>
+        <Button Content="Odaberi" HorizontalAlignment="Left" Margin="35,220.571,0,0" VerticalAlignment="Top" Width="82.821" Click="btnOdaberi_Click" Style="{DynamicResource DizajnGumba2}" Foreground="White"/>
         <TextBox x:Name="id_voziloTextBox3" HorizontalAlignment="Left" Height="23" Margin="541,21,0,0"  Text="{Binding ElementName=registracijadatagrid2, Path=SelectedItem.id_vozilo}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
     </Grid>
 </Window>

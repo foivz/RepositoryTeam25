@@ -11,6 +11,6 @@ namespace DesingPi
         public DateTime posljednja_registracija { get; set; }
         public DateTime sljedeca_registracija { get; set; }
         public string napomena { get; set; }
-        public int id_tehnickog_pregleda { get; set; }
+        public Nullable<int> id_tehnickog_pregleda { get; set; }
     }
 }

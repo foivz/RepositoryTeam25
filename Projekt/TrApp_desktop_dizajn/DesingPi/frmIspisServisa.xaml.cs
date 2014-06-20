@@ -15,24 +15,23 @@ using System.Windows.Shapes;
 namespace DesingPi
 {
     /// <summary>
-    /// Interaction logic for frmIspisRegistracija.xaml
+    /// Interaction logic for frmIspisServisa.xaml
     /// </summary>
-    public partial class frmIspisRegistracija : Window
+    public partial class frmIspisServisa : Window
     {
         TrAppController controller = new TrAppController();
-        public frmIspisRegistracija()
+        public frmIspisServisa()
         {
             InitializeComponent();
         }
 
-        private void btnOdaberi_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            registracijadatagrid2.ItemsSource = controller.poslanaNaRegistraciju();
+            vozilaservisdatagrid2.ItemsSource = controller.poslanaNaServis();
+        }
+        private void btnOdaberiServis_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Goran\Desktop\TrApp_desktop_dizajn\DesingPi\obj\Debug\
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn3\TrApp_desktop_dizajn\DesingPi\obj\Debug\
 DesingPi
 none
 false
 DEBUG;TRACE
-C:\Users\Goran\Desktop\TrApp_desktop_dizajn\DesingPi\App.xaml
-6907638709
+C:\Users\Nino\Desktop\TrApp_desktop_dizajn3\TrApp_desktop_dizajn\DesingPi\App.xaml
+81686584480
 
-281164265428
-17562001848
-frmGlavna.xaml;frmIspisRegistracija.xaml;frmOdabirVozila.xaml;frmPregledPTR.xaml;frmSlobodniVozaci.xaml;Tabovi.xaml;
+291087273230
+18393050787
+frmGlavna.xaml;frmIspisRegistracija.xaml;frmIspisServisa.xaml;frmOdabirVozila.xaml;frmPregledPTR.xaml;frmSlobodniVozaci.xaml;Gumb.xaml;Tabovi.xaml;
 
 False
 
