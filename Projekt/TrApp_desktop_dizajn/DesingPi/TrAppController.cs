@@ -323,7 +323,6 @@ namespace DesingPi
 
         /*****************************************************************************************************************/
         //NOVE STVARI ZA SLOBODNA VOZILA
-
         /// <summary>
         /// Metoda koja ispisuje vozila koja nisu na servisu, putnom radnom listu i tehničkom pregledu.
         /// Napravljenje su tri liste, u prvoj listi zapisuju se vozila koja nisu na PTR, na drugoj listi dodajemo na prethodnu listu vozila koja nisu na tehničkom pregledu
@@ -338,35 +337,99 @@ namespace DesingPi
             List<vozilo> slobodnaVozila = new List<vozilo>();
             List<vozilo> slobodnaVozila2 = new List<vozilo>();
             List<vozilo> slobodnaVozila3 = new List<vozilo>();
-            foreach (vozilo i in svaVozila)
+            if (model.idPTR().Count == 0)
             {
-                foreach (int j in model.idPTR())
+                slobodnaVozila = svaVozila;
+            }
+            else
+            {
+                foreach (vozilo i in svaVozila)
                 {
-                    if (i.id_vozilo != j)
+                    foreach (int j in model.idPTR())
                     {
-                        slobodnaVozila.Add(i);
+                        if (i.id_vozilo != j || j == 0)
+                        {
+                            slobodnaVozila.Add(i);
+                        }
+
                     }
                 }
             }
-
-            foreach (vozilo i in slobodnaVozila)
+            if (model.idTehnickiPregled().Count == 0)
             {
-                foreach (int j in model.idTehnickiPregled())
+                slobodnaVozila2 = slobodnaVozila;
+            }
+            else
+            {
+                foreach (vozilo i in slobodnaVozila)
                 {
-                    if (i.id_vozilo != j)
-                        slobodnaVozila2.Add(i);
+                    foreach (int j in model.idTehnickiPregled())
+                    {
+                        if (i.id_vozilo != j || j == 0)
+                            slobodnaVozila2.Add(i);
+                    }
                 }
             }
-
-            foreach (vozilo i in slobodnaVozila2)
+            if (model.idServis().Count == 0)
             {
-                foreach (int j in model.idServis())
+                slobodnaVozila3 = slobodnaVozila2;
+            }
+            else
+            {
+                foreach (vozilo i in slobodnaVozila2)
                 {
-                    if (i.id_vozilo != j)
-                        slobodnaVozila3.Add(i);
+                    foreach (int j in model.idServis())
+                    {
+                        if (i.id_vozilo != j || j == 0)
+                            slobodnaVozila3.Add(i);
+                    }
                 }
             }
             return slobodnaVozila3;
+        }
+
+
+        /// <summary>
+        /// Metoda koja ispisuje zaposlenike koji nisu na godišnjem odmoru i vozače koji nisu na 
+        /// putnom radnom listu. Metoda radi na isti princip kao i za slobodna vozila.
+        /// </summary>
+        /// <returns></returns>
+        public List<zaposlenici> ispisSlobodnihZaposlenika()
+        {
+            List<zaposlenici> sviZaposlenici = model.dohvatVozaca("svi_vozači");
+            List<zaposlenici> slobodniZaposlenici = new List<zaposlenici>();
+            List<zaposlenici> slobodniZaposlenici2 = new List<zaposlenici>();
+            if (model.idGodisnjiOdmor().Count == 0)
+            {
+                slobodniZaposlenici = sviZaposlenici;
+            }
+            else
+            {
+                foreach (zaposlenici i in sviZaposlenici)
+                {
+                    foreach (int j in model.idGodisnjiOdmor())
+                    {
+                        if (i.id_zaposlenici != j || j == 0)
+                            slobodniZaposlenici.Add(i);
+                    }
+                }
+            }
+            if (model.idPTRZaposlenici().Count == 0)
+            {
+                slobodniZaposlenici2 = slobodniZaposlenici;
+            }
+            else
+            {
+                foreach(zaposlenici i in slobodniZaposlenici)
+                {
+                    foreach(int j in model.idPTRZaposlenici())
+                    {
+                        if (i.id_zaposlenici != j || j == 0)
+                            slobodniZaposlenici2.Add(i);
+                    }
+                }
+            }
+            return slobodniZaposlenici2;
         }
     }
 }

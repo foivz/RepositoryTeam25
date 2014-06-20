@@ -57,7 +57,7 @@
                                 <TextBlock VerticalAlignment="Center" FontFamily="Segoe WP Semibold" FontSize="13" FontWeight="Normal" HorizontalAlignment="Center" TextAlignment="Center" Text="Popis vozila"/>
                             </TabItem.Header>
                             <Grid DataContext="{StaticResource t25_DBEntitiesvoziloViewSource}">
-                                <DataGrid x:Name="voziloDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="28,71,95,282" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" IsReadOnly="True" Style="{DynamicResource DizajnTablice}" BorderBrush="#FF0C95F0" Foreground="Black">
+                                <DataGrid x:Name="voziloDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="28,71,95,282" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" IsReadOnly="True" BorderBrush="#FF0C95F0" Foreground="Black">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn x:Name="id_voziloColumn" Width="SizeToHeader" Header="#" Binding="{Binding id_vozilo}"/>
                                         <DataGridTextColumn x:Name="registracijaColumn" Width="SizeToHeader" Header="Registracija" Binding="{Binding registracija}" Foreground="Blue"/>
@@ -76,7 +76,7 @@
                                         <DataGridTextColumn x:Name="pocetno_stanje_kmColumn" Width="SizeToHeader" Header="Početno stanje km" Binding="{Binding pocetno_stanje_km}"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
-                                <ComboBox x:Name="cmbOdabirVozila" HorizontalAlignment="Left" Margin="28,21,0,0" VerticalAlignment="Top" Width="134" SelectedIndex="0" Style="{DynamicResource ComboDizajn}">
+                                <ComboBox x:Name="cmbOdabirVozila" HorizontalAlignment="Left" Margin="28,21,0,0" VerticalAlignment="Top" Width="134" SelectedIndex="0" >
                                     <ComboBoxItem Content="Sva vozila" HorizontalAlignment="Left" Width="132" Selected="popisSvih"/>
                                 	<ComboBoxItem Content="Slobodna vozila" HorizontalAlignment="Left" Selected="popisSlobodnihVozila" Width="132"/>
                                 </ComboBox>

@@ -19,12 +19,11 @@ namespace DesingPi
     /// </summary>
     public partial class SlobodniVozaci : Window
     {
-        TrAppModel model = new TrAppModel();
+        TrAppController controller = new TrAppController();
         public SlobodniVozaci()
         {
             InitializeComponent();
-            string podatak = "";
-            zaposleniciDataGrid3.ItemsSource = model.dohvatVozaca(podatak);
+            zaposleniciDataGrid3.ItemsSource = controller.ispisSlobodnihZaposlenika();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

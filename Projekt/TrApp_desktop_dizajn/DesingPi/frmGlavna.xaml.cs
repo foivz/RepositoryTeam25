@@ -606,8 +606,7 @@ namespace DesingPi
 
         private void popisSlobodnihVozaca(object sender, RoutedEventArgs e)
         {
-            string podatak = "";
-            zaposleniciDataGrid.ItemsSource = model.dohvatVozaca(podatak);
+            zaposleniciDataGrid.ItemsSource = controller.ispisSlobodnihZaposlenika();
         }
 
         /// <summary>
