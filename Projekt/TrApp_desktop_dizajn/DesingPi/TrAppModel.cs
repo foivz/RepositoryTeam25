@@ -447,7 +447,11 @@ namespace DesingPi
         /*****************************************************************************************************************/
         //NOVE STVARI ZA SLOBODNA VOZILA
 
-        //LISTA ID VOZILA S PUTNOG RADNOG LISTA KOJA NISU SLOBODNA
+        /// <summary>
+        /// Metoda koja vraća id vozila koja su na putnom radnom listu.
+        /// Treba nam kako bi pomoću te metode mogli pronaći slobodna vozila u contrroleru.
+        /// </summary>
+        /// <returns></returns>
         public List<int> idPTR()
         {
             using (var db = new T25_DBEntities1())
@@ -457,7 +461,11 @@ namespace DesingPi
             }
         }
 
-        //LISTA ID VOZILA S SERVISA KOJA NISU SLOBODNA
+        /// <summary>
+        /// Metoda koja vraća id vozila koja su na servisu.
+        /// Treba nam kako bi pomoću te metode mogli pronaći slobodna vozila u contrroleru.
+        /// </summary>
+        /// <returns></returns>
         public List<int> idServis()
         {
             using (var db = new T25_DBEntities1())
@@ -467,6 +475,11 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda koja vraća id vozila koja su na tehničkom pregledu.
+        /// Treba nam kako bi pomoću te metode mogli pronaći slobodna vozila u contrroleru.
+        /// </summary>
+        /// <returns></returns>
         public List<int> idTehnickiPregled()
         {
             using (var db = new T25_DBEntities1())
@@ -476,7 +489,32 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda koja vraća id zaposlenika koja su na godišnjem odmoru.
+        /// Treba nam kako bi pomoću te metode mogli pronaći slobodne zaposlenike u contrroleru.
+        /// </summary>
+        /// <returns></returns>
+        public List<int> idGodisnjiOdmor()
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                var upit = db.Database.SqlQuery<int>("select zaposlenici.id_zaposlenici from zaposlenici, godisnji_odmor where zaposlenici.id_zaposlenici=godisnji_odmor.zaposlenik and year(GETDATE())>=year(pocetak) and month(GETDATE())>=month(pocetak) and day(getdate())>=day(pocetak) and year(GETDATE())<=year(kraj) and MONTH(GETDATE())<=month(kraj) and day(getdate())<=day(kraj);").ToList<int>();
+                return upit;
+            }
+        }
 
-
+        /// <summary>
+        /// Metoda koja vraća id zaposlenika koja su na Putnom radnom listu..
+        /// Treba nam kako bi pomoću te metode mogli pronaći slobodne zaposlenike u contrroleru.
+        /// </summary>
+        /// <returns></returns>
+        public List<int> idPTRZaposlenici()
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                var upit = db.Database.SqlQuery<int>("select zaposlenici.id_zaposlenici from zaposlenici, radni_sati, PutniRadniList where zaposlenici.id_zaposlenici=radni_sati.zaposlenik and radni_sati.putni_radni_list=PutniRadniList.id_putnog_radnog_lista and GETDATE()>=PutniRadniList.pocetak and getdate()<=PutniRadniList.kraj;").ToList<int>();
+                return upit;
+            }
+        }
     }
 }

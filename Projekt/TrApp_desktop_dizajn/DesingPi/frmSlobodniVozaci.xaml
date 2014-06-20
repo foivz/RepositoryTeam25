@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:DesingPi" mc:Ignorable="d" x:Class="DesingPi.SlobodniVozaci"
         Title="Slobodni vozači" Height="363" Width="462" Loaded="Window_Loaded">
     <Window.Resources>
-        <CollectionViewSource x:Key="t25_DBEntitiesViewSource" d:DesignSource="{d:DesignInstance {x:Type local:T25_DBEntities}, CreateList=True}"/>
+        <CollectionViewSource x:Key="t25_DBEntitiesViewSource" d:DesignSource="{d:DesignInstance {x:Type local:T25_DBEntities1}, CreateList=True}"/>
         <CollectionViewSource x:Key="t25_DBEntitieszaposleniciViewSource" Source="{Binding zaposlenici, Source={StaticResource t25_DBEntitiesViewSource}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource t25_DBEntitieszaposleniciViewSource}">

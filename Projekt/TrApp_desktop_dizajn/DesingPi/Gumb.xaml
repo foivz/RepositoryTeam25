@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
 	<SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
 	<SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
@@ -22,34 +22,13 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
-					<ControlTemplate.Resources>
-						<Storyboard x:Key="Storyboard1">
-							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-								<EasingColorKeyFrame KeyTime="0" Value="#FF0C95F0"/>
-								<EasingColorKeyFrame KeyTime="0:0:0.6" Value="#FF2543FF"/>
-							</ColorAnimationUsingKeyFrames>
-						</Storyboard>
-						<Storyboard x:Key="deaktivacija">
-							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-								<EasingColorKeyFrame KeyTime="0" Value="#FF2543FF"/>
-								<EasingColorKeyFrame KeyTime="0:0:0.7" Value="#FF0C95F0"/>
-							</ColorAnimationUsingKeyFrames>
-						</Storyboard>
-					</ControlTemplate.Resources>
-					<Grid HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="80">
-						<Rectangle x:Name="rectangle" Fill="#FF0C95F0" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="80" Stroke="White" StrokeThickness="0" Margin="0"/>
-						<ContentPresenter x:Name="tekst" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="22,3.959,4.25,1.706" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Width="53.75" Height="17.335" OpacityMask="White"/>
+					<Grid HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="89.9999999999999">
+						<Rectangle Fill="#FF0C95F0" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="80" Stroke="White" StrokeThickness="0" Margin="0"/>
+						<ContentPresenter x:Name="tekst" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="18.75,3.959,10,1.706" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Width="61.25" Height="17.335" OpacityMask="White"/>
 					</Grid>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsDefaulted" Value="true"/>
-						<Trigger Property="IsMouseOver" Value="true">
-							<Trigger.ExitActions>
-								<BeginStoryboard x:Name="deaktivacija_BeginStoryboard" Storyboard="{StaticResource deaktivacija}"/>
-							</Trigger.ExitActions>
-							<Trigger.EnterActions>
-								<BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
-							</Trigger.EnterActions>
-						</Trigger>
+						<Trigger Property="IsMouseOver" Value="true"/>
 						<Trigger Property="IsPressed" Value="true"/>
 						<Trigger Property="IsEnabled" Value="false"/>
 					</ControlTemplate.Triggers>
@@ -69,22 +48,8 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
-					<ControlTemplate.Resources>
-						<Storyboard x:Key="Storyboard1">
-							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-								<EasingColorKeyFrame KeyTime="0" Value="#FF0C95F0"/>
-								<EasingColorKeyFrame KeyTime="0:0:0.7" Value="#FF2543FF"/>
-							</ColorAnimationUsingKeyFrames>
-						</Storyboard>
-						<Storyboard x:Key="deak">
-							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-								<EasingColorKeyFrame KeyTime="0" Value="#FF2543FF"/>
-								<EasingColorKeyFrame KeyTime="0:0:0.7" Value="#FF0C95F0"/>
-							</ColorAnimationUsingKeyFrames>
-						</Storyboard>
-					</ControlTemplate.Resources>
 					<Grid HorizontalAlignment="Left" Height="30.877" VerticalAlignment="Top" Width="74.875">
-						<Rectangle x:Name="rectangle" Fill="#FF0C95F0" HorizontalAlignment="Left" Height="30.877" Stroke="White" StrokeThickness="0" VerticalAlignment="Top" Width="75" Margin="0,0,-0.125,0"/>
+						<Rectangle Fill="#FF0C95F0" HorizontalAlignment="Left" Height="30.877" Stroke="White" StrokeThickness="0" VerticalAlignment="Top" Width="75" Margin="0,0,-0.125,0"/>
 						<Rectangle Fill="White" HorizontalAlignment="Stretch" Height="17.502" Stroke="White" StrokeThickness="0" VerticalAlignment="Top" Width="Auto" Margin="10,6.75,11.056,0">
 							<Rectangle.OpacityMask>
 								<ImageBrush ImageSource="print.png" Stretch="Uniform"/>
@@ -93,14 +58,7 @@
 					</Grid>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsDefaulted" Value="true"/>
-						<Trigger Property="IsMouseOver" Value="true">
-							<Trigger.ExitActions>
-								<BeginStoryboard x:Name="deak_BeginStoryboard" Storyboard="{StaticResource deak}"/>
-							</Trigger.ExitActions>
-							<Trigger.EnterActions>
-								<BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
-							</Trigger.EnterActions>
-						</Trigger>
+						<Trigger Property="IsMouseOver" Value="true"/>
 						<Trigger Property="IsPressed" Value="true"/>
 						<Trigger Property="IsEnabled" Value="false"/>
 					</ControlTemplate.Triggers>
@@ -120,34 +78,13 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="{x:Type Button}">
-					<ControlTemplate.Resources>
-						<Storyboard x:Key="Storyboard1">
-							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-								<EasingColorKeyFrame KeyTime="0" Value="#FF0C95F0"/>
-								<EasingColorKeyFrame KeyTime="0:0:0.7" Value="#FF2543FF"/>
-							</ColorAnimationUsingKeyFrames>
-						</Storyboard>
-						<Storyboard x:Key="deakk">
-							<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)" Storyboard.TargetName="rectangle">
-								<EasingColorKeyFrame KeyTime="0" Value="#FF2543FF"/>
-								<EasingColorKeyFrame KeyTime="0:0:0.7" Value="#FF0C95F0"/>
-							</ColorAnimationUsingKeyFrames>
-						</Storyboard>
-					</ControlTemplate.Resources>
 					<Grid HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="89.9999999999999">
-						<Rectangle x:Name="rectangle" Fill="#FF0C95F0" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="90" Stroke="White" StrokeThickness="0" Margin="0"/>
+						<Rectangle Fill="#FF0C95F0" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="90" Stroke="White" StrokeThickness="0" Margin="0"/>
 						<ContentPresenter x:Name="tekst" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="18.75,3.959,0,2.831" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Width="71.25" Height="16.21" OpacityMask="White"/>
 					</Grid>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsDefaulted" Value="true"/>
-						<Trigger Property="IsMouseOver" Value="true">
-							<Trigger.ExitActions>
-								<BeginStoryboard x:Name="deakk_BeginStoryboard" Storyboard="{StaticResource deakk}"/>
-							</Trigger.ExitActions>
-							<Trigger.EnterActions>
-								<BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
-							</Trigger.EnterActions>
-						</Trigger>
+						<Trigger Property="IsMouseOver" Value="true"/>
 						<Trigger Property="IsPressed" Value="true"/>
 						<Trigger Property="IsEnabled" Value="false"/>
 					</ControlTemplate.Triggers>
