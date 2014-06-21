@@ -1,0 +1,21 @@
+<GhostDoc>
+  <SpellChecker>
+    <IncludeExtensions>
+    </IncludeExtensions>
+    <IgnoreExtensions>
+    </IgnoreExtensions>
+    <IgnoreFiles>
+    </IgnoreFiles>
+  </SpellChecker>
+  <HelpFile>
+    <OutputPath>C%3a%5cUsers%5csesta_000%5cDesktop%5cTrApp_desktop_dizajn+1850%5cHelp</OutputPath>
+    <SelectedProjects>DesingPi</SelectedProjects>
+    <HtmlHelp1>True</HtmlHelp1>
+    <MSHelp2>False</MSHelp2>
+    <MSHelpViewer>True</MSHelpViewer>
+    <Website>False</Website>
+    <DocumentInternals>True</DocumentInternals>
+    <DocumentProtected>True</DocumentProtected>
+    <DocumentPrivates>True</DocumentPrivates>
+  </HelpFile>
+</GhostDoc>

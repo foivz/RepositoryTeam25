@@ -1,0 +1,24 @@
+﻿<Window x:Class="DesingPi.frmIspisServisa"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ispis servisa" Height="377" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <DataGrid x:Name="vozilaservisdatagrid2" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="52,64.386,0,0" VerticalAlignment="Top" Height="203.088" Width="691.579" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="id_servisa2" Binding="{Binding id_servisa}" Header="#"/>
+                <DataGridTextColumn x:Name="registracija2" Binding="{Binding registracija}" Header="Registracija"/>
+                <DataGridTextColumn x:Name="naziv2" Binding="{Binding naziv}" Header="Naziv"/>
+                <DataGridTextColumn x:Name="servisni_interval2" Binding="{Binding servisni_interval}" Header="Servisni interval"/>
+                <DataGridTextColumn x:Name="pocetno_stanje_km2" Binding="{Binding pocetno_stanje_km}" Header="Početna kilometraža"/>
+                <DataGridTextColumn x:Name="stanje_na_zadnjem_servisu2" Binding="{Binding stanje_na_zadnjem_servisu}" Header="Stanje na zadnjem servisu"/>
+                <DataGridTextColumn x:Name="datum2" Binding="{Binding datum_servisa}" Header="Datum"/>
+                <DataGridTextColumn x:Name="id_vozilo2" Binding="{Binding id_vozilo}" Header="Id vozila" Visibility="Hidden"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="id_tehnickog_pregleda" HorizontalAlignment="Left" Height="30" Margin="98.316,14,0,302" Grid.Row="0" Text="{Binding ElementName=vozilaservisdatagrid2, Path=SelectedItem.id_servisa}" VerticalAlignment="Center" Width="68" IsEnabled="False" FontSize="24" FontWeight="Bold" BorderThickness="0,0,0,2"/>
+        <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Right" Margin="0,14,698.684,297" Grid.Row="0" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" Height="35"/>
+        <TextBox x:Name="id_voziloTextBox4" HorizontalAlignment="Left" Height="23" Margin="541,21,0,0"  Text="{Binding ElementName=vozilaservisdatagrid2, Path=SelectedItem.id_vozilo}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <Button x:Name="btnOdaberiServis" Content="Odaberi" HorizontalAlignment="Left" Margin="52,290.26,0,0" VerticalAlignment="Top" Width="84.825" Click="btnOdaberiServis_Click" Style="{DynamicResource DizajnGumba2}" Foreground="White"/>
+
+    </Grid>
+</Window>

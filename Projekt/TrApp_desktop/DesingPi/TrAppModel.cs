@@ -34,6 +34,10 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda za dohvat registracija.
+        /// </summary>
+        /// <returns></returns>
         public List<VozilaRegistracija> dohvatVozila()
         {
             using (var db = new T25_DBEntities1())
@@ -66,7 +70,7 @@ namespace DesingPi
                 }
             }
         }
-       
+
         /// <summary>
         /// Metoda za dohvat putnih radnih listova.
         /// </summary>
@@ -134,10 +138,8 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// Metoda za unos novog vozila i servisa istovremeno.
-        /// Servis za svako novo dodano vozilo mora biti upisan kako bi se moglo znati
-        /// kad će vozilo ići na servis ovisno o prijeđenom broju km. Odmah se zapisuje 
-        /// u tablicu tehnički pregled datum zadnjeg tehničkog pregleda.
+        /// Metoda za dodavanje novog vozila u tablicu vozilo.
+        /// Istovremeno u tablicu tehnički pregled se unosi datum zadnjeg tehničkog pregleda.
         /// </summary>
         /// <param name="vozilo"></param>
         public void dodaj(vozilo vozilo)
@@ -149,10 +151,6 @@ namespace DesingPi
                 tehPregled.vozilo = vozilo.id_vozilo;
                 tehPregled.datum = vozilo.datum_registracije;
                 db.tehnicki_pregled.Add(tehPregled);
-                servis unosServisa = new servis();
-                unosServisa.vozilo = vozilo.id_vozilo;
-                unosServisa.prijedjeni_km = vozilo.pocetno_stanje_km;
-                db.servis.Add(unosServisa);
                 db.SaveChanges();
             }
         }
@@ -190,6 +188,12 @@ namespace DesingPi
         {
             if (podatak == "vozilo")
             {
+                using (var db = new T25_DBEntities1())
+                {
+                    db.tehnicki_pregled.RemoveRange(db.tehnicki_pregled.Where(x => x.vozilo == id));
+                    db.SaveChanges();
+                }
+
                 using (var db = new T25_DBEntities1())
                 {
                     var brisanje = db.vozilo.SingleOrDefault(x => x.id_vozilo == id);
@@ -243,6 +247,30 @@ namespace DesingPi
                     }
                 }
             }
+            else if (podatak == "brisanje_servisa")
+            {
+                using (var db = new T25_DBEntities1())
+                {
+                    var brisanje = db.servis.SingleOrDefault(x => x.id_servisa == id);
+                    if (brisanje != null)
+                    {
+                        db.servis.Remove(brisanje);
+                        db.SaveChanges();
+                    }
+                }
+            }
+            else if (podatak == "brisanje_godisnjeg")
+            {
+                using (var db = new T25_DBEntities1())
+                {
+                    var brisanje = db.godisnji_odmor.SingleOrDefault(x => x.id_godisnjeg_odmora == id);
+                    if (brisanje != null)
+                    {
+                        db.godisnji_odmor.Remove(brisanje);
+                        db.SaveChanges();
+                    }
+                }
+            }
         }
 
 
@@ -282,7 +310,7 @@ namespace DesingPi
         {
             if (PTR == null)
             {
-                return ;
+                return;
             }
             using (var db = new T25_DBEntities1())
             {
@@ -304,7 +332,7 @@ namespace DesingPi
             //db.radni_sati.RemoveRange(db.radni_sati.Where(x => x.putni_radni_list == id));
             using (var db = new T25_DBEntities1())
             {
-                var RS=db.radni_sati.Where(rs=> rs.putni_radni_list==PTRId).ToList();
+                var RS = db.radni_sati.Where(rs => rs.putni_radni_list == PTRId).ToList();
 
                 //var some = db.radni_sati.Where(x => ls.Contains(x.friendid)).ToList();
                 foreach (var item in RS)
@@ -320,14 +348,14 @@ namespace DesingPi
         {
             using (var db = new T25_DBEntities1())
             {
-              
-                 var upit = db.Database.SqlQuery<PutniRadniList>("select * from PutniRadniList where id_putnog_radnog_lista = (select max(id_putnog_radnog_lista) from PutniRadniList)").ToList<PutniRadniList>();
-                 return upit.ToList();
+
+                var upit = db.Database.SqlQuery<PutniRadniList>("select * from PutniRadniList where id_putnog_radnog_lista = (select max(id_putnog_radnog_lista) from PutniRadniList)").ToList<PutniRadniList>();
+                return upit.ToList();
             }
         }
 
         /// <summary>
-        /// Metoda koja zbraja na putnim radnim listovima kilometražu
+        /// Metoda koja zbraja na putnim radnim listovima kilometražu koja nam je potrebna za određivanje ide li vozilo na servis.
         /// </summary>
         /// <returns></returns>
         public List<VozilaServis> dohvatiVozilaServis()
@@ -340,7 +368,20 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// Metoda koja dohvaća zaposlenike koji su na godišnjem odmoru
+        /// Metoda koja vraća listu vozila koje smo DANAS poslali na servis. Rezultat će se pokazati na frmIspisServisa unutar datagrida.
+        /// </summary>
+        /// <returns></returns>
+        public List<VozilaServis> ispisPoslanihServisa()
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                var upit = db.Database.SqlQuery<VozilaServis>("select servis.id_servisa, vozilo.id_vozilo, vozilo.registracija, vozilo.naziv, vozilo.servisni_interval, vozilo.pocetno_stanje_km, servis.prijedjeni_km as stanje_na_zadnjem_servisu, servis.opis, servis.datum as datum_servisa from vozilo, servis where vozilo.id_vozilo=servis.vozilo").ToList<VozilaServis>();
+                return upit;
+            }
+        }
+
+        /// <summary>
+        /// Metoda koja dohvaća zaposlenike koji su na godišnjem odmoru.
         /// </summary>
         public List<GodisnjiOdmor> dohvatiGodisnjiOdmor(string podatak)
         {
@@ -348,15 +389,15 @@ namespace DesingPi
             {
                 using (var db = new T25_DBEntities1())
                 {
-                    var upit = db.Database.SqlQuery<GodisnjiOdmor>("select *, godisnji_odmor.pocetak as pocetak_godisnjeg, godisnji_odmor.kraj as kraj_godisnjeg from zaposlenici join godisnji_odmor on zaposlenici.id_zaposlenici=godisnji_odmor.zaposlenik and getdate()>pocetak and GETDATE()<kraj;").ToList<GodisnjiOdmor>();
+                    var upit = db.Database.SqlQuery<GodisnjiOdmor>("select *, godisnji_odmor.pocetak as pocetak_godisnjeg, godisnji_odmor.kraj as kraj_godisnjeg, godisnji_odmor.id_godisnjeg_odmora from zaposlenici join godisnji_odmor on zaposlenici.id_zaposlenici=godisnji_odmor.zaposlenik and getdate()>pocetak and GETDATE()<kraj;").ToList<GodisnjiOdmor>();
                     return upit.ToList();
                 }
-            }   
+            }
             else
             {
                 using (var db = new T25_DBEntities1())
                 {
-                    var upit = db.Database.SqlQuery<GodisnjiOdmor>("select *, godisnji_odmor.pocetak as pocetak_godisnjeg, godisnji_odmor.kraj as kraj_godisnjeg from zaposlenici join godisnji_odmor on zaposlenici.id_zaposlenici=godisnji_odmor.zaposlenik;").ToList<GodisnjiOdmor>();
+                    var upit = db.Database.SqlQuery<GodisnjiOdmor>("select *, godisnji_odmor.pocetak as pocetak_godisnjeg, godisnji_odmor.kraj as kraj_godisnjeg, godisnji_odmor.id_godisnjeg_odmora from zaposlenici join godisnji_odmor on zaposlenici.id_zaposlenici=godisnji_odmor.zaposlenik;").ToList<GodisnjiOdmor>();
                     return upit.ToList();
                 }
             }
@@ -372,6 +413,21 @@ namespace DesingPi
             {
                 db.tehnicki_pregled.Add(teh);
                 db.SaveChanges();
+            }
+        }
+
+
+        /// <summary>
+        /// Metoda koja vraća listu vozila koje smo DANAS ODABRALI i koje danas šeljemo na registraciju.
+        /// Njezin rezultat se prikazuje na frmIspisRegistracija.
+        /// </summary>
+        /// <returns></returns>
+        public List<VozilaRegistracija> ispisPoslanihRegistracija()
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                var upit = db.Database.SqlQuery<VozilaRegistracija>("select t1.datum as sljedeca_registracija, t1.id_tehnickog_pregleda, v1.id_vozilo, v1.vrsta_vozila_id, v1.registracija, v1.naziv, t1.napomena from vozilo v1, tehnicki_pregled t1 where v1.id_vozilo=t1.vozilo;").ToList<VozilaRegistracija>();
+                return upit;
             }
         }
 
@@ -398,6 +454,78 @@ namespace DesingPi
             {
                 db.godisnji_odmor.Add(odmor);
                 db.SaveChanges();
+            }
+        }
+        /*****************************************************************************************************************/
+        //NOVE STVARI ZA SLOBODNA VOZILA
+
+        /// <summary>
+        /// Metoda koja vraća id vozila koja su na putnom radnom listu.
+        /// Treba nam kako bi pomoću te metode mogli pronaći slobodna vozila u contrroleru.
+        /// </summary>
+        /// <returns></returns>
+        public List<int> idPTR()
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                var upit = db.Database.SqlQuery<int>("select PutniRadniList.vozilo as id from PutniRadniList, vozilo where vozilo.id_vozilo=PutniRadniList.vozilo and GETDATE()>=PutniRadniList.pocetak and getdate()<=PutniRadniList.kraj;").ToList<int>();
+                return upit;
+            }
+        }
+
+        /// <summary>
+        /// Metoda koja vraća id vozila koja su na servisu.
+        /// Treba nam kako bi pomoću te metode mogli pronaći slobodna vozila u contrroleru.
+        /// </summary>
+        /// <returns></returns>
+        public List<int> idServis()
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                var upit = db.Database.SqlQuery<int>("select servis.vozilo as id from servis,vozilo where servis.vozilo=vozilo.id_vozilo and YEAR(servis.datum)=YEAR(GETDATE()) and month(servis.datum)=month(getdate()) and day(servis.datum)=day(GETDATE());").ToList<int>();
+                return upit;
+            }
+        }
+
+        /// <summary>
+        /// Metoda koja vraća id vozila koja su na tehničkom pregledu.
+        /// Treba nam kako bi pomoću te metode mogli pronaći slobodna vozila u contrroleru.
+        /// </summary>
+        /// <returns></returns>
+        public List<int> idTehnickiPregled()
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                var upit = db.Database.SqlQuery<int>("select t1.vozilo from tehnicki_pregled t1, vozilo where t1.vozilo=vozilo.id_vozilo and YEAR(t1.datum)=YEAR(GETDATE()) and month(t1.datum)=month(getdate()) and day(t1.datum)=day(GETDATE());").ToList<int>();
+                return upit;
+            }
+        }
+
+        /// <summary>
+        /// Metoda koja vraća id zaposlenika koja su na godišnjem odmoru.
+        /// Treba nam kako bi pomoću te metode mogli pronaći slobodne zaposlenike u contrroleru.
+        /// </summary>
+        /// <returns></returns>
+        public List<int> idGodisnjiOdmor()
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                var upit = db.Database.SqlQuery<int>("select zaposlenici.id_zaposlenici from zaposlenici, godisnji_odmor where zaposlenici.id_zaposlenici=godisnji_odmor.zaposlenik and year(GETDATE())>=year(pocetak) and month(GETDATE())>=month(pocetak) and day(getdate())>=day(pocetak) and year(GETDATE())<=year(kraj) and MONTH(GETDATE())<=month(kraj) and day(getdate())<=day(kraj);").ToList<int>();
+                return upit;
+            }
+        }
+
+        /// <summary>
+        /// Metoda koja vraća id zaposlenika koja su na Putnom radnom listu..
+        /// Treba nam kako bi pomoću te metode mogli pronaći slobodne zaposlenike u contrroleru.
+        /// </summary>
+        /// <returns></returns>
+        public List<int> idPTRZaposlenici()
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                var upit = db.Database.SqlQuery<int>("select zaposlenici.id_zaposlenici from zaposlenici, radni_sati, PutniRadniList where zaposlenici.id_zaposlenici=radni_sati.zaposlenik and radni_sati.putni_radni_list=PutniRadniList.id_putnog_radnog_lista and GETDATE()>=PutniRadniList.pocetak and getdate()<=PutniRadniList.kraj;").ToList<int>();
+                return upit;
             }
         }
     }

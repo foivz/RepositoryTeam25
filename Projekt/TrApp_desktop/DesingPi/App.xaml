@@ -4,5 +4,12 @@
              StartupUri="frmGlavna.xaml">
     <Application.Resources>
          
+    	<ResourceDictionary>
+    		<ResourceDictionary.MergedDictionaries>
+    			<ResourceDictionary Source="Tabovi.xaml"/>
+    			<ResourceDictionary Source="Gumb.xaml"/>
+    		</ResourceDictionary.MergedDictionaries>
+    	</ResourceDictionary>
+         
     </Application.Resources>
 </Application>

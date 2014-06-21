@@ -32,7 +32,7 @@ namespace DesingPi
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-           // registracijadatagrid2.ItemsSource = controller.ispisRegistracija();
+            registracijadatagrid2.ItemsSource = controller.poslanaNaRegistraciju();
         }
     }
 }

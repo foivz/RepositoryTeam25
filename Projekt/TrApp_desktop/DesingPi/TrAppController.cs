@@ -69,8 +69,9 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// Metoda za ispis vozila koja idu na servis. U while petlji u prvom uvijetu pregledava se ima li duplikata vozila u listi, ako ima prikazuje se zadnje vozilo s najvecim ID-om,
-        /// a ostala se brisu iz liste (ne i iz baze podataka).
+        /// Metoda za ispis vozila koja idu na servis.
+        /// Ukoliko vozilo još nije bilo na servisu u razliku se zapisuje trenutno stanje km.
+        /// U uvjetu se provjerava dal je razlika km veća od servisnog intervala.
         /// </summary>
         /// <returns></returns>
         public List<VozilaServis> dohvatiRazlikuKm()
@@ -78,20 +79,16 @@ namespace DesingPi
             List<VozilaServis> vozilaServisBezDuplikata = new List<VozilaServis>();
             vozilaServisBezDuplikata = model.dohvatiVozilaServis();
             List<VozilaServis> vozilaServisNovo = new List<VozilaServis>();
-            int index = 0;
-            while (index < vozilaServisBezDuplikata.Count - 1)
-            {
-                if (vozilaServisBezDuplikata[index].id_vozilo == vozilaServisBezDuplikata[index + 1].id_vozilo)
-                    vozilaServisBezDuplikata.RemoveAt(index);
-                else index++;
-            }
             foreach (VozilaServis i in vozilaServisBezDuplikata)
             {
-                i.razlika_km = i.trenutno_stanje_km - i.stanje_na_zadnjem_servisu;
+                if (i.stanje_na_zadnjem_servisu == null)
+                    i.razlika_km = i.trenutno_stanje_km;
+                else i.razlika_km = i.trenutno_stanje_km - i.stanje_na_zadnjem_servisu;
                 if (i.razlika_km >= i.servisni_interval)
                     vozilaServisNovo.Add(i);
             }
             return vozilaServisNovo;
+            //return vozilaServisBezDuplikata;
         }
 
         /// <summary>
@@ -225,25 +222,6 @@ namespace DesingPi
             model.dodaj(teh);
         }
 
-
-        /// <summary>
-        /// Metoda koja ispisuje vozila koja su danas poslana na registraciju.
-        /// </summary> // NE RADI
-        /// <returns></returns>
-        /*public List<VozilaRegistracija> ispisRegistracija()
-        {
-            List<VozilaRegistracija> ispisID = new List<VozilaRegistracija>();
-            DateTime danas = DateTime.Now;
-            foreach (VozilaRegistracija i in model.trenutniIspisRegistracija())
-            {
-                if (i.sljedeca_registracija.Date == danas.Date)
-                {
-                    ispisID.Add(i);
-                }
-            }
-            return ispisID;
-        }*/
-
         /// <summary>
         /// Metoda koja služi za popunjavanje textboksova podacima iz frmIspisRegistracija na glavnoj formi (tabu nadolazeće registracije).
         /// Controlleru prosljeđujemo id koji smo odabrali na formi ispisRegistracija.
@@ -286,5 +264,118 @@ namespace DesingPi
         }
 
 
+        /// <summary>
+        /// Metoda koja služi za popunjavanje textboksova na glavnoj formi (tabu nadolazeći servisi) iz forme ispisServisa (prije toga je potrebno označiti podatke na frmIspisServisa).
+        /// Controlleru prosljeđujemo odabrani ID vozila.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public VozilaServis ispisServisa(int id)
+        {
+            VozilaServis ispisID = new VozilaServis();
+            foreach (VozilaServis i in model.ispisPoslanihServisa())
+            {
+                if (i.id_vozilo == id)
+                {
+                    ispisID = i;
+                }
+            }
+            return ispisID;
+        }
+
+        /// <summary>
+        /// Metoda koja mi ispisjue sve registracije koje sam poslal od danas pa na dalje.
+        /// Rezultat metode se prikazuje na frmIpsisRegistracija.
+        /// </summary>
+        /// <returns></returns>
+        public List<VozilaRegistracija> poslanaNaRegistraciju()
+        {
+            DateTime danas = DateTime.Now;
+            List<VozilaRegistracija> poslana = new List<VozilaRegistracija>();
+            foreach (VozilaRegistracija i in model.ispisPoslanihRegistracija())
+            {
+                if (i.sljedeca_registracija.Year >= danas.Year && i.sljedeca_registracija.Month >= danas.Month && i.sljedeca_registracija.Day >= danas.Day)
+                {
+                    poslana.Add(i);
+                }
+            }
+            return poslana;
+        }
+
+        /// <summary>
+        /// Metoda koja ispisuje sva vozila koja sam poslal na servis od danas pa na dalje.
+        /// Rezultat metode će se prikazati na frmIspisServisa.
+        /// </summary>
+        /// <returns></returns>
+        public List<VozilaServis> poslanaNaServis()
+        {
+            DateTime danas = DateTime.Now;
+            List<VozilaServis> poslana = new List<VozilaServis>();
+            foreach (VozilaServis i in model.ispisPoslanihServisa())
+            {
+                if (i.datum_servisa >= danas)
+                {
+                    poslana.Add(i);
+                }
+            }
+            return poslana;
+        }
+
+        /*****************************************************************************************************************/
+        //NOVE STVARI ZA SLOBODNA VOZILA
+        /// <summary>
+        /// Metoda koja ispisuje vozila koja nisu na servisu, putnom radnom listu i tehničkom pregledu.
+        /// Problem se može riješiti i na način da se svaki put (3 put) spajamo na bazu kojoj prosljeđujemo id vozila koja su zauzeta i selektiramo sva ona vozila
+        /// koja nisu na prosljeđenim parametrima.
+        /// </summary>
+        /// <returns></returns>
+        public List<vozilo> ispisSlobodnihVozila()
+        {
+            List<vozilo> svaVozila = model.dohvatVozila("sva_vozila");
+            List<vozilo> slobodnaVozila = new List<vozilo>();
+            List<vozilo> zauzetaVozila= new List<vozilo>(); // zauzeta
+            //Provjeravamo zauzeta vozila na Putnom radnom listu.
+            foreach(int i in model.idPTR()){
+                vozilo a = svaVozila.Find(x => x.id_vozilo == i);
+                zauzetaVozila.Add(a);
+            }
+            foreach (int i in model.idTehnickiPregled())
+            {
+                vozilo b = svaVozila.Find(x => x.id_vozilo == i);
+                zauzetaVozila.Add(b);
+            }
+            foreach (int i in model.idServis())
+            {
+                vozilo c = svaVozila.Find(x => x.id_vozilo == i);
+                zauzetaVozila.Add(c);
+            }
+            slobodnaVozila = svaVozila.Except(zauzetaVozila).ToList();
+            return slobodnaVozila;
+        }
+
+
+        /// <summary>
+        /// Metoda koja ispisuje zaposlenike koji nisu na godišnjem odmoru i vozače koji nisu na 
+        /// putnom radnom listu. Metoda radi na isti princip kao i za slobodna vozila.
+        /// </summary>
+        /// <returns></returns>
+        public List<zaposlenici> ispisSlobodnihZaposlenika()
+        {
+            List<zaposlenici> sviZaposlenici = model.dohvatVozaca("svi_vozači");
+            List<zaposlenici> zauzetiZaposlenici = new List<zaposlenici>();
+            List<zaposlenici> slobodniZaposlenici = new List<zaposlenici>();
+            foreach (int i in model.idGodisnjiOdmor())
+            {
+                zaposlenici a = sviZaposlenici.Find(x => x.id_zaposlenici == i);
+                zauzetiZaposlenici.Add(a);
+            }
+            foreach (int i in model.idPTRZaposlenici())
+            {
+                zaposlenici b=sviZaposlenici.Find(x => x.id_zaposlenici == i);
+                zauzetiZaposlenici.Add(b);
+            }
+            slobodniZaposlenici = sviZaposlenici.Except(zauzetiZaposlenici).ToList();
+            return slobodniZaposlenici;
+        }
     }
 }

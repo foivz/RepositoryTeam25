@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -165,10 +166,6 @@ namespace DesingPi
                 MessageBox.Show("Vozilo uspješno dodano!", "Obavijest");
                 ocistiTextBox(this);
             }
-            else
-            {
-                MessageBox.Show("Niste unijeli sve podatke!", "Upozorenje");
-            }
         }
 
         /// <summary>
@@ -196,9 +193,32 @@ namespace DesingPi
 
         private void btnObrisiVozilo_Click(object sender, RoutedEventArgs e)
         {
+            List<VozilaRegistracija> naRegistraciji = controller.poslanaNaRegistraciju();
+            List<VozilaServis> naServisu = controller.poslanaNaServis();
             string podatak = "vozilo";
             string podatak2 = "sva_vozila";
-            int voziloId = Convert.ToInt32(id_voziloTextBox.Text);
+            int voziloId = 0;
+            if (string.IsNullOrWhiteSpace(id_voziloTextBox.Text))
+            {
+                return;
+            }
+            voziloId = Convert.ToInt32(id_voziloTextBox.Text);
+            foreach (VozilaRegistracija i in naRegistraciji)
+            {
+                if (i.id_vozilo == voziloId)
+                {
+                    MessageBox.Show("Vozilo je na registraciji, ne može se obrisati!", "Obavijest");
+                    return;
+                }
+            }
+            foreach (VozilaServis i in naServisu)
+            {
+                if (i.id_vozilo == voziloId)
+                {
+                    MessageBox.Show("Vozilo je na servisu, ne može se obrisati", "Obavijest");
+                    return;
+                }
+            }
             controller.obrisi(voziloId, podatak);
             MessageBox.Show("Vozilo uspješno obrisano!", "Obavijest");
             voziloDataGrid.ItemsSource = model.dohvatVozila(podatak2);
@@ -224,6 +244,11 @@ namespace DesingPi
         /// <returns>Vraća true ako je sve ispunjeno, false ako nije.</returns>
         private bool provjeriPopunjenostVozila()
         {
+            if (string.IsNullOrWhiteSpace(godina_proizvodnjeTextBox.Text))
+                return false;
+            int godina_proizvodnje = Convert.ToInt32(godina_proizvodnjeTextBox.Text);
+            DateTime datum_registracije = Convert.ToDateTime(datum_registracijeDatePicker.Text);
+            int datum = Convert.ToInt32(datum_registracije.Year);
             if (string.IsNullOrWhiteSpace(id_vrsta_vozilaTextBox.Text) ||
                string.IsNullOrWhiteSpace(registracijaTextBox.Text) ||
                string.IsNullOrWhiteSpace(nazivTextBox.Text) ||
@@ -233,6 +258,13 @@ namespace DesingPi
                string.IsNullOrWhiteSpace(datum_registracijeDatePicker.Text) ||
                string.IsNullOrWhiteSpace(pocetno_stanje_kmTextBox.Text))
             {
+                MessageBox.Show("Niste unijeli sve podatke!", "Upozorenje!");
+                return false;
+            }
+            else if (godina_proizvodnje > datum)
+            {
+
+                MessageBox.Show("Godina proizvodnje ne može biti veća od datuma prve registracije!", "Upozorenje!");
                 return false;
             }
             return true;
@@ -310,6 +342,8 @@ namespace DesingPi
         private void btnObrisiZaposlenika_Click(object sender, RoutedEventArgs e)
         {
             string podatak = "svi_vozaci";
+            if (string.IsNullOrWhiteSpace(id_zaposleniciTextBox.Text))
+                return;
             int zaposlenikId = Convert.ToInt32(id_zaposleniciTextBox.Text);
             controller.obrisi(zaposlenikId, podatak);
             MessageBox.Show("Vozilo uspješno obrisano!", "Obavijest");
@@ -413,7 +447,7 @@ namespace DesingPi
                 krajDatePicker.Text = odabraniPTRObj.kraj.ToString();
                 mjesto_utovaraTextBox.Text = odabraniPTRObj.mjesto_utovara.ToString();
                 mjesto_istovaraTextBox.Text = odabraniPTRObj.mjesto_istovara.ToString();
-                kreiraTextBox.Text = odabraniPTRObj.kreira.ToString();
+                //kreiraTextBox.Text = odabraniPTRObj.kreira.ToString();
                 kilometrazaTextBox.Text = odabraniPTRObj.kilometraza.ToString();
                 teretTextBox.Text = odabraniPTRObj.teret.ToString();
                 if(!string.IsNullOrWhiteSpace(napomeneTextBox.Text))
@@ -446,7 +480,7 @@ namespace DesingPi
                 string.IsNullOrWhiteSpace(zaposlenikTextBox.Text) ||
                 string.IsNullOrWhiteSpace(pocetakDatePicker.Text) ||
                 string.IsNullOrWhiteSpace(kilometrazaTextBox.Text) ||
-                string.IsNullOrWhiteSpace(kreiraTextBox.Text) ||
+                string.IsNullOrWhiteSpace(cmbPTRSlobodniZaposlenici.Text) ||
                 string.IsNullOrWhiteSpace(mjesto_utovaraTextBox.Text) ||
                 string.IsNullOrWhiteSpace(mjesto_istovaraTextBox.Text)||
                 string.IsNullOrWhiteSpace(teretTextBox.Text))
@@ -473,8 +507,9 @@ namespace DesingPi
             PutniRadniList PTR = new PutniRadniList();
             try
             {
+                string[] IDkreira = cmbPTRSlobodniZaposlenici.Text.Split(' ');
                 PTR.vozilo = Convert.ToInt32(voziloTextBox.Text);
-                PTR.kreira = Convert.ToInt32(kreiraTextBox.Text);
+                PTR.kreira = Convert.ToInt32(IDkreira[0]);
                 PTR.kilometraza = Convert.ToInt32(kilometrazaTextBox.Text);
                 PTR.pocetak = Convert.ToDateTime(pocetakDatePicker.Text);
                 if (!string.IsNullOrWhiteSpace(krajDatePicker.Text))
@@ -582,8 +617,7 @@ namespace DesingPi
 
         private void popisSlobodnihVozaca(object sender, RoutedEventArgs e)
         {
-            string podatak = "";
-            zaposleniciDataGrid.ItemsSource = model.dohvatVozaca(podatak);
+            zaposleniciDataGrid.ItemsSource = controller.ispisSlobodnihZaposlenika();
         }
 
         /// <summary>
@@ -673,12 +707,16 @@ namespace DesingPi
         private void btnObrisiPTR_Click(object sender, RoutedEventArgs e)
         {
             string podatak = "obrisi_PTR";
-            int PTRId = Convert.ToInt32(id_putnog_radnog_listaTextBox.Text);
-            controller.obrisi(PTRId, podatak);
-            PregledPTR PTR = new PregledPTR();
-            MessageBox.Show("Putni radni list uspješno obrisan!", "Obavijest");
-            PTR.putniRadniListDataGrid.ItemsSource = model.dohvatPTR();
-            PTR.radni_satiDataGrid.ItemsSource = model.dohvatRS();
+            int PTRId=0;
+            if (!string.IsNullOrWhiteSpace(id_putnog_radnog_listaTextBox.Text))
+            {
+                PTRId = Convert.ToInt32(id_putnog_radnog_listaTextBox.Text);
+                controller.obrisi(PTRId, podatak);
+                PregledPTR PTR = new PregledPTR();
+                MessageBox.Show("Putni radni list uspješno obrisan!", "Obavijest");
+                PTR.putniRadniListDataGrid.ItemsSource = model.dohvatPTR();
+                PTR.radni_satiDataGrid.ItemsSource = model.dohvatRS();
+            }
             ocistiTextBox(this);
         }
 
@@ -726,9 +764,9 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// Metoda za ispis vozila koja su danas poslana na registraciju. Poslana vozila se prikazju na novoj formi, odabirom nekog vozila na ispisu
+        /// Metoda za ispis vozila koja su DANAS (znaci odabrana u datagridu na tabu nadolazeće registracije) poslana na registraciju. Poslana vozila se prikazuju na novoj formi, odabirom nekog vozila na ispisu
         /// prikazuju se podaci za vozilo na glavnoj formi (njezinim textboksovima).
-        /// </summary> METODA NE RADI SKROZ DOBRO JER NE PRIKAZUJE TOČNO ONA VOZILA KOJA SAD POSALJES
+        /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnIspisRegistracija_Click(object sender, RoutedEventArgs e)
@@ -753,9 +791,12 @@ namespace DesingPi
 
         private void btnObrisiRegistraciju_Click(object sender, RoutedEventArgs e)
         {
-            controller.obrisi(Convert.ToInt32(txtIdTehnickog.Text), "brisanje_registracije");
-            MessageBox.Show("Registracija uspješno obrisana!", "Obavijest");
-            ocistiTextBox(this);
+            if (!string.IsNullOrWhiteSpace(txtIdTehnickog.Text))
+            {
+                controller.obrisi(Convert.ToInt32(txtIdTehnickog.Text), "brisanje_registracije");
+                MessageBox.Show("Registracija uspješno obrisana!", "Obavijest");
+                ocistiTextBox(this);
+            }
         }
 
         /// <summary>
@@ -769,11 +810,8 @@ namespace DesingPi
                 || string.IsNullOrWhiteSpace(id_vrsta_vozilaTextBox4.Text)
                 || string.IsNullOrWhiteSpace(registracijaTextBox4.Text) 
                 || string.IsNullOrWhiteSpace(txtServisniInterval.Text) 
-                || string.IsNullOrWhiteSpace(txtStanjeNaZadnjemServisu.Text)
                 || string.IsNullOrWhiteSpace(txtTrenutnoStanje.Text)
-                || string.IsNullOrWhiteSpace(opisTextBox.Text)
                 || string.IsNullOrWhiteSpace(datumDatePicker1.Text)
-                || string.IsNullOrWhiteSpace(opisTextBox.Text)
                 || string.IsNullOrWhiteSpace(datumDatePicker1.Text))
             {
                 return false;
@@ -811,15 +849,16 @@ namespace DesingPi
         {
             if (string.IsNullOrWhiteSpace(pocetakDatePicker1.Text)
                 || string.IsNullOrWhiteSpace(krajDatePicker1.Text)
-                || string.IsNullOrWhiteSpace(zaposlenikTextBox2.Text))
+                || string.IsNullOrWhiteSpace(cmbZaposleniciCombo.Text))
                 return false;
             return true;
         }
 
         private godisnji_odmor dohvatGodisnjeg()
         {
+            string[] proba = cmbZaposleniciCombo.Text.Split(' '); 
             godisnji_odmor odmor = new godisnji_odmor();
-            odmor.zaposlenik = Convert.ToInt32(zaposlenikTextBox2.Text);
+            odmor.zaposlenik = Convert.ToInt32(proba[0]);
             odmor.pocetak = Convert.ToDateTime(pocetakDatePicker1.Text);
             odmor.kraj = Convert.ToDateTime(krajDatePicker1.Text);
             return odmor;
@@ -833,9 +872,106 @@ namespace DesingPi
                 MessageBox.Show("Zaposlenik dodan na godišnji odmor!", "Obavijest");
                 ocistiTextBox(this);
                 datagridGodisnjiOdmor.ItemsSource = model.dohvatiGodisnjiOdmor("see");
+                ocistiTextBox(this);
             }
             else MessageBox.Show("Niste unijeli sve podatke!", "Upozorenje!");
         }
 
+        /// <summary>
+        /// Metoda koja otvara formu frmIspisServisa na kojoj su prikazana vozila koja su danas poslana na servis. Odabirom nekog vozila
+        /// iz datagrida na frmIspisServisa popunit će se pripdani textboksovi na glavnoj formi. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ispisServisa_Click(object sender, RoutedEventArgs e)
+        {
+            frmIspisServisa servisIspis = new frmIspisServisa();
+            servisIspis.ShowDialog();
+            VozilaServis ser = new VozilaServis();
+            int idVozila;
+            if (!string.IsNullOrWhiteSpace(servisIspis.id_voziloTextBox4.Text))
+            {
+                idVozila = Convert.ToInt32(servisIspis.id_voziloTextBox4.Text);
+                ser = controller.ispisServisa(idVozila);
+                id_voziloTextBox4.Text = Convert.ToString(ser.id_vozilo);
+                nazivTextBox4.Text = ser.naziv;
+                registracijaTextBox4.Text = ser.registracija;
+                datumDatePicker1.Text = Convert.ToString(ser.datum_servisa);
+                txtServisniInterval.Text = Convert.ToString(ser.servisni_interval);
+                txtStanjeNaZadnjemServisu.Text = Convert.ToString(ser.stanje_na_zadnjem_servisu);
+                txtTrenutnoStanje.Text = Convert.ToString(ser.trenutno_stanje_km);
+                txtIdServisa.Text = Convert.ToString(ser.id_servisa);
+            }
+
+
+        }
+
+        private void btnObrišiServis_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtIdServisa.Text))
+            {
+                controller.obrisi(Convert.ToInt32(txtIdServisa.Text), "brisanje_servisa");
+                MessageBox.Show("Servis uspješno obrisan!", "Obavijest");
+                ocistiTextBox(this);
+                vozilaservisdatagrid.ItemsSource = controller.dohvatiRazlikuKm();
+            }
+        }
+
+        /******************************************************************************/
+        private void popisSlobodnihVozila(object sender, RoutedEventArgs e)
+        {
+            voziloDataGrid.ItemsSource = controller.ispisSlobodnihVozila(); 
+        }
+
+
+        /// <summary>
+        /// Metoda koja na load metodi puni combobox s slobodnim zaposlenicima.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmbZaposleniciCombo_DropDownOpened(object sender, EventArgs e)
+        {
+            List<zaposlenici> zaCombo = new List<zaposlenici>();
+            zaCombo = controller.ispisSlobodnihZaposlenika();
+            foreach (zaposlenici i in zaCombo)
+            {
+                cmbZaposleniciCombo.Items.Add(i.id_zaposlenici + " " + i.prezime + " " + i.ime);
+            }
+        }
+
+        private void btnObrisiGodisnjiOdmor_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(id_godinjeg_odmoraTextBox.Text))
+            {
+                controller.obrisi(Convert.ToInt32(id_godinjeg_odmoraTextBox.Text), "brisanje_godisnjeg");
+                MessageBox.Show("Godišnji odmor uspješno obrisan!", "Obavijest");
+                ocistiTextBox(this);
+                datagridGodisnjiOdmor.ItemsSource = model.dohvatiGodisnjiOdmor("see");
+            }
+        }
+
+        int brPonavljanja = 0; //kolko put se otvorio combobox
+        private void cmbPTRSlobodniZaposlenici_DropDownOpened(object sender, EventArgs e)
+        {
+            if (brPonavljanja++ < 1)
+            {
+                List<zaposlenici> zaCombo = new List<zaposlenici>();
+                zaCombo = controller.ispisSlobodnihZaposlenika();
+                foreach (zaposlenici i in zaCombo)
+                {
+                    if (i.uloga == 5 || i.uloga == 6)
+                        cmbPTRSlobodniZaposlenici.Items.Add(i.id_zaposlenici + " " + i.prezime + " " + i.ime);
+                }
+            }
+
+        }
+
+        private void tabDokumentacija(object sender, RoutedEventArgs e)
+        {
+            Process.Start("DesingPI.chm");
+        }
+
+
+       
     }
 }
