@@ -17,9 +17,12 @@ using System.Data.SqlClient;
 
 namespace PracenjeVozila
 {
+    
    
     public partial class frmPracenje: UserControl
     {
+        public int brPos = 0;
+        public 
         string connectionString = "server=144.76.19.105;userid=mvukovic2;pwd=L3xxtafb;database=mvukovic2;";
         public frmPracenje()
         {
@@ -48,6 +51,8 @@ namespace PracenjeVozila
         /// <param name="e"></param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            Random rnd = new Random();
+
             label1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             int ptr = int.Parse(label1.Text);
 
@@ -79,17 +84,22 @@ namespace PracenjeVozila
                       "TrApp praćenje vozila", MessageBoxButtons.OK,
                       MessageBoxIcon.Warning);
             }
+            
             mapControl.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
+
+            mapControl.Overlays.Clear();
             List<PointLatLng> nova = napuniListu(ptr);
             PointLatLng zadnja = nova.LastOrDefault<PointLatLng>();
             mapControl.Position = zadnja;
 
+
            GMapRoute r = new GMapRoute(nova, "Ruta");
             r.Stroke.Width = 5;
-            r.Stroke.Color = Color.Red;
+            r.Stroke.Color = Color.FromArgb(rnd.Next(255),rnd.Next(255),rnd.Next(255));
             
             GMapOverlay routes = new GMapOverlay(mapControl, "Routes");
+            
             routes.Routes.Add(r);
             mapControl.Overlays.Add(routes);
             mapControl.ZoomAndCenterRoute(r);
@@ -99,8 +109,7 @@ namespace PracenjeVozila
             GMapMarkerGoogleGreen marker = new GMapMarkerGoogleGreen(zadnja);
             markersOverlay.Markers.Add(marker);
             mapControl.Overlays.Add(markersOverlay);
-             
-
+                        
         }
 
 
@@ -128,6 +137,7 @@ namespace PracenjeVozila
 
             mapControl.MapProvider = GMap.NET.MapProviders.GoogleMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
+            mapControl.Position = new PointLatLng(46.167374, 16.821291);
             //mapControl.Position = new PointLatLng(46.305746000000000000, 16.336606599999982000);
 
             /*GMapOverlay markersOverlay = new GMapOverlay(mapControl, "markers");
