@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mcl="clr-namespace:PracenjeVozila;assembly=PracenjeVozila"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:DesingPi" mc:Ignorable="d" x:Class="DesingPi.MainWindow"
-        Title="TrApp - Transport" Height="768" Width="1024" Padding="0" Loaded="Window_Loaded">
+        Title="TrApp - Transport" Height="768" Width="1062" Padding="0" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="t25_DBEntitiesViewSource" d:DesignSource="{d:DesignInstance {x:Type local:T25_DBEntities1}, CreateList=True}"/>
         <CollectionViewSource x:Key="t25_DBEntitiesvoziloViewSource" Source="{Binding vozilo, Source={StaticResource t25_DBEntitiesViewSource}}"/>
@@ -18,7 +18,8 @@
     <Grid>
         <!-- Glavni gornji meni -->
         <!-- Glavni gornji meni -->
-        <Grid Grid.Row="0" Grid.Column="0" Background="White" HorizontalAlignment="Left"  Width="5000" ShowGridLines="True">
+        <!-- Glavni gornji meni -->
+        <Grid Grid.Row="0" Grid.Column="0" Background="White" HorizontalAlignment="Left"  Width="1016" ShowGridLines="True">
             <Menu IsMainMenu="True" Margin="10,13,0,0" FontSize="14" Background="{x:Null}" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1024">
                 <MenuItem Header="_Vozila">
                     <MenuItem Header="_Popis vozila" Click="tabPopisVozila"/>
@@ -243,7 +244,7 @@
                                 </DataGrid>
                                 <ComboBox x:Name="cmbOdabirVozaca" Loaded="popisSvih" HorizontalAlignment="Left" Margin="28,21,0,0" VerticalAlignment="Top" Width="134" SelectedIndex="0">
                                     <ComboBoxItem Content="Svi vozači" HorizontalAlignment="Left" Width="132" Selected="popisSvihVozaca"/>
-                                    <ComboBoxItem Content="Slobodni vozači" HorizontalAlignment="Left" Selected="popisSlobodnihVozaca" Width="132"></ComboBoxItem>
+                                    <ComboBoxItem Content="Slobodni vozači" HorizontalAlignment="Left" Selected="popisSlobodnihVozaca" Width="132"/>
                                 </ComboBox>
 
                             </Grid>
@@ -361,7 +362,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <Grid Background="White" Margin="0,-2,-34,0">
-                    <TabControl x:Name="tabTransportniPodaci" Height="682" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="806" Margin="0,-2.168,0,-10.832" BorderThickness="0,1,1,1" BorderBrush="#FF0C95F0" RenderTransformOrigin="0.5,0.5">
+                    <TabControl x:Name="tabTransportniPodaci" Height="682" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="820.333" Margin="0,-2.168,0,-10.832" BorderThickness="0,1,1,1" BorderBrush="#FF0C95F0" RenderTransformOrigin="0.5,0.5">
                         <!-- Tab unos putnog radnog lista -->
                         <TabItem  Height="32" VerticalAlignment="Top" Background="White" Margin="0" Style="{DynamicResource DizajnTaba}" BorderBrush="White">
                             <TabItem.Header>
@@ -479,7 +480,7 @@
                                 <Button Content="Odaberi..." x:Name="btnOdaberiVozaca1" HorizontalAlignment="Left" Margin="624,131.041,0,0" VerticalAlignment="Top" Width="88" Height="23" Click="btnOdaberiVozaca1_Click" Style="{DynamicResource DizajnGumba2}" Foreground="White" />
                                 <Button Content="Odaberi..." x:Name="btnOdaberiVozaca2" HorizontalAlignment="Left" Margin="624.917,176.041,0,0" VerticalAlignment="Top" Width="88" Height="23" Click="btnOdaberiVozaca2_Click" Style="{DynamicResource DizajnGumba2}" Foreground="White"/>
                                 <Button Content="Ispis" x:Name="btnIspis" HorizontalAlignment="Left" Margin="636,51,0,0" VerticalAlignment="Top" Width="75" Height="33" Style="{DynamicResource GumbIspis}"/>
-                                <Button Content="Pregled" x:Name="btnPregled" HorizontalAlignment="Left" Margin="515,53.874,0,0" VerticalAlignment="Top" Width="79" Height="23" Click="btnPregledPTR_Click" Style="{DynamicResource DizajnGumba}" Foreground="White" />
+                                <Button Content="Pregled" x:Name="btnPregled" HorizontalAlignment="Left" Margin="515,53.874,0,0" VerticalAlignment="Top" Width="81" Height="23" Click="btnPregledPTR_Click" Style="{DynamicResource DizajnGumba}" Foreground="White" />
                                 <Button Content="Spremi" x:Name="btnSpremiPTR" HorizontalAlignment="Right" Margin="0,0,322,206" VerticalAlignment="Bottom" Width="80" Height="23" Click="btnSpremiPTR_Click" Style="{DynamicResource DizajnGumba}" Foreground="White" />
                                 <Button Content="Izmijeni" x:Name="btnIzmijeniPTR" HorizontalAlignment="Right" Margin="0,0,205,206" VerticalAlignment="Bottom" Width="80" Height="23" Click="btnIzmijeniPTR_Click" Style="{DynamicResource DizajnGumba}" Foreground="White"/>
                                 <Grid x:Name="grid33" DataContext="{StaticResource putniRadniListViewSource}" HorizontalAlignment="Left" Margin="44,284.05,0,0" VerticalAlignment="Top" Width="209">
@@ -859,13 +860,14 @@
                     </StackPanel>
                 </TabItem.Header>
                 <Grid Background="White" Margin="0,-2,-34,0">
-                    <TabControl x:Name="tabPracenjeVozila" Height="654.75" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="806" Margin="0,0,0,-15.75" BorderBrush="#FF0C95F0" BorderThickness="0,1,0,0">
-                        <WindowsFormsHost HorizontalAlignment="Left" Height="629" VerticalAlignment="Top" Width="796">
+                    <TabControl x:Name="tabPracenjeVozila" Height="643" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="836.333" Margin="-16,0,0,0" BorderBrush="#FF0C95F0" BorderThickness="0,1,0,0" Style="{DynamicResource dizajnPracenja}">
+                        <WindowsFormsHost HorizontalAlignment="Left" Height="629" VerticalAlignment="Top" Width="833" Margin="13.333,0,-24,0">
                             <mcl:frmPracenje Name="mc"/>
                         </WindowsFormsHost>
                     </TabControl>
                 </Grid>
             </TabItem>
         </TabControl>
+        <Rectangle Fill="White" Stroke="White" Margin="200.5,80.875,819,641.125"/>
     </Grid>
 </Window>
