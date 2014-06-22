@@ -953,3 +953,4 @@ C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\DesingPi.g.resources
 C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
 C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
 C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\itextsharp.dll
+C:\Users\Nino\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\DesingPi\obj\Debug\Inputi.baml
