@@ -343,7 +343,7 @@
                                     <DatePicker x:Name="krajDatePicker1" Grid.Column="1" HorizontalAlignment="Left" Margin="3,3.98,-12.613,3.98" Grid.Row="0" Text="{Binding SelectedItem.kraj_godisnjeg, ElementName=datagridGodisnjiOdmor}" VerticalAlignment="Center" Width="117.253"/>
 
                                 </Grid>
-                                <Button x:Name="btnObrisiGodisnjiOdmor" Content="Obriši" HorizontalAlignment="Left" Margin="332,232,0,0" VerticalAlignment="Top" Width="75" Click="btnObrisiGodisnjiOdmor_Click"/>
+                                <Button x:Name="btnObrisiGodisnjiOdmor" Content="Obriši" HorizontalAlignment="Left" Margin="332,230,0,0" VerticalAlignment="Top" Width="75" Click="btnObrisiGodisnjiOdmor_Click" Style="{DynamicResource DizajnGumba}" Foreground="White"/>
                             </Grid>
                         </TabItem>
                         <!-- Tab mjesečni obračun radnih sati-->
@@ -354,7 +354,7 @@
                             <TabItem.Content>
                                 <Grid>
                                     <Label Content="Unesi cijenu satnice:" HorizontalAlignment="Left" Margin="40,54,0,0" VerticalAlignment="Top"/>
-                                    <TextBox x:Name="txtCijenaSatnice" HorizontalAlignment="Left" Height="23" Margin="159,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                    <TextBox x:Name="txtCijenaSatnice" HorizontalAlignment="Left" Height="23" Margin="159,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160.5"/>
                                     <DataGrid x:Name="satnicaDataGrid" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="40,111.5,0,0" VerticalAlignment="Top" Height="257" Width="727" AutoGenerateColumns="False">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn x:Name="id_zaposleniciColumn5" Binding="{Binding id_zaposlenici}" Header="#" Width="SizeToHeader"/>
@@ -366,7 +366,7 @@
                                             <DataGridTextColumn x:Name="satnicaIzracunata" Binding="{Binding izracunataSatnica}" Header="Izračunata satnica" Width="SizeToHeader"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
-                                    <Button x:Name="btnIzračunajSatnicu" Content="Izračunaj" HorizontalAlignment="Left" Margin="321,57,0,0" VerticalAlignment="Top" Width="85.667" Click="btnIzračunajSatnicu_Click" Style="{DynamicResource DizajnGumba2}" Foreground="White"/>
+                                    <Button x:Name="btnIzračunajSatnicu" Content="Izračunaj" HorizontalAlignment="Left" Margin="342,57,0,0" VerticalAlignment="Top" Width="85.667" Click="btnIzračunajSatnicu_Click" Style="{DynamicResource DizajnGumba2}" Foreground="White"/>
                                 </Grid>
                             </TabItem.Content>
                         </TabItem>

@@ -5,8 +5,8 @@
     <Grid Margin="0,0,2,-20">
         <Label x:Name="lblKorisnickoIme" Content="Korisničko ime:" HorizontalAlignment="Left" Margin="264,487.846,0,0" VerticalAlignment="Top" Width="146.662" FontSize="16" FontFamily="Lato"/>
         <Label x:Name="lblLozinka" Content="Lozinka:" HorizontalAlignment="Left" Margin="264,534.846,0,0" VerticalAlignment="Top" Width="146.662" FontSize="16" FontFamily="Lato"/>
-        <TextBox x:Name="txtKorisnickoIme" HorizontalAlignment="Left" Height="31" Margin="388.662,487.846,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293.383" Background="White"/>
-        <TextBox x:Name="txtLozinka" HorizontalAlignment="Left" Height="31" Margin="388.662,534.846,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293.383" Background="White"/>
+        <TextBox x:Name="txtKorisnickoIme" HorizontalAlignment="Left" Height="31" Margin="388.662,487.846,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293.383" Background="White" FontSize="18.667" FontFamily="Lato"/>
+        <TextBox x:Name="txtLozinka" HorizontalAlignment="Left" Height="31" Margin="388.662,534.846,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293.383" Background="White" FontSize="18.667" FontFamily="Lato"/>
         <Button x:Name="btnPrijava" Content="Prijava" HorizontalAlignment="Left" Height="29.667" Margin="390.155,586.269,0,0" VerticalAlignment="Top" Width="137.838" Click="btnPrijava_Click" FontFamily="Lato" FontSize="16" Foreground="White" Style="{DynamicResource Dizajnprijava}">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
