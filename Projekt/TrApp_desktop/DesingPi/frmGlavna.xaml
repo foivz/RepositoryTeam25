@@ -84,6 +84,7 @@
                                     <ComboBoxItem Content="Sva vozila" HorizontalAlignment="Left" Width="132" Selected="popisSvih"/>
                                     <ComboBoxItem Content="Slobodna vozila" HorizontalAlignment="Left" Selected="popisSlobodnihVozila" Width="132"/>
                                 </ComboBox>
+                                <Button x:Name="btnIspisiVozila" Content="Ispiši" HorizontalAlignment="Left" Margin="211,22,0,0" VerticalAlignment="Top" Width="75" Click="btnIspisiVozila_Click"/>
                             </Grid>
                         </TabItem>
                         <!-- Tab nadolazeće registracije -->
@@ -247,6 +248,7 @@
                                     <ComboBoxItem Content="Svi vozači" HorizontalAlignment="Left" Width="132" Selected="popisSvihVozaca"/>
                                     <ComboBoxItem Content="Slobodni vozači" HorizontalAlignment="Left" Selected="popisSlobodnihVozaca" Width="132"/>
                                 </ComboBox>
+                                <Button x:Name="btnIspisiVozace" Content="Ispiši" HorizontalAlignment="Left" Margin="194,21,0,0" VerticalAlignment="Top" Width="75" Click="btnIspisiVozace_Click"/>
 
                             </Grid>
                         </TabItem>
@@ -343,7 +345,7 @@
                                     <DatePicker x:Name="krajDatePicker1" Grid.Column="1" HorizontalAlignment="Left" Margin="3,3.98,-12.613,3.98" Grid.Row="0" Text="{Binding SelectedItem.kraj_godisnjeg, ElementName=datagridGodisnjiOdmor}" VerticalAlignment="Center" Width="117.253"/>
 
                                 </Grid>
-                                <Button x:Name="btnObrisiGodisnjiOdmor" Content="Obriši" HorizontalAlignment="Left" Margin="332,230,0,0" VerticalAlignment="Top" Width="75" Click="btnObrisiGodisnjiOdmor_Click" Style="{DynamicResource DizajnGumba}" Foreground="White"/>
+                                <Button x:Name="btnObrisiGodisnjiOdmor" Content="Obriši" HorizontalAlignment="Left" Margin="332,232,0,0" VerticalAlignment="Top" Width="75" Click="btnObrisiGodisnjiOdmor_Click"/>
                             </Grid>
                         </TabItem>
                         <!-- Tab mjesečni obračun radnih sati-->
@@ -354,8 +356,8 @@
                             <TabItem.Content>
                                 <Grid>
                                     <Label Content="Unesi cijenu satnice:" HorizontalAlignment="Left" Margin="40,54,0,0" VerticalAlignment="Top"/>
-                                    <TextBox x:Name="txtCijenaSatnice" HorizontalAlignment="Left" Height="23" Margin="159,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160.5"/>
-                                    <DataGrid x:Name="satnicaDataGrid" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="40,111.5,0,0" VerticalAlignment="Top" Height="257" Width="727" AutoGenerateColumns="False">
+                                    <TextBox x:Name="txtCijenaSatnice" HorizontalAlignment="Left" Height="23" Margin="159,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                    <DataGrid x:Name="satnicaDataGrid" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="40,164,0,0" VerticalAlignment="Top" Height="248" Width="700" AutoGenerateColumns="False">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn x:Name="id_zaposleniciColumn5" Binding="{Binding id_zaposlenici}" Header="#" Width="SizeToHeader"/>
                                             <DataGridTextColumn x:Name="prezimeColumn5" Binding="{Binding prezime}" Header="Prezime" Width="70"/>
@@ -363,10 +365,11 @@
                                             <DataGridTextColumn x:Name="adresaColumn5" Binding="{Binding adresa}" Header="Adresa" Width="130"/>
                                             <DataGridTextColumn x:Name="iBANColumn5" Binding="{Binding IBAN}" Header="IBAN" Width="100"/>
                                             <DataGridTextColumn x:Name="zbrojSati" Binding="{Binding suma_sati}" Header="Zbroj sati" Width="SizeToHeader"/>
-                                            <DataGridTextColumn x:Name="satnicaIzracunata" Binding="{Binding izracunataSatnica}" Header="Izračunata satnica" Width="SizeToHeader"/>
+                                            <DataGridTextColumn x:Name="satnicaIzracunata" Binding="{Binding izracunataSatnica}" Header="Ukupno" Width="SizeToHeader"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
-                                    <Button x:Name="btnIzračunajSatnicu" Content="Izračunaj" HorizontalAlignment="Left" Margin="342,57,0,0" VerticalAlignment="Top" Width="85.667" Click="btnIzračunajSatnicu_Click" Style="{DynamicResource DizajnGumba2}" Foreground="White"/>
+                                    <Button x:Name="btnIzračunajSatnicu" Content="Izračunaj" HorizontalAlignment="Left" Margin="159,116,0,0" VerticalAlignment="Top" Width="75" Click="btnIzračunajSatnicu_Click"/>
+                                    <Button x:Name="btnIspisi" Content="Ispiši" HorizontalAlignment="Left" Margin="291,116,0,0" VerticalAlignment="Top" Width="75" Click="btnIspisi_Click"/>
                                 </Grid>
                             </TabItem.Content>
                         </TabItem>
@@ -498,10 +501,10 @@
                                 </Grid>
                                 <Button Content="Odaberi..." x:Name="btnOdaberiVozaca1" HorizontalAlignment="Left" Margin="624,131.041,0,0" VerticalAlignment="Top" Width="88" Height="23" Click="btnOdaberiVozaca1_Click" Style="{DynamicResource DizajnGumba2}" Foreground="White" />
                                 <Button Content="Odaberi..." x:Name="btnOdaberiVozaca2" HorizontalAlignment="Left" Margin="624.917,176.041,0,0" VerticalAlignment="Top" Width="88" Height="23" Click="btnOdaberiVozaca2_Click" Style="{DynamicResource DizajnGumba2}" Foreground="White"/>
-                                <Button Content="Ispis" x:Name="btnIspis" HorizontalAlignment="Left" Margin="636,51,0,0" VerticalAlignment="Top" Width="75" Height="33" Style="{DynamicResource GumbIspis}"/>
+                                <Button Content="Ispis" Visibility="Hidden" x:Name="btnIspis" HorizontalAlignment="Left" Margin="636,51,0,0" VerticalAlignment="Top" Width="75" Height="33" Style="{DynamicResource GumbIspis}"/>
                                 <Button Content="Pregled" x:Name="btnPregled" HorizontalAlignment="Left" Margin="515,53.874,0,0" VerticalAlignment="Top" Width="81" Height="23" Click="btnPregledPTR_Click" Style="{DynamicResource DizajnGumba}" Foreground="White" />
                                 <Button Content="Spremi" x:Name="btnSpremiPTR" HorizontalAlignment="Right" Margin="0,0,322,206" VerticalAlignment="Bottom" Width="80" Height="23" Click="btnSpremiPTR_Click" Style="{DynamicResource DizajnGumba}" Foreground="White" />
-                                <Button Content="Izmijeni" x:Name="btnIzmijeniPTR" HorizontalAlignment="Right" Margin="0,0,205,206" VerticalAlignment="Bottom" Width="80" Height="23" Click="btnIzmijeniPTR_Click" Style="{DynamicResource DizajnGumba}" Foreground="White"/>
+                                <Button Content="Izmijeni" Visibility="Hidden" x:Name="btnIzmijeniPTR" HorizontalAlignment="Right" Margin="0,0,205,206" VerticalAlignment="Bottom" Width="80" Height="23" Click="btnIzmijeniPTR_Click" Style="{DynamicResource DizajnGumba}" Foreground="White"/>
                                 <Grid x:Name="grid33" DataContext="{StaticResource putniRadniListViewSource}" HorizontalAlignment="Left" Margin="44,284.05,0,0" VerticalAlignment="Top" Width="209">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
@@ -546,7 +549,7 @@
                                     <Label Content="Napomene:" Grid.Column="1" HorizontalAlignment="Left" Margin="3,1,0,10" Grid.Row="0" VerticalAlignment="Center" Width="78.447"/>
                                     <TextBox x:Name="napomeneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="78.02" Margin="3,26.96,-187.02,-68.02" Grid.Row="0" Text="{Binding napomene, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="309.02" BorderBrush="#FF777777"/>
                                 </Grid>
-                                <Button x:Name="btnObrisiPTR" Content="Obriši" HorizontalAlignment="Left" Margin="632,412.917,0,0" VerticalAlignment="Top" Width="80" Height="23" Click="btnObrisiPTR_Click" Style="{DynamicResource DizajnGumba}" Foreground="White"/>
+                                <Button x:Name="btnObrisiPTR" Content="Obriši" HorizontalAlignment="Left" Margin="515,413,0,0" VerticalAlignment="Top" Width="80" Height="23" Click="btnObrisiPTR_Click" Style="{DynamicResource DizajnGumba}" Foreground="White"/>
                             </Grid>
                         </TabItem>
                         <!-- Tab unos vozila -->
@@ -692,7 +695,7 @@
                                 </Grid>
                                 <Separator HorizontalAlignment="Left" Height="28" Margin="29,176,0,0" VerticalAlignment="Top" Width="719" Background="#FF0C95F0"/>
                                 <ComboBox x:Name="cmbVrstaVozila" HorizontalAlignment="Left" Margin="114,154,0,0" VerticalAlignment="Top" Width="120" DropDownOpened="cmbVrstaVozila_DropDownOpened_1"/>
-                                <Button x:Name="btnUnosVrsteVozila" Content="Dodaj vrstu vozila" HorizontalAlignment="Left" Margin="327.332,270,0,0" VerticalAlignment="Top" Width="136" Click="btnUnosVrsteVozila_Click" Style="{DynamicResource DizajnDodajVrstu}" Foreground="White"/>
+                                <Button x:Name="btnUnosVrsteVozila" Content="Dodaj vrstu vozila" HorizontalAlignment="Left" Margin="364,273,0,0" VerticalAlignment="Top" Width="75" Click="btnUnosVrsteVozila_Click"/>
                             </Grid>
                         </TabItem>
                         <!-- Tab unos zaposlenika -->

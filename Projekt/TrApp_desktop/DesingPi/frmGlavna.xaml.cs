@@ -1045,6 +1045,51 @@ namespace DesingPi
             unosVrsteVozila.ShowDialog();
         }
 
+        private void btnIspisi_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime sada = DateTime.Now;
+            string naslov = "Mjesecni obracun radnih sati za " + sada.Month + "/"+sada.Year;
+            string naziv = "Obracun_" + sada.Month + "_" + sada.Year;
+            controller.exportObracunSati(satnicaDataGrid, naslov, naziv);
+        }
+
+        private void btnIspisiVozila_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime sada = DateTime.Now;
+            string naslov;
+            string naziv;
+            if(cmbOdabirVozila.SelectedIndex == 0 )
+            {
+                naslov = "Vozila " + sada.Day+"/"+sada.Month + "/" + sada.Year;
+                naziv = "Vozila_" + sada.Day +"_"+ sada.Month + "_" + sada.Year;
+            }
+            else
+            {
+                naslov = "Slobodna vozila " + sada.Day + "/" + sada.Month + "/" + sada.Year;
+                naziv = "Slobodna_vozila" + sada.Day + "_" + sada.Month + "_" + sada.Year;
+            }
+
+            controller.exportObracunSati(voziloDataGrid, naslov, naziv);
+        }
+
+        private void btnIspisiVozace_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime sada = DateTime.Now;
+            string naslov;
+            string naziv;
+            if (cmbOdabirVozila.SelectedIndex == 0)
+            {
+                naslov = "Vozaci " + sada.Day + "/" + sada.Month + "/" + sada.Year;
+                naziv = "Vozaci_" + sada.Day + "_" + sada.Month + "_" + sada.Year;
+            }
+            else
+            {
+                naslov = "Slobodni vozaci " + sada.Day + "/" + sada.Month + "/" + sada.Year;
+                naziv = "Slobicni_vozaci" + sada.Day + "_" + sada.Month + "_" + sada.Year;
+            }
+            controller.exportObracunSati(zaposleniciDataGrid, naslov, naziv);
+        }
+        
 
 
     }

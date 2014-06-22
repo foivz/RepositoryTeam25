@@ -24,6 +24,7 @@ namespace DesingPi
         public int uloga;
         public frmPrijava()
         {
+           
             Connection.ConnectionString = @"Data Source=31.147.204.119\PISERVER,1433;Initial Catalog=T25_DB;Persist Security Info=True;User ID=T25_User;Password=rrharSGb";
             InitializeComponent();
             
