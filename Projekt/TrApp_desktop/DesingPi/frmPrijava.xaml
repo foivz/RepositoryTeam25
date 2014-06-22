@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Prijava" Height="768" Width="1024">
     <Grid Margin="0,0,2,-20">
-        <Label x:Name="lblKorisnickoIme" Content="Korisničko ime:" HorizontalAlignment="Left" Margin="315,477,0,0" VerticalAlignment="Top" Width="127" FontSize="16" FontFamily="Times New Roman"/>
-        <Label x:Name="lblLozinka" Content="Lozinka:" HorizontalAlignment="Left" Margin="315,524,0,0" VerticalAlignment="Top" Width="127" FontSize="16" FontFamily="Times New Roman"/>
-        <TextBox x:Name="txtKorisnickoIme" HorizontalAlignment="Left" Height="31" Margin="442,477,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Background="White"/>
-        <TextBox x:Name="txtLozinka" HorizontalAlignment="Left" Height="31" Margin="442,524,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Background="White"/>
-        <Button x:Name="btnPrijava" Content="Prijava" HorizontalAlignment="Left" Height="25" Margin="343,579,0,0" VerticalAlignment="Top" Width="99" Click="btnPrijava_Click" FontFamily="Times New Roman" FontSize="14" Foreground="#FF804646">
+        <Label x:Name="lblKorisnickoIme" Content="Korisničko ime:" HorizontalAlignment="Left" Margin="264,487.846,0,0" VerticalAlignment="Top" Width="146.662" FontSize="16" FontFamily="Lato"/>
+        <Label x:Name="lblLozinka" Content="Lozinka:" HorizontalAlignment="Left" Margin="264,534.846,0,0" VerticalAlignment="Top" Width="146.662" FontSize="16" FontFamily="Lato"/>
+        <TextBox x:Name="txtKorisnickoIme" HorizontalAlignment="Left" Height="31" Margin="388.662,487.846,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293.383" Background="White"/>
+        <TextBox x:Name="txtLozinka" HorizontalAlignment="Left" Height="31" Margin="388.662,534.846,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293.383" Background="White"/>
+        <Button x:Name="btnPrijava" Content="Prijava" HorizontalAlignment="Left" Height="29.667" Margin="390.155,586.269,0,0" VerticalAlignment="Top" Width="137.838" Click="btnPrijava_Click" FontFamily="Lato" FontSize="16" Foreground="White" Style="{DynamicResource Dizajnprijava}">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF3F3F3" Offset="0"/>
@@ -17,7 +17,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnOdustani" Content="Odustani" HorizontalAlignment="Left" Height="25" Margin="468,579,0,0" VerticalAlignment="Top" Width="99" Click="btnOdustani_Click" FontFamily="Times New Roman" FontSize="14" Foreground="#FF804646">
+        <Button x:Name="btnOdustani" Content="Odustani" HorizontalAlignment="Left" Height="30.5" Margin="544.707,586.269,0,0" VerticalAlignment="Top" Width="137.338" Click="btnOdustani_Click" FontFamily="Lato" FontSize="16" Foreground="White" Style="{DynamicResource DizajOdustani}">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF3F3F3" Offset="0"/>
@@ -28,7 +28,7 @@
             </Button.Background>
         </Button>
         <PasswordBox x:Name="pssBox" HorizontalAlignment="Left" Height="31" Margin="336,75,0,0" VerticalAlignment="Top" Width="190" Visibility="Hidden"/>
-        <CheckBox x:Name="chkBox" Content="Prikaži/Sakrij lozinku" HorizontalAlignment="Left" Margin="651,533,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked_1" Unchecked="chkBox_Unchecked" Background="#FFB61818" FontFamily="Times New Roman">
+        <CheckBox x:Name="chkBox" Content="Prikaži/Sakrij lozinku" HorizontalAlignment="Left" Margin="705.711,545.692,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked_1" Unchecked="chkBox_Unchecked" Background="White" FontFamily="Lato" FontSize="13.333">
             <CheckBox.BindingGroup>
                 <BindingGroup/>
             </CheckBox.BindingGroup>

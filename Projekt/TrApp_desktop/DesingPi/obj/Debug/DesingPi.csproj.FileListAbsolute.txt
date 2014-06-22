@@ -863,3 +863,7 @@ C:\Users\Goran\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi.Properties.Reso
 C:\Users\Goran\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
 C:\Users\Goran\Desktop\TrApp_desktop\DesingPi\obj\Debug\frmPrijava.baml
 C:\Users\Goran\Desktop\TrApp_desktop\DesingPi\obj\Debug\frmPrijava.g.cs
+C:\Users\Nino\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\DesingPi\obj\Debug\frmPrijava.baml
+C:\Users\Nino\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\DesingPi\obj\Debug\frmPrijava.g.cs
+C:\Users\Nino\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\DesingPi\obj\Debug\frmUnosVrsteVozila.g.cs
+C:\Users\Nino\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\DesingPi\obj\Debug\frmUnosVrsteVozila.baml
