@@ -112,7 +112,7 @@
                                 <Label Content="Naziv:" Grid.Column="0" HorizontalAlignment="Left" Margin="232.5,314.94,0,309.66" Grid.Row="0" VerticalAlignment="Center" FontFamily="Lato"/>
                                 <TextBox x:Name="nazivTextBox3" HorizontalAlignment="Left" Height="26" Margin="277.5,314.14,0,308.86" Grid.Row="0" Text="{Binding SelectedItem.naziv, ElementName=registracijadatagrid}" VerticalAlignment="Center" Width="180" BorderBrush="#FF777777"/>
                                 <Label Content="Vrsta vozila:" Grid.Column="0" HorizontalAlignment="Left" Margin="488,314,0,309.04" Grid.Row="0" VerticalAlignment="Center" FontFamily="Lato"/>
-                                <TextBox x:Name="id_vrsta_vozilaTextBox3" HorizontalAlignment="Left" Height="26" Margin="564,314.14,0,308.86" Grid.Row="0" Text="{Binding SelectedItem.vrsta_vozila_id, ElementName=registracijadatagrid}" VerticalAlignment="Center" Width="180" BorderBrush="#FF777777"/>
+                                
                                 <Label Content="Registracija:" Grid.Column="0" HorizontalAlignment="Left" Margin="199.5,361.165,0,261.874" Grid.Row="0" VerticalAlignment="Center" FontFamily="Lato"/>
                                 <TextBox x:Name="registracijaTextBox3" HorizontalAlignment="Left" Height="24" Margin="277.5,362,0,262.52" Grid.Row="0" Text="{Binding SelectedItem.registracija, ElementName=registracijadatagrid}" VerticalAlignment="Center" Width="180" BorderBrush="#FF777777"/>
                                 <Grid x:Name="grid41" DataContext="{StaticResource tehnicki_pregledViewSource}" HorizontalAlignment="Left" Margin="488,358.185,0,0" VerticalAlignment="Top" Width="256">
@@ -132,6 +132,7 @@
                                 <Button x:Name="btnIspisRegistracija" Content="Ispis" HorizontalAlignment="Left" Margin="655.333,416.433,0,0" VerticalAlignment="Top" Width="75" Click="btnIspisRegistracija_Click" Height="30.96" Style="{DynamicResource GumbIspis}" Background="#FF0C95F0"/>
                                 <Button x:Name="btnObrisiRegistraciju" Content="Obriši" HorizontalAlignment="Left" Margin="510.999,464.292,0,0" VerticalAlignment="Top" Width="80" Click="btnObrisiRegistraciju_Click" Height="23" Style="{DynamicResource DizajnGumba}" Foreground="White"/>
                                 <TextBox x:Name="txtIdTehnickog" HorizontalAlignment="Left" Height="23" Margin="669,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+                                <ComboBox x:Name="cmbVrstaVozilaReg" HorizontalAlignment="Left" Margin="610,314,0,0" VerticalAlignment="Top" Width="120" DropDownOpened="cmbVrstaVozilaReg_DropDownOpened_1"/>
                             </Grid>
 
                         </TabItem>
@@ -350,6 +351,24 @@
                             <TabItem.Header>
                                 <TextBlock VerticalAlignment="Center" FontFamily="Segoe WP Semibold" FontSize="13" FontWeight="Normal" HorizontalAlignment="Stretch"><Run Text="Mjesečni obračun radnih sati"/></TextBlock>
                             </TabItem.Header>
+                            <TabItem.Content>
+                                <Grid>
+                                    <Label Content="Unesi cijenu satnice:" HorizontalAlignment="Left" Margin="40,54,0,0" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="txtCijenaSatnice" HorizontalAlignment="Left" Height="23" Margin="159,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                    <DataGrid x:Name="satnicaDataGrid" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="40,164,0,0" VerticalAlignment="Top" Height="248" Width="700" AutoGenerateColumns="False">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn x:Name="id_zaposleniciColumn5" Binding="{Binding id_zaposlenici}" Header="#" Width="SizeToHeader"/>
+                                            <DataGridTextColumn x:Name="prezimeColumn5" Binding="{Binding prezime}" Header="Prezime" Width="70"/>
+                                            <DataGridTextColumn x:Name="imeColumn5" Binding="{Binding ime}" Header="Ime" Width="70"/>
+                                            <DataGridTextColumn x:Name="adresaColumn5" Binding="{Binding adresa}" Header="Adresa" Width="130"/>
+                                            <DataGridTextColumn x:Name="iBANColumn5" Binding="{Binding IBAN}" Header="IBAN" Width="100"/>
+                                            <DataGridTextColumn x:Name="zbrojSati" Binding="{Binding suma_sati}" Header="Zbroj sati" Width="SizeToHeader"/>
+                                            <DataGridTextColumn x:Name="satnicaIzracunata" Binding="{Binding izracunataSatnica}" Header="Izračunata satnica" Width="SizeToHeader"/>
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                    <Button x:Name="btnIzračunajSatnicu" Content="Izračunaj" HorizontalAlignment="Left" Margin="159,116,0,0" VerticalAlignment="Top" Width="75" Click="btnIzračunajSatnicu_Click"/>
+                                </Grid>
+                            </TabItem.Content>
                         </TabItem>
                     </TabControl>
                 </Grid>
@@ -531,7 +550,7 @@
                             </Grid>
                         </TabItem>
                         <!-- Tab unos vozila -->
-                        <TabItem Height="32.083" VerticalAlignment="Bottom" Background="White" Margin="13,0,-19.666,-0.083"  Loaded="popisVozila_Loaded" Style="{DynamicResource DizajnTaba}" BorderBrush="White" >
+                        <TabItem x:Name="tabVozila1" Height="32.083" VerticalAlignment="Bottom" Background="White" Margin="13,0,-19.666,-0.083"  Loaded="popisVozila_Loaded" Style="{DynamicResource DizajnTaba}" BorderBrush="White" >
                             <TabItem.Header>
                                 <TextBlock VerticalAlignment="Center" FontFamily="Segoe WP Semibold" FontSize="13" FontWeight="Normal" HorizontalAlignment="Stretch"><Run Text="Unos vozila"/></TextBlock>
                             </TabItem.Header>
@@ -668,13 +687,14 @@
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
                                     <Label Content="Vrsta vozila:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-                                    <TextBox x:Name="id_vrsta_vozilaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding SelectedItem.vrsta_vozila_id, ElementName=voziloDataGrid1}" VerticalAlignment="Center" Width="150" BorderBrush="#FF777777"/>
+                                    
                                 </Grid>
                                 <Separator HorizontalAlignment="Left" Height="28" Margin="29,176,0,0" VerticalAlignment="Top" Width="719" Background="#FF0C95F0"/>
+                                <ComboBox x:Name="cmbVrstaVozila" HorizontalAlignment="Left" Margin="114,154,0,0" VerticalAlignment="Top" Width="120" DropDownOpened="cmbVrstaVozila_DropDownOpened_1"/>
                             </Grid>
                         </TabItem>
                         <!-- Tab unos zaposlenika -->
-                        <TabItem Height="32" VerticalAlignment="Bottom" Background="White" Margin="31.333,0,-50,0.045" Loaded="popisZaposlenika_Loaded" Style="{DynamicResource DizajnTaba}" BorderBrush="White">
+                        <TabItem x:Name="tabZaposlenici" Height="32" VerticalAlignment="Bottom" Background="White" Margin="31.333,0,-50,0.045" Loaded="popisZaposlenika_Loaded" Style="{DynamicResource DizajnTaba}" BorderBrush="White">
                             <TabItem.Header>
                                 <TextBlock VerticalAlignment="Center" FontFamily="Segoe WP Semibold" FontSize="13" FontWeight="Normal" HorizontalAlignment="Stretch"><Run Text="Unos zaposlenika"/></TextBlock>
                             </TabItem.Header>
@@ -749,7 +769,7 @@
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
                                     <Label Content="Uloga:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-                                    <TextBox x:Name="ulogaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding SelectedItem.uloga, ElementName=zaposleniciDataGrid1}" VerticalAlignment="Center" Width="120" BorderBrush="#FF777777"/>
+                                    
                                 </Grid>
                                 <Grid x:Name="grid15" HorizontalAlignment="Left" Margin="68,141,0,0" VerticalAlignment="Top" Width="187">
                                     <Grid.ColumnDefinitions>
@@ -846,6 +866,7 @@
                                 <Separator HorizontalAlignment="Left" Height="18" Margin="44,119,0,0" VerticalAlignment="Top" Width="698" Background="#FF0C95F0"/>
                                 <Separator HorizontalAlignment="Left" Height="15" Margin="44,177,0,0" VerticalAlignment="Top" Width="698" Background="#FF0C95F0"/>
                                 <Separator HorizontalAlignment="Left" Height="19" Margin="44,234,0,0" VerticalAlignment="Top" Width="698" Background="#FF0C95F0"/>
+                                <ComboBox x:Name="cmbUloga" HorizontalAlignment="Left" Margin="600,92,0,0" VerticalAlignment="Top" Width="120" DropDownOpened="cmbUloga_DropDownOpened"/>
                             </Grid>
                         </TabItem>
                     </TabControl>

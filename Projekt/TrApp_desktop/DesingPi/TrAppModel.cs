@@ -271,6 +271,18 @@ namespace DesingPi
                     }
                 }
             }
+            else if (podatak == "vrsta_vozila")
+            {
+                using (var db = new T25_DBEntities1())
+                {
+                    var brisanje = db.vrsta_vozila.SingleOrDefault(x => x.id_vrsta_vozila == id);
+                    if (brisanje != null)
+                    {
+                        db.vrsta_vozila.Remove(brisanje);
+                        db.SaveChanges();
+                    }
+                }
+            }
         }
 
 
@@ -527,6 +539,61 @@ namespace DesingPi
                 var upit = db.Database.SqlQuery<int>("select zaposlenici.id_zaposlenici from zaposlenici, radni_sati, PutniRadniList where zaposlenici.id_zaposlenici=radni_sati.zaposlenik and radni_sati.putni_radni_list=PutniRadniList.id_putnog_radnog_lista and GETDATE()>=PutniRadniList.pocetak and getdate()<=PutniRadniList.kraj;").ToList<int>();
                 return upit;
             }
+        }
+
+        /// <summary>
+        /// Metoda koja dohvaća vrste vozila koje će biti prikazane na comboboxu prilikom unosa
+        /// novog vozila.
+        /// </summary>
+        /// <returns></returns>
+        public List<vrsta_vozila> dohvatiVrsteVozila()
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                var upit = db.Database.SqlQuery<vrsta_vozila>("select id_vrsta_vozila, naziv from vrsta_vozila").ToList<vrsta_vozila>();
+                return upit;
+            }
+        }
+
+        /// <summary>
+        /// Metoda kojojm spremamo nove vrste vozila u bazu podataka. 
+        /// </summary>
+        /// <param name="vrstaVozila"></param>
+        public void dodaj(vrsta_vozila vrstaVozila)
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                db.vrsta_vozila.Add(vrstaVozila);
+                db.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Metoda koja dohvaća uloge zaposlenika koje su nam potrebne za prikaz na comoboxu prilikom
+        /// unosa novog zaposlenika.
+        /// </summary>
+        /// <returns></returns>
+        public List<uloga> dohvatiUloge()
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                var upit = db.Database.SqlQuery<uloga>("select id_uloge, naziv from uloga").ToList<uloga>();
+                return upit.ToList();
+            }
+        }
+
+        /// <summary>
+        /// Metoda koja dohvaća broj radnih sati za svakog zaposlenika koji se nalazi na putnom radnom listu.
+        /// </summary>
+        /// <returns></returns>
+        public List<ObracunSati> dohvatiSate()
+        {
+            using (var db = new T25_DBEntities1())
+            {
+                var upit = db.Database.SqlQuery<ObracunSati>("select zaposlenici.prezime, zaposlenici.ime, zaposlenici.id_zaposlenici, zaposlenici.IBAN, zaposlenici.adresa, sum(br_sati) as suma_sati from zaposlenici, PutniRadniList, radni_sati where zaposlenici.id_zaposlenici=radni_sati.zaposlenik and radni_sati.putni_radni_list=PutniRadniList.id_putnog_radnog_lista and month(getdate())=month(PutniRadniList.pocetak) group by zaposlenici.prezime, zaposlenici.ime, zaposlenici.id_zaposlenici, zaposlenici.IBAN, zaposlenici.adresa;").ToList<ObracunSati>();
+                return upit.ToList();
+            }
+
         }
     }
 }

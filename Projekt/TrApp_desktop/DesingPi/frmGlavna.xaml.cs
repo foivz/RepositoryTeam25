@@ -25,10 +25,18 @@ namespace DesingPi
     {
         TrAppModel model = new TrAppModel();
         TrAppController controller = new TrAppController();
+        private int uloga;
 
-        public MainWindow()
+        public MainWindow(int uloga)
         {
             InitializeComponent();
+            this.uloga = uloga;
+            if (uloga > 5)
+            {
+                tabVozila1.IsEnabled = false;
+                tabZaposlenici.IsEnabled = false;
+            }
+            
         }
 
         void tabPopisVozila(object sender, EventArgs e)
@@ -249,7 +257,7 @@ namespace DesingPi
             int godina_proizvodnje = Convert.ToInt32(godina_proizvodnjeTextBox.Text);
             DateTime datum_registracije = Convert.ToDateTime(datum_registracijeDatePicker.Text);
             int datum = Convert.ToInt32(datum_registracije.Year);
-            if (string.IsNullOrWhiteSpace(id_vrsta_vozilaTextBox.Text) ||
+            if (string.IsNullOrWhiteSpace(cmbVrstaVozila.Text) ||
                string.IsNullOrWhiteSpace(registracijaTextBox.Text) ||
                string.IsNullOrWhiteSpace(nazivTextBox.Text) ||
                string.IsNullOrWhiteSpace(godina_proizvodnjeTextBox.Text) ||
@@ -276,8 +284,9 @@ namespace DesingPi
         /// <returns>Popunje objekt vozilo</returns>
         private vozilo dohvatiPodatkeVozilo()
         {
+            string[] vrstaVozila = cmbVrstaVozila.Text.Split(' ');
             vozilo vozilo = new vozilo();
-            vozilo.vrsta_vozila_id = int.Parse(id_vrsta_vozilaTextBox.Text);
+            vozilo.vrsta_vozila_id = int.Parse(vrstaVozila[0]);
             vozilo.registracija = registracijaTextBox.Text;
             vozilo.naziv = nazivTextBox.Text;
             vozilo.godina_proizvodnje = Convert.ToInt32(godina_proizvodnjeTextBox.Text);
@@ -366,7 +375,7 @@ namespace DesingPi
                 string.IsNullOrWhiteSpace(telefonTextBox.Text) ||
                 string.IsNullOrWhiteSpace(adresaTextBox.Text) ||
                 string.IsNullOrWhiteSpace(datum_rodjenjaDatePicker.Text) ||
-                string.IsNullOrWhiteSpace(ulogaTextBox.Text) ||
+                string.IsNullOrWhiteSpace(cmbUloga.Text) ||
                 string.IsNullOrWhiteSpace(datum_zaposlenjaDatePicker.Text))
             {
                 return false;
@@ -380,6 +389,7 @@ namespace DesingPi
         /// <returns></returns>
         private zaposlenici dohvatiPodatkeZaposlenika()
         {
+            string[] uloga = cmbUloga.Text.Split(' ');
             zaposlenici zaposlenici = new zaposlenici();
             zaposlenici.prezime = prezimeTextBox.Text;
             zaposlenici.ime = imeTextBox.Text;
@@ -390,7 +400,7 @@ namespace DesingPi
             zaposlenici.telefon = telefonTextBox.Text;
             zaposlenici.adresa = adresaTextBox.Text;
             zaposlenici.datum_rodjenja = Convert.ToDateTime(datum_rodjenjaDatePicker.Text);
-            zaposlenici.uloga = Convert.ToInt32(ulogaTextBox.Text);
+            zaposlenici.uloga = Convert.ToInt32(uloga[0]);
             zaposlenici.datum_zaposlenja = Convert.ToDateTime(datum_zaposlenjaDatePicker.Text);
             return zaposlenici;
         }
@@ -450,7 +460,7 @@ namespace DesingPi
                 //kreiraTextBox.Text = odabraniPTRObj.kreira.ToString();
                 kilometrazaTextBox.Text = odabraniPTRObj.kilometraza.ToString();
                 teretTextBox.Text = odabraniPTRObj.teret.ToString();
-                if(!string.IsNullOrWhiteSpace(napomeneTextBox.Text))
+                if (!string.IsNullOrWhiteSpace(napomeneTextBox.Text))
                     napomeneTextBox.Text = odabraniPTRObj.napomene.ToString();
             }
         }
@@ -482,7 +492,7 @@ namespace DesingPi
                 string.IsNullOrWhiteSpace(kilometrazaTextBox.Text) ||
                 string.IsNullOrWhiteSpace(cmbPTRSlobodniZaposlenici.Text) ||
                 string.IsNullOrWhiteSpace(mjesto_utovaraTextBox.Text) ||
-                string.IsNullOrWhiteSpace(mjesto_istovaraTextBox.Text)||
+                string.IsNullOrWhiteSpace(mjesto_istovaraTextBox.Text) ||
                 string.IsNullOrWhiteSpace(teretTextBox.Text))
             {
                 MessageBox.Show("Niste unijeli sve podatke!", "Upozorenje");
@@ -490,7 +500,7 @@ namespace DesingPi
             }
             else if (pocetakDatePicker.SelectedDate > krajDatePicker.SelectedDate || krajDatePicker.SelectedDate < pocetakDatePicker.SelectedDate)
             {
-                MessageBox.Show("Neispravan datum!","Upozorenje");
+                MessageBox.Show("Neispravan datum!", "Upozorenje");
                 return false;
             }
             else if (!(controller.provjeraTereta(Convert.ToInt32(teretTextBox.Text), Convert.ToInt32(voziloTextBox.Text))))
@@ -519,15 +529,15 @@ namespace DesingPi
                 PTR.teret = Convert.ToInt32(teretTextBox.Text);
                 PTR.napomene = napomeneTextBox.Text;
                 return PTR;
-           }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "Upozorenje");
             }
-            finally 
+            finally
             {
-               
-                
+
+
             }
             return null;
         }
@@ -559,7 +569,7 @@ namespace DesingPi
 
         private void btnSpremiPTR_Click(object sender, RoutedEventArgs e)
         {
-            if (provjeriPopunjenostPTR()==true)
+            if (provjeriPopunjenostPTR() == true)
             {
                 PregledPTR PTR = new PregledPTR();
                 controller.dodaj(dohvatPodatakaPTR(), dohvatPodatakaRS());
@@ -592,7 +602,7 @@ namespace DesingPi
 
         }
 
-        private void VozilaServis_Loaded(object sender, RoutedEventArgs e) 
+        private void VozilaServis_Loaded(object sender, RoutedEventArgs e)
         {
             vozilaservisdatagrid.ItemsSource = controller.dohvatiRazlikuKm();
         }
@@ -600,13 +610,13 @@ namespace DesingPi
         private void popisSvih(object sender, RoutedEventArgs e)
         {
             string podatak = "sva_vozila";
-            voziloDataGrid.ItemsSource = model.dohvatVozila(podatak); 
+            voziloDataGrid.ItemsSource = model.dohvatVozila(podatak);
         }
 
         private void popisSlobodnih(object sender, RoutedEventArgs e)
         {
             string podatak = "";
-            voziloDataGrid.ItemsSource=model.dohvatVozila(podatak);
+            voziloDataGrid.ItemsSource = model.dohvatVozila(podatak);
         }
 
         private void popisSvihVozaca(object sender, RoutedEventArgs e)
@@ -668,7 +678,7 @@ namespace DesingPi
             datagridGodisnjiOdmor.ItemsSource = controller.godisnjiOdmorNaDatum(odabraniDat);
 
         }
-        
+
         /// <summary>
         /// dohvaća sve zaposlenike koj su danas na godišnjem
         /// </summary>
@@ -707,7 +717,7 @@ namespace DesingPi
         private void btnObrisiPTR_Click(object sender, RoutedEventArgs e)
         {
             string podatak = "obrisi_PTR";
-            int PTRId=0;
+            int PTRId = 0;
             if (!string.IsNullOrWhiteSpace(id_putnog_radnog_listaTextBox.Text))
             {
                 PTRId = Convert.ToInt32(id_putnog_radnog_listaTextBox.Text);
@@ -726,7 +736,7 @@ namespace DesingPi
         /// <returns></returns>
         private bool provjeriPopunjenostRegistracija()
         {
-            if (string.IsNullOrWhiteSpace(id_vrsta_vozilaTextBox3.Text) ||
+            if (string.IsNullOrWhiteSpace(cmbVrstaVozilaReg.Text) ||
                string.IsNullOrWhiteSpace(registracijaTextBox3.Text) ||
                string.IsNullOrWhiteSpace(nazivTextBox3.Text) ||
                string.IsNullOrWhiteSpace(datumDatePicker.Text) ||
@@ -773,7 +783,7 @@ namespace DesingPi
         {
             frmIspisRegistracija frmIspisReg = new frmIspisRegistracija();
             frmIspisReg.ShowDialog();
-            VozilaRegistracija reg=new VozilaRegistracija();
+            VozilaRegistracija reg = new VozilaRegistracija();
             int idVozila;
             if (!string.IsNullOrWhiteSpace(frmIspisReg.id_voziloTextBox3.Text))
             {
@@ -781,7 +791,7 @@ namespace DesingPi
                 reg = controller.ispisRegistracija(idVozila);
                 id_voziloTextBox3.Text = Convert.ToString(reg.id_vozilo);
                 nazivTextBox3.Text = reg.naziv;
-                id_vrsta_vozilaTextBox3.Text = Convert.ToString(reg.vrsta_vozila_id);
+                cmbVrstaVozilaReg.Text = Convert.ToString(reg.vrsta_vozila_id);
                 registracijaTextBox3.Text = reg.registracija;
                 datumDatePicker.Text = Convert.ToString(reg.sljedeca_registracija);
                 txtNapomena.Text = reg.napomena;
@@ -805,11 +815,11 @@ namespace DesingPi
         /// <returns></returns>
         private bool provjeriPopunjenostServisa()
         {
-            if (string.IsNullOrWhiteSpace(id_voziloTextBox4.Text) 
-                || string.IsNullOrWhiteSpace(nazivTextBox4.Text) 
+            if (string.IsNullOrWhiteSpace(id_voziloTextBox4.Text)
+                || string.IsNullOrWhiteSpace(nazivTextBox4.Text)
                 || string.IsNullOrWhiteSpace(id_vrsta_vozilaTextBox4.Text)
-                || string.IsNullOrWhiteSpace(registracijaTextBox4.Text) 
-                || string.IsNullOrWhiteSpace(txtServisniInterval.Text) 
+                || string.IsNullOrWhiteSpace(registracijaTextBox4.Text)
+                || string.IsNullOrWhiteSpace(txtServisniInterval.Text)
                 || string.IsNullOrWhiteSpace(txtTrenutnoStanje.Text)
                 || string.IsNullOrWhiteSpace(datumDatePicker1.Text)
                 || string.IsNullOrWhiteSpace(datumDatePicker1.Text))
@@ -856,7 +866,7 @@ namespace DesingPi
 
         private godisnji_odmor dohvatGodisnjeg()
         {
-            string[] proba = cmbZaposleniciCombo.Text.Split(' '); 
+            string[] proba = cmbZaposleniciCombo.Text.Split(' ');
             godisnji_odmor odmor = new godisnji_odmor();
             odmor.zaposlenik = Convert.ToInt32(proba[0]);
             odmor.pocetak = Convert.ToDateTime(pocetakDatePicker1.Text);
@@ -920,7 +930,7 @@ namespace DesingPi
         /******************************************************************************/
         private void popisSlobodnihVozila(object sender, RoutedEventArgs e)
         {
-            voziloDataGrid.ItemsSource = controller.ispisSlobodnihVozila(); 
+            voziloDataGrid.ItemsSource = controller.ispisSlobodnihVozila();
         }
 
 
@@ -963,7 +973,6 @@ namespace DesingPi
                         cmbPTRSlobodniZaposlenici.Items.Add(i.id_zaposlenici + " " + i.prezime + " " + i.ime);
                 }
             }
-
         }
 
         private void tabDokumentacija(object sender, RoutedEventArgs e)
@@ -971,7 +980,66 @@ namespace DesingPi
             Process.Start("DesingPI.chm");
         }
 
+        private void btnDodajVrstuVozila_Click(object sender, RoutedEventArgs e)
+        {
+            frmUnosVrsteVozila vrsta_vozila = new frmUnosVrsteVozila();
+            vrsta_vozila.Show();
+        }
 
-       
+        int brPonavljanjaVrstaVozila = 0;
+
+        int brPonavljanjaUlogaZaposlenika = 0;
+        private void cmbUloga_DropDownOpened(object sender, EventArgs e)
+        {
+            if (brPonavljanjaUlogaZaposlenika++ < 1)
+            {
+                List<uloga> zaCombo = new List<uloga>();
+                zaCombo = model.dohvatiUloge();
+                foreach (uloga i in zaCombo)
+                {
+                    cmbUloga.Items.Add(i.id_uloge + " " + i.naziv);
+                }
+            }
+        }
+
+        int brPonavljanjaVrstaVozila2 = 0;
+
+        private void cmbVrstaVozilaReg_DropDownOpened_1(object sender, EventArgs e)
+        {
+            if (brPonavljanjaVrstaVozila2++ < 1)
+            {
+                List<vrsta_vozila> zaCombo = new List<vrsta_vozila>();
+                zaCombo = model.dohvatiVrsteVozila();
+                foreach (vrsta_vozila i in zaCombo)
+                {
+                    cmbVrstaVozilaReg.Items.Add(i.id_vrsta_vozila + " " + i.naziv);
+                }
+            }
+        }
+
+        private void cmbVrstaVozila_DropDownOpened_1(object sender, EventArgs e)
+        {
+            if (brPonavljanjaVrstaVozila++ < 1)
+            {
+                List<vrsta_vozila> zaCombo = new List<vrsta_vozila>();
+                zaCombo = model.dohvatiVrsteVozila();
+                foreach (vrsta_vozila i in zaCombo)
+                {
+                    cmbVrstaVozila.Items.Add(i.id_vrsta_vozila + " " + i.naziv);
+                }
+            }
+
+        }
+
+        private void btnIzračunajSatnicu_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtCijenaSatnice.Text))
+            {
+                satnicaDataGrid.ItemsSource = controller.izracunSatnice(Convert.ToInt32(txtCijenaSatnice.Text));
+            }
+        }
+
+
+
     }
 }

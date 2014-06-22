@@ -377,5 +377,21 @@ namespace DesingPi
             slobodniZaposlenici = sviZaposlenici.Except(zauzetiZaposlenici).ToList();
             return slobodniZaposlenici;
         }
+
+        public List<ObracunSati> izracunSatnice(int cijena)
+        {
+            List<ObracunSati> satnica = new List<ObracunSati>();
+            List<ObracunSati> izracunataSatnica = new List<ObracunSati>();
+            satnica = model.dohvatiSate();
+            foreach (ObracunSati i in satnica)
+            {
+                if (i.suma_sati != null)
+                {
+                    i.izracunataSatnica = i.suma_sati * cijena;
+                    izracunataSatnica.Add(i);
+                }
+            }
+            return izracunataSatnica;
+        }
     }
 }
