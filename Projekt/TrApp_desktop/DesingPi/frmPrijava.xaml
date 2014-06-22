@@ -12,8 +12,8 @@
         </Grid.ColumnDefinitions>
         <Label x:Name="lblKorisnickoIme" Content="Korisničko ime:" HorizontalAlignment="Left" Margin="137,488,0,0" VerticalAlignment="Top" Width="147" FontSize="16" FontFamily="Lato" Grid.Column="1"/>
         <Label x:Name="lblLozinka" Content="Lozinka:" HorizontalAlignment="Left" Margin="137,535,0,0" VerticalAlignment="Top" Width="147" FontSize="16" FontFamily="Lato" Grid.Column="1"/>
-        <TextBox x:Name="txtKorisnickoIme" HorizontalAlignment="Left" Height="31" Margin="262,488,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Background="White" Grid.Column="1"/>
-        <TextBox x:Name="txtLozinka" HorizontalAlignment="Left" Height="31" Margin="262,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Background="White" Grid.Column="1"/>
+        <TextBox x:Name="txtKorisnickoIme" HorizontalAlignment="Left" Height="31" Margin="262,488,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Background="White" Grid.Column="1" FontFamily="Lato" FontSize="16" Style="{DynamicResource dizajnInputa}"/>
+        <TextBox x:Name="txtLozinka" HorizontalAlignment="Left" Height="31" Margin="262,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Background="White" Grid.Column="1" FontSize="16" FontFamily="Lato" Style="{DynamicResource dizajnInputa}"/>
         <Button x:Name="btnPrijava" Content="Prijava" HorizontalAlignment="Left" Height="30" Margin="263,586,0,0" VerticalAlignment="Top" Width="138" Click="btnPrijava_Click" FontFamily="Lato" FontSize="16" Foreground="White" Style="{DynamicResource Dizajnprijava}" Grid.Column="1">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
@@ -24,7 +24,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnOdustani" Content="Odustani" HorizontalAlignment="Left" Height="31" Margin="418,586,0,0" VerticalAlignment="Top" Width="137" Click="btnOdustani_Click" FontFamily="Lato" FontSize="16" Foreground="White" Style="{DynamicResource DizajOdustani}" Grid.Column="1">
+        <Button x:Name="btnOdustani" Content="Odustani" HorizontalAlignment="Left" Height="31" Margin="418,586,0,0" VerticalAlignment="Top" Width="137" Click="btnOdustani_Click" FontFamily="Lato" FontSize="16" Foreground="White" Style="{DynamicResource DizajnOdus}" Grid.Column="1">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF3F3F3" Offset="0"/>
