@@ -1,8 +1,16 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 
 namespace DesingPi
 {
@@ -428,5 +436,85 @@ namespace DesingPi
             }
             return izracunataSatnica;
         }
+
+        public void exportObracunSati(DataGrid grid, string naslov, string naziv)
+        {
+           
+            iTextSharp.text.pdf.BaseFont Vn_Helvetica = iTextSharp.text.pdf.BaseFont.CreateFont(@"C:\Windows\Fonts\arial.ttf", "Identity-H", iTextSharp.text.pdf.BaseFont.EMBEDDED);
+            iTextSharp.text.Font fontNormal = new iTextSharp.text.Font(Vn_Helvetica, 12, iTextSharp.text.Font.NORMAL);
+
+
+            var desktopFolder = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            var fullFileName = System.IO.Path.Combine(desktopFolder, naziv+".pdf");
+            var fs = new FileStream(fullFileName, FileMode.Create);
+
+
+            Document document = new Document(PageSize.A4, 25, 25, 30, 30);
+            PdfWriter writer = PdfWriter.GetInstance(document, fs);
+            
+
+            PdfPTable table = new PdfPTable(grid.Columns.Count);
+            foreach (DataGridColumn column in grid.Columns)
+            {
+                table.AddCell(new Phrase(column.Header.ToString()));
+
+            }
+            table.HeaderRows = 1;
+
+            IEnumerable itemsSource = grid.ItemsSource as IEnumerable;
+            if (itemsSource != null)
+            {
+                foreach (var item in itemsSource)
+                {
+                    DataGridRow row = grid.ItemContainerGenerator.ContainerFromItem(item) as DataGridRow;
+                    if (row != null)
+                    {
+                        DataGridCellsPresenter presenter = FindVisualChild<DataGridCellsPresenter>(row);
+                        for (int i = 0; i < grid.Columns.Count; ++i)
+                        {
+                            DataGridCell cell = (DataGridCell)presenter.ItemContainerGenerator.ContainerFromIndex(i);
+                            TextBlock txt = cell.Content as TextBlock;
+                            if (txt != null)
+                            {
+                                table.AddCell(new Phrase(txt.Text));
+                            }
+                        }
+                    }
+                }
+                iTextSharp.text.Paragraph firstpara = new iTextSharp.text.Paragraph(naslov);
+                firstpara.Alignment = 1;
+                iTextSharp.text.Paragraph secPara = new iTextSharp.text.Paragraph("\n ");
+                firstpara.SpacingAfter = 20;
+                document.Open();
+                document.Add(secPara);
+                document.Add(firstpara);
+                document.Add(table);
+
+                
+                
+                document.Close();
+                writer.Close();
+                // Always close open filehandles explicity
+                fs.Close();
+            }
+        }
+
+        private T FindVisualChild<T>(DependencyObject obj) where T : DependencyObject
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(obj, i);
+                if (child != null && child is T)
+                    return (T)child;
+                else
+                {
+                    T childOfChild = FindVisualChild<T>(child);
+                    if (childOfChild != null)
+                        return childOfChild;
+                }
+            }
+            return null;
+        }
+
     }
 }

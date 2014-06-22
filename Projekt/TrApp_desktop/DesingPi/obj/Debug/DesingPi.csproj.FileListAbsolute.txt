@@ -867,6 +867,7 @@ C:\Users\Nino\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\DesingPi\o
 C:\Users\Nino\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\DesingPi\obj\Debug\frmPrijava.g.cs
 C:\Users\Nino\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\DesingPi\obj\Debug\frmUnosVrsteVozila.g.cs
 C:\Users\Nino\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\DesingPi\obj\Debug\frmUnosVrsteVozila.baml
+<<<<<<< HEAD
 C:\Users\sesta_000\Desktop\TrApp_desktop\DesingPi\bin\Debug\DesingPi.exe.config
 C:\Users\sesta_000\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi.exe
 C:\Users\sesta_000\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi.pdb
@@ -909,3 +910,92 @@ C:\Users\sesta_000\Desktop\TrApp_desktop\DesingPi\obj\Debug\frmUnosVrsteVozila.b
 C:\Users\sesta_000\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi.g.resources
 C:\Users\sesta_000\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
 C:\Users\sesta_000\Desktop\TrApp_desktop\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+=======
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\DesingPi.chm
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\GMap.NET.Core.dll
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\MySql.Data.dll
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\PracenjeVozila.pdb
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\GMap.NET.Core.xml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\bin\Debug\GMap.NET.WindowsForms.xml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmIspisRegistracija.baml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmIspisServisa.baml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmPrijava.baml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\Gumb.baml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\Tabovi.baml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\App.baml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmIspisRegistracija.g.cs
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmIspisServisa.g.cs
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmPrijava.g.cs
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmUnosVrsteVozila.g.cs
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\App.g.cs
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\frmUnosVrsteVozila.baml
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Goran\Desktop\danas\TrApp_desktop\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\DesingPi.exe.config
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\DesingPi.exe
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\DesingPi.pdb
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\DesingPi.chm
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\DesingPi.exe
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\DesingPi.pdb
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\EntityFramework.dll
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\PracenjeVozila.dll
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\GMap.NET.Core.dll
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\MySql.Data.dll
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\EntityFramework.xml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\PracenjeVozila.pdb
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\GMap.NET.Core.xml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\GMap.NET.WindowsForms.xml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\DesingPi.csprojResolveAssemblyReference.cache
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmIspisRegistracija.baml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmIspisServisa.baml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmPrijava.baml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\Gumb.baml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\Tabovi.baml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\App.baml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmGlavna.g.cs
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmIspisRegistracija.g.cs
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmIspisServisa.g.cs
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmOdabirVozila.g.cs
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmPregledPTR.g.cs
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmPrijava.g.cs
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmSlobodniVozaci.g.cs
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmUnosVrsteVozila.g.cs
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\App.g.cs
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\DesingPi_MarkupCompile.cache
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\DesingPi_MarkupCompile.lref
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmGlavna.baml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmOdabirVozila.baml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmPregledPTR.baml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmSlobodniVozaci.baml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\frmUnosVrsteVozila.baml
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\DesingPi.g.resources
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\DesingPi.Properties.Resources.resources
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\obj\Debug\DesingPi.csproj.GenerateResource.Cache
+C:\Users\Matej\Desktop\New folder (2)\DesingPi\bin\Debug\itextsharp.dll
+C:\Users\Nino\Documents\GitHub\RepositoryTeam25\Projekt\TrApp_desktop\DesingPi\obj\Debug\Inputi.baml
+>>>>>>> origin/master
