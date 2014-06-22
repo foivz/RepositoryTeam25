@@ -1039,6 +1039,12 @@ namespace DesingPi
             }
         }
 
+        private void btnUnosVrsteVozila_Click(object sender, RoutedEventArgs e)
+        {
+            frmUnosVrsteVozila unosVrsteVozila = new frmUnosVrsteVozila();
+            unosVrsteVozila.ShowDialog();
+        }
+
 
 
     }

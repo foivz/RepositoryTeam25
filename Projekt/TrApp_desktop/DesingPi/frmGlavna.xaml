@@ -64,7 +64,7 @@
                                 <DataGrid x:Name="voziloDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="28,71,95,282" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" IsReadOnly="True" BorderBrush="#FF0C95F0" Foreground="Black">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn x:Name="id_voziloColumn" Width="SizeToHeader" Header="#" Binding="{Binding id_vozilo}"/>
-                                        <DataGridTextColumn x:Name="registracijaColumn" Width="SizeToHeader" Header="Registracija" Binding="{Binding registracija}" Foreground="Blue"/>
+                                        <DataGridTextColumn x:Name="registracijaColumn" Width="SizeToHeader" Header="Registracija" Binding="{Binding registracija}"/>
                                         <DataGridTextColumn x:Name="nazivColumn" Width="SizeToHeader" Header="Naziv" Binding="{Binding naziv}"/>
                                         <DataGridTextColumn x:Name="vrsta_vozila_idColumn" Width="SizeToHeader" Header="Vrsta vozila" Binding="{Binding vrsta_vozila_id}"/>
                                         <DataGridTextColumn x:Name="godina_proizvodnjeColumn" Width="SizeToHeader" Header="Godina proizvodnje" Binding="{Binding godina_proizvodnje}"/>
@@ -678,6 +678,7 @@
                                 <Button x:Name="btnDodajVozilo" Content="Dodaj" HorizontalAlignment="Left" Margin="471,270,0,0" VerticalAlignment="Top" Width="75" Click="btnDodajVozilo_Click" Style="{DynamicResource DizajnGumba}" Foreground="White"/>
                                 <Button x:Name="btnIzmjeniVozilo" Content="Izmjeni" HorizontalAlignment="Left" Margin="570,270,0,0" VerticalAlignment="Top" Width="75" Click="btnIzmjeniVozilo_Click" Style="{DynamicResource DizajnGumba}" Foreground="White"/>
                                 <Button x:Name="btnObrisiVozilo" Content="Obriši" HorizontalAlignment="Left" Margin="667,270,0,0" VerticalAlignment="Top" Width="75" Click="btnObrisiVozilo_Click" Style="{DynamicResource DizajnGumba}" Foreground="White"/>
+                                
                                 <Grid x:Name="grid10" HorizontalAlignment="Left" Margin="30,147,0,0" VerticalAlignment="Top">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
@@ -691,6 +692,7 @@
                                 </Grid>
                                 <Separator HorizontalAlignment="Left" Height="28" Margin="29,176,0,0" VerticalAlignment="Top" Width="719" Background="#FF0C95F0"/>
                                 <ComboBox x:Name="cmbVrstaVozila" HorizontalAlignment="Left" Margin="114,154,0,0" VerticalAlignment="Top" Width="120" DropDownOpened="cmbVrstaVozila_DropDownOpened_1"/>
+                                <Button x:Name="btnUnosVrsteVozila" Content="Dodaj vrstu vozila" HorizontalAlignment="Left" Margin="364,273,0,0" VerticalAlignment="Top" Width="75" Click="btnUnosVrsteVozila_Click"/>
                             </Grid>
                         </TabItem>
                         <!-- Tab unos zaposlenika -->
