@@ -22,6 +22,10 @@ namespace DesingPi
     {
         SqlConnection Connection = new SqlConnection();
         public int uloga;
+
+        /// <summary>
+        /// Konstruktor forme za prijavu
+        /// </summary>
         public frmPrijava()
         {
             Connection.ConnectionString = @"Data Source=31.147.204.119\PISERVER,1433;Initial Catalog=T25_DB;Persist Security Info=True;User ID=T25_User;Password=rrharSGb";
@@ -29,6 +33,11 @@ namespace DesingPi
             
         }
 
+        /// <summary>
+        /// Metoda u kojoj se provjerava ispravnost unesenih korisničkih podataka spajanjem na bazu podataka
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPrijava_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -73,6 +82,11 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda koja zatvara formu za prijavu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOdustani_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult rezultat=MessageBox.Show("Jeste li sigurni da želite napustiti izbornik?","Upozorenje!",MessageBoxButton.YesNo,MessageBoxImage.Warning);
@@ -86,6 +100,11 @@ namespace DesingPi
             }  
         }
 
+        /// <summary>
+        /// Metoda koja čini unesenu lozinku čitljivim nizom znakova
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
         {
             bool stanje = chkBox.IsChecked.Value;
@@ -107,6 +126,11 @@ namespace DesingPi
             pssBox.Visibility = System.Windows.Visibility.Visible;
         }
 
+        /// <summary>
+        /// Metoda kojom se skrivaju uneseni znakovi lozinke korisnika
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chkBox_Unchecked(object sender, RoutedEventArgs e)
         {
             if (txtLozinka.Text == pssBox.Password)

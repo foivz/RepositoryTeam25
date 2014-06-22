@@ -10,21 +10,39 @@ namespace DesingPi
     {
         TrAppModel model = new TrAppModel();
 
+        /// <summary>
+        /// Metoda koja sprema novo vozilo u bazu podataka
+        /// </summary>
+        /// <param name="vozilo">Objekt klase vozilo</param>
         public void dodaj(vozilo vozilo)
         {
              model.dodaj(vozilo);
         }
 
+        /// <summary>
+        /// Metoda koja pohranjuje izmijenjene podatke o vozilu u bazu podataka
+        /// </summary>
+        /// <param name="voziloId">ID vozila čiji se podaci mijenjaju</param>
+        /// <param name="novipodaci">Objekt klase vozilo koji sadrži izmijenjene podatke o vozilu</param>
         public void izmjeni(int voziloId, vozilo novipodaci)
         {
             model.izmjeni(voziloId, novipodaci);
         }
 
+        /// <summary>
+        /// Metoda koja sprema novog vozača u bazu podataka
+        /// </summary>
+        /// <param name="zaposlenik">Objekt klase zaposlenici</param>
         public void dodaj(zaposlenici zaposlenik)
         {
             model.dodaj(zaposlenik);
         }
 
+        /// <summary>
+        /// Metoda koja pohranjuje izmijenjene podatke o vozaču u bazu podataka
+        /// </summary>
+        /// <param name="zaposlenikId">ID vozača čiji se podaci mijenjaju</param>
+        /// <param name="zaposlenik">Objekt klase zaposlenici koji sadrži izmijenjene podatke o vozaču</param>
         public void izmjeni(int zaposlenikId, zaposlenici zaposlenik)
         {
             model.izmjeni(zaposlenikId, zaposlenik);
@@ -33,13 +51,18 @@ namespace DesingPi
         /// <summary>
         /// Metoda koja služi za brisanje vozila, zaposlenika, putnog radnog lista prema primljenom id-u.
         /// </summary>
-        /// <param name="voziloId"></param>
-        /// <param name="podatak"></param>
+        /// <param name="voziloId">ID vozila koje se briše iz baze podataka</param>
+        /// <param name="podatak">Definira što se briše ("vozilo")</param>
         public void obrisi(int Id, string podatak)
         {
             model.obrisi(Id, podatak);
         }
 
+        /// <summary>
+        /// Metoda koja dodaje novi putni radni list u bazu podataka
+        /// </summary>
+        /// <param name="PTR">Objekt klase PutniRadniList</param>
+        /// <param name="RS">Lista radnih sati vozača navedenih na putnom radnom listu</param>
         public void dodaj(PutniRadniList PTR, List<radni_sati> RS)
         {
             try
@@ -63,17 +86,14 @@ namespace DesingPi
             return;
         }
 
-        public void izmjeni(int PTRId, int vozac1, int vozac2, int brSati)
-        {
-            //model.izmjeni(PTRId, noviPodaci);
-        }
+      
 
         /// <summary>
         /// Metoda za ispis vozila koja idu na servis.
         /// Ukoliko vozilo još nije bilo na servisu u razliku se zapisuje trenutno stanje km.
-        /// U uvjetu se provjerava dal je razlika km veća od servisnog intervala.
+        /// U uvjetu se provjerava da li je razlika km veća od servisnog intervala.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Vraća listu vozila koja trebaju na servis</returns>
         public List<VozilaServis> dohvatiRazlikuKm()
         {
             List<VozilaServis> vozilaServisBezDuplikata = new List<VozilaServis>();
@@ -88,7 +108,6 @@ namespace DesingPi
                     vozilaServisNovo.Add(i);
             }
             return vozilaServisNovo;
-            //return vozilaServisBezDuplikata;
         }
 
         /// <summary>
@@ -168,6 +187,11 @@ namespace DesingPi
             return filtrirana;
         }
 
+        /// <summary>
+        /// Metoda koja služi za filtriranje zaposlenika na godišnjim odmorima s obzirom na vremensku jedinicu
+        /// </summary>
+        /// <param name="podatak">Vremenska jedinica (tjedan, mjesec)</param>
+        /// <returns></returns>
         public List<GodisnjiOdmor> filtiranjeGO(string podatak)
         {
             List<GodisnjiOdmor> filtirana = new List<GodisnjiOdmor>();
@@ -198,6 +222,12 @@ namespace DesingPi
             return filtirana;
         }
 
+        /// <summary>
+        /// Metoda koja provjerava je li količina tereta ispravno unesena.
+        /// </summary>
+        /// <param name="teret">Unesena količina tereta</param>
+        /// <param name="vozilo">ID vozila</param>
+        /// <returns>True ako je teret ispravno unesen, false ako nije</returns>
         public bool provjeraTereta(int teret, int vozilo)
         {
             List<vozilo> nosivost = new List<vozilo>();
@@ -378,6 +408,11 @@ namespace DesingPi
             return slobodniZaposlenici;
         }
 
+        /// <summary>
+        /// Metoda koja izračunava satnicu zaposlenika
+        /// </summary>
+        /// <param name="cijena">Cijena zaposlenika po satu</param>
+        /// <returns></returns>
         public List<ObracunSati> izracunSatnice(int cijena)
         {
             List<ObracunSati> satnica = new List<ObracunSati>();

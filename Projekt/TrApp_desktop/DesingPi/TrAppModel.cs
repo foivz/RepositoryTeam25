@@ -37,7 +37,7 @@ namespace DesingPi
         /// <summary>
         /// Metoda za dohvat registracija.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Vraća listu vozila koja trebaju na registraciju</returns>
         public List<VozilaRegistracija> dohvatVozila()
         {
             using (var db = new T25_DBEntities1())
@@ -156,7 +156,7 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// 
+        /// Metoda kojom se izmijenjuju podaci o vozilu u bazi podataka
         /// </summary>
         /// <param name="voziloId"></param>
         /// <param name="novipodaci"></param>
@@ -285,7 +285,10 @@ namespace DesingPi
             }
         }
 
-
+        /// <summary>
+        /// Metoda koja dodaje novog zaposlenika u bazu podataka
+        /// </summary>
+        /// <param name="zaposlenik">Objekt klase zaposlenici</param>
         public void dodaj(zaposlenici zaposlenik)
         {
             using (var db = new T25_DBEntities1())
@@ -295,6 +298,11 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda koja mijenja podatke zaposlenika
+        /// </summary>
+        /// <param name="zaposlenikId">ID zaposlenika čiji se podaci mijenjaju</param>
+        /// <param name="novipodaci">Objekt klase zaposlenici s novim podacima</param>
         public void izmjeni(int zaposlenikId, zaposlenici novipodaci)
         {
             using (var db = new T25_DBEntities1())
@@ -318,6 +326,10 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda koja sprema novi putni radni list u bazu podataka
+        /// </summary>
+        /// <param name="PTR">Objekt klase PutniRadniList</param>
         public void dodaj(PutniRadniList PTR)
         {
             if (PTR == null)
@@ -330,6 +342,11 @@ namespace DesingPi
                 db.SaveChanges();
             }
         }
+
+        /// <summary>
+        /// Metoda za dodavanje radnih sati u bazu podataka
+        /// </summary>
+        /// <param name="RS">Objekt klase radni_sati</param>
         public void dodaj(radni_sati RS)
         {
             using (var db = new T25_DBEntities1())
@@ -339,6 +356,11 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda koja mijenja podatke o putnom radnom listu
+        /// </summary>
+        /// <param name="PTRId">ID putnog radnog lista</param>
+        /// <param name="novipodaci">Objekt klase PutniRadniList</param>
         public void izmjeni(int PTRId, PutniRadniList novipodaci)
         {
             //db.radni_sati.RemoveRange(db.radni_sati.Where(x => x.putni_radni_list == id));
@@ -356,6 +378,11 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda zadnji putni radni list iz baze podataka
+        /// </summary>
+        /// <param name="PTR">Objekt klase PutniRadniList</param>
+        /// <returns>Vraća listu putnih radnih listova</returns>
         public List<PutniRadniList> dohvatiIdPTR(PutniRadniList PTR)
         {
             using (var db = new T25_DBEntities1())
@@ -369,7 +396,7 @@ namespace DesingPi
         /// <summary>
         /// Metoda koja zbraja na putnim radnim listovima kilometražu koja nam je potrebna za određivanje ide li vozilo na servis.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Vraća listu vozila na servisu</returns>
         public List<VozilaServis> dohvatiVozilaServis()
         {
             using (var db = new T25_DBEntities1())

@@ -25,7 +25,6 @@
                     <MenuItem Header="_Popis vozila" Click="tabPopisVozila"/>
                     <MenuItem Header="_Registracije" Click="tabRegistracija"/>
                     <MenuItem Header="_Servisi" Click="tabServis"/>
-                    <MenuItem Header="_Tehnički pregledi" Click="tabTehnickiPregled"/>
                 </MenuItem>
                 <MenuItem Header="_Vozači">
                     <MenuItem Header="_Popis vozača" Click="tabPopisVozaca"/>
@@ -34,9 +33,10 @@
                 </MenuItem>
                 <MenuItem Header="_Transportni podaci">
                     <MenuItem Header="_Unos Putnog radnog lista" Click="tabUnosPutnogRadnogLista"/>
-                    <MenuItem Header="_Unos zaposlenika" Click="tabUnosZaposlenika"/>
+                    <MenuItem Header="_Unos vozača" Click="tabUnosZaposlenika"/>
                     <MenuItem Header="_Unos vozila" Click="tabUnosVozila"/>
                 </MenuItem>
+                <MenuItem Header="_Praćenje vozila" Click="tabPraćenjeVozila"></MenuItem>
                 <MenuItem Header="_Pomoć">
                     <MenuItem Header="_Dokumentacija" Click="tabDokumentacija"/>
                 </MenuItem>

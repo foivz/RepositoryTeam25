@@ -20,12 +20,21 @@ namespace DesingPi
     public partial class SlobodniVozaci : Window
     {
         TrAppController controller = new TrAppController();
+
+        /// <summary>
+        /// Konstruktor forme za ispis slobodnih vozača
+        /// </summary>
         public SlobodniVozaci()
         {
             InitializeComponent();
             zaposleniciDataGrid3.ItemsSource = controller.ispisSlobodnihZaposlenika();
         }
 
+        /// <summary>
+        /// Metoda koja nakon učitanog prozora pohranjuje podatke u kolekcije
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -34,6 +43,11 @@ namespace DesingPi
             // t25_DBEntitiesViewSource.Source = [generic data source]
         }
 
+        /// <summary>
+        /// Metoda koja zatvara formu za ispis slobodnih vozača
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();

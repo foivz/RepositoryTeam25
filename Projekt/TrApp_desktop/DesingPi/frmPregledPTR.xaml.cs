@@ -20,6 +20,10 @@ namespace DesingPi
     public partial class PregledPTR : Window
     {
         TrAppModel model = new TrAppModel();
+
+        /// <summary>
+        /// Konstruktor forme za pregled putnih radnih listova
+        /// </summary>
         public PregledPTR()
         {
             InitializeComponent();
@@ -27,6 +31,11 @@ namespace DesingPi
             radni_satiDataGrid.ItemsSource = model.dohvatRS();
         }
 
+        /// <summary>
+        /// Metoda koja nakon učitanog prozora forme dohvaća podatke o putnim radnim listovima i sprema ih u obliku kolekcija
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Pregled_putnih_radnih_listova_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -35,6 +44,11 @@ namespace DesingPi
             // t25_DBEntitiesViewSource.Source = [generic data source]
         }
 
+        /// <summary>
+        /// Metoda koja zatvara formu za pregled putnih radnih listova
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOdaberiPTR_Click(object sender, RoutedEventArgs e)
         {
             Close();

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DesingPi
 {
+    /// <summary>
+    /// Klasa koja nasljeđuje klasu zaposlenici, te joj dodaje svojstva ID putnog radnog lista, suma sati i izračunata satnica
+    /// </summary>
     class ObracunSati: zaposlenici
     {
         public Nullable<int> putni_radni_list { get; set; }

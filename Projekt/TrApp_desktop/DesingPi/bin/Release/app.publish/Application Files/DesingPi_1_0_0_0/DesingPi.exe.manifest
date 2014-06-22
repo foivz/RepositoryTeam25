@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="DesingPi.exe" version="1.0.0.0" publicKeyToken="57ec5db5cd00409b" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="DesingPi" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="DesingPi.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="EntityFramework" version="5.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="MySql.Data" version="6.8.3.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DesingPi.exe" size="2877440">
+      <assemblyIdentity name="DesingPi" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>4EB+4j3CoGsrcjGGlYZyyIsSKjBhVflSb76cM4XJbgg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.dll" size="5062304">
+      <assemblyIdentity name="EntityFramework" version="6.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>ME/k2DGnnEXXRv8PbQPIB/oznXx46EIYOYjb9nQ2US8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.SqlServer.dll" size="580768">
+      <assemblyIdentity name="EntityFramework.SqlServer" version="6.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>iU2DBXuEJ4l5e2Up1a2QeNBvmdWHbhB91cwMpi/p8Nc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GMap.NET.Core.dll" size="2193920">
+      <assemblyIdentity name="GMap.NET.Core" version="1.6.0.0" publicKeyToken="B85B9027B614AFEF" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>jwEEhMfvezX8HSLJd9jde3tHKaI3h25RIDLklCXrPko=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GMap.NET.WindowsForms.dll" size="70144">
+      <assemblyIdentity name="GMap.NET.WindowsForms" version="1.6.0.0" publicKeyToken="B85B9027B614AFEF" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>fVTQhMaxdOKdAf5L/GbFfCupaeFaYwjuOBFnOpuYuE4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PracenjeVozila.dll" size="352768">
+      <assemblyIdentity name="PracenjeVozila" version="1.0.0.0" publicKeyToken="86B0CCBB7AC043B5" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>OdkYSYGQujLnrIs+JYgFyEMTUPwUCR0SbvDllY7QUk4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="DesingPi.exe.config" size="1858">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>EXUl8wpI9HBatYjso4Nxwq0psipEm12mu2dFLLXcoxQ=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=MARTINA-PC\sesta_000" issuerKeyHash="19976afd82c4c96f301d357318450ec881d6edb0" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>DGABl3SYZc1z12QLqbGAm5R3FS86tzdrnb8SsKgH7XA=</DigestValue></Reference></SignedInfo><SignatureValue>Bi9ytnNpGsMnGimzHyAu0tL7PLZiGIl1Ib38eBGO5gduioJZv/0I7nALOFw8AaH9Lf/ZSwUR4xVo2gXrMQwQMrP8pt4EZfKkvkk2ll/btJ0KawvHfrkXLIl+IJEhYA8KoL0hqVuz7nWjYF8zdkEheZ6f5SpCrw0jQU26wFQl6i4=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>z2Odd3dbqhrUaj2yf2Gof1tTo+K8CVoHHNiLL7Vvz2Fhn203rWx7hQDfHbUBL7va1z1a9EsukjT/JV34qgleeHX5zWkHkIBTquBhFNQvLlN1Uk6HuKS0BbAmB8KQOk9v/1/jQUVELqeOirtjTUT0f6wxMx9DuVaMd1gicm2+zhc=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="70ed07a8b012bf9d6b37b73a2f1577949b80b1a90b64d773cd6598749701600c" Description="" Url=""><as:assemblyIdentity name="DesingPi.exe" version="1.0.0.0" publicKeyToken="57ec5db5cd00409b" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MARTINA-PC\sesta_000</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>90+fOXojl4MYVbAh2zFIRMutnqDsJ8SOF4fUP5Ad4nU=</DigestValue></Reference></SignedInfo><SignatureValue>iXSpxDVTu8ldEKrcUbc+q4nUZCDfpdBWPDtD97OEBTg8rXHj3PDs5OP0z4PH/DW+z5Tl+BMs/Dl4HCipqgFzGdkfHqhyNgW/Z2RxvPL0FtAbl5yOJPkVnVWfJO8LZCjp3QK2BQcyx0FnerVYcmRkdCrPyuIyKVtmGRbwkSQ3ToM=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>z2Odd3dbqhrUaj2yf2Gof1tTo+K8CVoHHNiLL7Vvz2Fhn203rWx7hQDfHbUBL7va1z1a9EsukjT/JV34qgleeHX5zWkHkIBTquBhFNQvLlN1Uk6HuKS0BbAmB8KQOk9v/1/jQUVELqeOirtjTUT0f6wxMx9DuVaMd1gicm2+zhc=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB6TCCAVKgAwIBAgIQYbTXOm7XK7BBu2ki7GZZHjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDHigATQBBAFIAVABJAE4AQQAtAFAAQwBcAHMAZQBzAHQAYQBfADAAMAAwMB4XDTE0MDYyMjE5MTcyM1oXDTE1MDYyMzAxMTcyM1owMzExMC8GA1UEAx4oAE0AQQBSAFQASQBOAEEALQBQAEMAXABzAGUAcwB0AGEAXwAwADAAMDCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAz2Odd3dbqhrUaj2yf2Gof1tTo+K8CVoHHNiLL7Vvz2Fhn203rWx7hQDfHbUBL7va1z1a9EsukjT/JV34qgleeHX5zWkHkIBTquBhFNQvLlN1Uk6HuKS0BbAmB8KQOk9v/1/jQUVELqeOirtjTUT0f6wxMx9DuVaMd1gicm2+zhcCAwEAATANBgkqhkiG9w0BAQsFAAOBgQCLA/1loBHOpr0pgP56dduhLrx0mtb2eWqv9MoXzD2JmDy1OzuPjxIRsum5pDPkL2pFMhpMxZmknwNaTAQFeHW0GRKaqhVBliXFVx07YaAWDfN93NtPoO9gUQcHZ14jS+r8SAUoMMZla6S2Ko4O6/6gghZpegapG+0fUxe0nOz9XA==</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

@@ -18,15 +18,19 @@ using System.Windows.Shapes;
 namespace DesingPi
 {
 
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+   /// <summary>
+   ///  Glavna klasa koja nasljeđuje klasu Window, a koja sadrži atribute i metode kontrola na glavnoj formi
+   /// </summary>
     public partial class MainWindow : Window
     {
-        TrAppModel model = new TrAppModel();
-        TrAppController controller = new TrAppController();
-        private int uloga;
+        TrAppModel model = new TrAppModel(); //objekt klase TrAppModel
+        TrAppController controller = new TrAppController(); //objekt klase TrAppController
+        private int uloga; //uloga korisnika koja se dobiva na temelju korisničkog imena
 
+        /// <summary>
+        /// Konstruktor glavne klase MainWindow
+        /// </summary>
+        /// <param name="uloga">Označava ulogu korisnika aplikacije koja se dobiva na temelju unesenog korisničkog imena prilikom prijave korisnika u aplikaciju.</param>
         public MainWindow(int uloga)
         {
             InitializeComponent();
@@ -39,64 +43,110 @@ namespace DesingPi
             
         }
 
+        /// <summary>
+        /// Metoda koja se poziva kad korisnik odabere tab kontrolu Popis vozila, a koja postavlja vrijednost odabranog indeksa u glavnoj i tab kontroli na 0 .
+        /// </summary>
+        /// <param name="sender">Referenca na tab kontrolu Popis vozila.</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz tab Popis vozila.</param>
         void tabPopisVozila(object sender, EventArgs e)
         {
             tabGlavni.SelectedIndex = 0;
             tabVozila.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Metoda koja se poziva kad korisnik odabere tab kontrolu Nadolazeće registracije, a koja postavlja vrijednost odabranog indeksa u glavnoj kontroli na 0, a na tab kontroli na 1.
+        /// </summary>
+        /// <param name="sender">Referenca na tab kontrolu Nadolazeće registracije.</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz tab kontrolu Nadolazeće registracije.</param>
         void tabRegistracija(object sender, EventArgs e)
         {
             tabGlavni.SelectedIndex = 0;
             tabVozila.SelectedIndex = 1;
         }
+
+        /// <summary>
+        /// Metoda koja se poziva kad korisnik odabere tab kontrolu Nadolazeći servisi, a koja postavlja vrijednost odabranog indeksa u glavnoj kontroli na 0, a na tab kontroli na 2.
+        /// </summary>
+        /// <param name="sender">Referenca na tab kontrolu Nadolazeći servisi.</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz tab kontrolu Nadolazeći servisi.</param>
         void tabServis(object sender, EventArgs e)
         {
             tabGlavni.SelectedIndex = 0;
             tabVozila.SelectedIndex = 2;
         }
-        void tabTehnickiPregled(object sender, EventArgs e)
-        {
-            tabGlavni.SelectedIndex = 0;
-            tabVozila.SelectedIndex = 3;
-        }
 
+        /// <summary>
+        /// Metoda koja se poziva kad korisnik odabere tab kontrolu Popis vozača, a koja postavlja vrijednost odabranog indeksa u glavnoj kontroli na 1, a na tab kontroli na 0.
+        /// </summary>
+        /// <param name="sender">Referenca na tab kontrolu Popis vozača.</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz tab kontrolu Popis vozača.</param>
         void tabPopisVozaca(object sender, EventArgs e)
         {
             tabGlavni.SelectedIndex = 1;
             tabVozaci.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Metoda koja se poziva kad korisnik odabere tab kontrolu Planiranje godišnjih odmora, a koja postavlja vrijednost odabranog indeksa u glavnoj kontroli i tab kontroli na 1.
+        /// </summary>
+        /// <param name="sender">Referenca na tab kontrolu Planiranje godišnjih odmora.</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz tab kontrolu Planiranje godišnjih odmora.</param>
         void tabGodisnjiOdmor(object sender, EventArgs e)
         {
             tabGlavni.SelectedIndex = 1;
             tabVozaci.SelectedIndex = 1;
         }
 
+        /// <summary>
+        /// Metoda koja se poziva kad korisnik odabere tab kontrolu Mjesečni obračun radnih sati, a koja postavlja vrijednost odabranog indeksa u glavnoj kontroli na 1, a na tab kontroli na 2.
+        /// </summary>
+        /// <param name="sender">Referenca na tab kontrolu Mjesečni obračun radnih sati.</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz tab kontrolu Mjesečni obračun radnih sati.</param>
         void tabRadniSati(object sender, EventArgs e)
         {
             tabGlavni.SelectedIndex = 1;
             tabVozaci.SelectedIndex = 2;
         }
 
+        /// <summary>
+        /// Metoda koja se poziva kad korisnik odabere tab kontrolu Unos putnog radnog lista, a koja postavlja vrijednost odabranog indeksa u glavnoj kontroli na 2, a na tab kontroli na 0.
+        /// </summary>
+        /// <param name="sender">Referenca na tab kontrolu Unos putnog radnog lista.</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz tab kontrolu Unos putnog radnog lista.</param>
         void tabUnosPutnogRadnogLista(object sender, EventArgs e)
         {
             tabGlavni.SelectedIndex = 2;
             tabTransportniPodaci.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Metoda koja se poziva kad korisnik odabere tab kontrolu Unos vozača, a koja postavlja vrijednost odabranog indeksa u glavnoj kontroli na 2, a na tab kontroli na 1.
+        /// </summary>
+        /// <param name="sender">Referenca na tab kontrolu Unos vozača.</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz tab kontrolu Unos vozača.</param>
         void tabUnosZaposlenika(object sender, EventArgs e)
         {
             tabGlavni.SelectedIndex = 2;
             tabTransportniPodaci.SelectedIndex = 1;
         }
 
+        /// <summary>
+        /// Metoda koja se poziva kad korisnik odabere tab kontrolu Unos vozila, a koja postavlja vrijednost odabranog indeksa u glavnoj kontroli i tab kontroli na 2.
+        /// </summary>
+        /// <param name="sender">Referenca na tab kontrolu Unos vozila.</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz tab kontrolu Unos vozila.</param>
         void tabUnosVozila(object sender, EventArgs e)
         {
             tabGlavni.SelectedIndex = 2;
             tabTransportniPodaci.SelectedIndex = 2;
         }
 
+        /// <summary>
+        /// Privatna metoda koja se poziva kad se učita glavni prozor, a koja pohranjuje resurse dobivene iz baze podataka u kolekcije
+        /// </summary>
+        /// <param name="sender">Referenca na glavni prozor</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz glavni prozor.</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -121,8 +171,8 @@ namespace DesingPi
         /// Metoda koja govori koji datagrid s vozilima će biti popunjen podacima.
         /// Želi se izbjeći da se pri pokretanju programa odmah oba popune.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Referenca na tab kontrolu Popis vozila</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz tab kontrolu Popis vozila.</param>
         private void popisVozila_Loaded(object sender, RoutedEventArgs e)
         {
             string a = "System.Windows.Controls.TabItem Header:Popis vozila Content:System.Windows.Controls.TabItem Header:Unos vozila Content:System.Windows.Controls.TabItem Header:Unos vozila Content:";
@@ -139,10 +189,11 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// 
+        /// Metoda koja govori koji datagrid s vozačima će biti popunjen podacima.
+        /// Želi se izbjeći da se pri pokretanju programa odmah oba popune.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Referenca na tab kontrolu Popis vozača.</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz tab kontrolu Popis vozača.</param>
         private void popisZaposlenika_Loaded(object sender, RoutedEventArgs e)
         {
             string a = "System.Windows.Controls.TabItem Header:Popis vozila Content:System.Windows.Controls.TabItem Header:Unos vozila Content:System.Windows.Controls.TabItem Header:Unos vozila Content:";
@@ -159,10 +210,11 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// 
+        /// Metoda koja se poziva kad korisnik odabere opciju Dodaj vozilo na tab kontroli Unos vozila.
+        /// Najprije provjerava jesu li sva polja ispravno unesena te, ukoliko jesu, dodaje podatke o vozilu u bazu podataka.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Referenca na gumb Dodaj vozilo</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz gumb Dodaj vozilo.</param>
         private void btnDodajVozilo_Click(object sender, RoutedEventArgs e)
         {
             string podatak = "sva_vozila";
@@ -177,10 +229,11 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// 
+        /// Metoda koja se poziva kad korisnik odabere opciju Izmijeni vozilo na tab kontroli Unos vozila.
+        /// Najprije provjerava jesu li svi podaci ispravno uneseni te, ukoliko jesu, pohranjuje izmijenjene podatke o vozilu u bazu podataka.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Referenca na gumb Izmijeni vozilo</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz gumb Izmijeni vozilo.</param>
         private void btnIzmjeniVozilo_Click(object sender, RoutedEventArgs e)
         {
             string podatak = "sva_vozila";
@@ -199,6 +252,13 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda koja se poziva kad korisnik odabere opciju Obriši vozilo na tab kontroli Unos vozila.
+        /// Najprije provjerava jesu li svi podaci ispravno uneseni, je li vozilo trenutno odsutno.
+        /// Ukoliko su uvjeti zadovoljeni, briše podatke o odabranom vozilu iz baze podataka.
+        /// </summary>
+        /// <param name="sender">Referenca na gumb Obriši vozilo</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz gumb Obriši vozilo.</param>
         private void btnObrisiVozilo_Click(object sender, RoutedEventArgs e)
         {
             List<VozilaRegistracija> naRegistraciji = controller.poslanaNaRegistraciju();
@@ -281,7 +341,7 @@ namespace DesingPi
         /// <summary>
         /// Metoda koja dohvaća podatke iz textBox-ova i sprema ih u objekt vozilo
         /// </summary>
-        /// <returns>Popunje objekt vozilo</returns>
+        /// <returns>Popunjava objekt vozilo</returns>
         private vozilo dohvatiPodatkeVozilo()
         {
             string[] vrstaVozila = cmbVrstaVozila.Text.Split(' ');
@@ -298,10 +358,11 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// 
+        /// Metoda koja se poziva kad korisnik odabere opciju Izmijeni vozilo na tab kontroli Unos vozača.
+        /// Najprije provjerava jesu li svi podaci ispravno uneseni te, ukoliko jesu, pohranjuje unesene podatke o vozaču u bazu podataka.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Referenca na gumb Dodaj vozača</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz gumb Dodaj vozača.</param>
         private void btnDodajZaposlenika_Click(object sender, RoutedEventArgs e)
         {
             if (provjeriPopunjenostZaposlenika())
@@ -321,10 +382,11 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// 
+        /// Metoda koja se poziva kad korisnik odabere opciju Izmijeni vozilo na tab kontroli Unos vozača.
+        /// Najprije provjerava jesu li svi podaci ispravno uneseni te, ukoliko jesu, pohranjuje izmijenjene podatke o vozaču u bazu podataka.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Referenca na gumb Izmijeni vozača</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz gumb Izmijeni vozača.</param>
         private void btnIzmjeniZaposlenika_Click(object sender, RoutedEventArgs e)
         {
             if (provjeriPopunjenostZaposlenika())
@@ -344,10 +406,11 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// 
+        /// Metoda koja se poziva kad korisnik odabere opciju Obriši vozača na tab kontroli Unos vozača.
+        /// Najprije provjerava jesu li svi podaci ispravno uneseni te, ukoliko jesu, briše podatke o vozaču iz baze podataka.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Referenca na gumb Obriši vozača</param>
+        /// <param name="e">Sadrži argumente vezane uz događaje koji su vezani uz gumb Obriši vozača.</param>
         private void btnObrisiZaposlenika_Click(object sender, RoutedEventArgs e)
         {
             string podatak = "svi_vozaci";
@@ -355,15 +418,15 @@ namespace DesingPi
                 return;
             int zaposlenikId = Convert.ToInt32(id_zaposleniciTextBox.Text);
             controller.obrisi(zaposlenikId, podatak);
-            MessageBox.Show("Vozilo uspješno obrisano!", "Obavijest");
+            MessageBox.Show("Vozač uspješno obrisan!", "Obavijest");
             zaposleniciDataGrid.ItemsSource = model.dohvatVozaca(podatak);
             zaposleniciDataGrid1.ItemsSource = model.dohvatZaposlenika();
         }
 
         /// <summary>
-        /// 
+        /// Provjerava popunjenost svih textbox-ova prije unosa.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Vraća true ako je sve ispunjeno, false ako nije.</returns>
         private bool provjeriPopunjenostZaposlenika()
         {
             if (string.IsNullOrWhiteSpace(prezimeTextBox.Text) ||
@@ -384,9 +447,9 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// 
+        /// Metoda koja dohvaća sve podatke vezane uz zaposlenike i sprema ih u objekt klase Zaposlenici.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Vraća objekte klase zaposlenici koji sadrži podatke o zaposlenicima.</returns>
         private zaposlenici dohvatiPodatkeZaposlenika()
         {
             string[] uloga = cmbUloga.Text.Split(' ');
@@ -406,10 +469,10 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// 
+        /// Metoda koja poziva formu za prikaz slobodnih vozila.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Referenca na gumb Odaberi</param>
+        /// <param name="e">Sadrži argumente za događaje vezane uz gumb Odaberi</param>
         private void btnOdaberiSlobodnaVozila(object sender, RoutedEventArgs e)
         {
             SlobodnaVozila frmSlobodnaVozila = new SlobodnaVozila();
@@ -422,15 +485,15 @@ namespace DesingPi
         /// Forma koja služi za pregled Putnih radnih listova. Klikom na pregled otvara se nova forma, a na novoj formi možemo odabrati postojeći PTR kojeg onda 
         /// potom mijenjamo ili brisemo.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Referenca na gumb Pregled</param>
+        /// <param name="e">Sadrži argumente za događaje vezane uz gumb Odaberi</param>
         private void btnPregledPTR_Click(object sender, RoutedEventArgs e)
         {
             //kreiranje objekta za prvi objekt u listi
             PutniRadniList odabraniPTRObj = new PutniRadniList();
 
-            List<radni_sati> odabraniVozaci = new List<radni_sati>();
-            radni_sati odabraniVozaciObj = new radni_sati();
+            List<radni_sati> odabraniVozaci = new List<radni_sati>(); //lista odabranih vozača
+            radni_sati odabraniVozaciObj = new radni_sati(); //objekt klase radni_sati
 
             //otvaranje forme za odabir putnig radnog lista
             PregledPTR frmPTR = new PregledPTR();
@@ -465,6 +528,11 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda koja poziva novu formu za odabir prvog vozača na putnom radnom listu.
+        /// </summary>
+        /// <param name="sender">Referenca na gumb Odaberi</param>
+        /// <param name="e">Sadrži argumente za događaje vezane uz gumb Odaberi</param>
         private void btnOdaberiVozaca1_Click(object sender, RoutedEventArgs e)
         {
             SlobodniVozaci vozaci = new SlobodniVozaci();
@@ -472,6 +540,11 @@ namespace DesingPi
             zaposlenikTextBox.Text = vozaci.txtID.Text;
         }
 
+        /// <summary>
+        /// Metoda koja poziva novu formu za odabir drugog vozača na putnom radnom listu.
+        /// </summary>
+        /// <param name="sender">Referenca na gumb Odaberi</param>
+        /// <param name="e">Sadrži argumente za događaje vezane uz gumb Odaberi</param>
         private void btnOdaberiVozaca2_Click(object sender, RoutedEventArgs e)
         {
             SlobodniVozaci vozaci = new SlobodniVozaci();
@@ -483,7 +556,7 @@ namespace DesingPi
         /// Metoda koja služi za provjeru popunjenosti textboksova za putni radni list.
         /// Ako je unesen neispravan datum i teret javlja grešku.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Vraća true ako su polja ispravno unesena, false ako nisu (uz ispis odgovarajućih poruka).</returns>
         private bool provjeriPopunjenostPTR()
         {
             if (string.IsNullOrWhiteSpace(voziloTextBox.Text) ||
@@ -512,6 +585,10 @@ namespace DesingPi
             return true;
         }
 
+        /// <summary>
+        /// Metoda koja pohranjuje unesene podatke o putnom radnom listu u objekt.
+        /// </summary>
+        /// <returns>Objekt klase Putni radni list.</returns>
         private PutniRadniList dohvatPodatakaPTR()
         {
             PutniRadniList PTR = new PutniRadniList();
@@ -542,6 +619,10 @@ namespace DesingPi
             return null;
         }
 
+        /// <summary>
+        /// Metoda koja pohranjuje unesene podatke o radnim satima u listu
+        /// </summary>
+        /// <returns>Vraća listu zaposlenika i njihovih radnih sati.</returns>
         private List<radni_sati> dohvatPodatakaRS()
         {
             try
@@ -567,6 +648,11 @@ namespace DesingPi
             return null;
         }
 
+        /// <summary>
+        /// Metoda koja poziva klasu za unos podataka o putnom radnom listu u bazu podataka.
+        /// </summary>
+        /// <param name="sender">Referenca na gumb Spremi</param>
+        /// <param name="e">Sadrži argumente za događaje vezane uz gumb Spremi</param>
         private void btnSpremiPTR_Click(object sender, RoutedEventArgs e)
         {
             if (provjeriPopunjenostPTR() == true)
@@ -580,7 +666,12 @@ namespace DesingPi
             }
         }
 
-
+        /// <summary>
+        /// Metoda koja se poziva kad korisnik pritisne na gumb Izmijeni Putni radni list.
+        /// Najprije provjerava ispravnost unesenih podataka te ih, ukoliko su ispravni, pohranjuje u bazu podataka.
+        /// </summary>
+        /// <param name="sender">Referenca na gumb Izmijeni</param>
+        /// <param name="e">Sadrži argumente za događaje vezane uz gumb Izmijeni</param>
         private void btnIzmijeniPTR_Click(object sender, RoutedEventArgs e)
         {
             radni_sati rsIzmjenjenipodaci = new radni_sati();
@@ -602,23 +693,33 @@ namespace DesingPi
 
         }
 
+        /// <summary>
+        /// Metoda koja u datagrid za popis vozila na servisima učitava izračunatu razliku u kilometraži vozila.
+        /// </summary>
+        /// <param name="sender">Referenca na objekt VozilaServis</param>
+        /// <param name="e">Sadrži argumente za događaje vezane uz objekt VozilaServis</param>
         private void VozilaServis_Loaded(object sender, RoutedEventArgs e)
         {
             vozilaservisdatagrid.ItemsSource = controller.dohvatiRazlikuKm();
         }
 
+        /// <summary>
+        /// Metoda koja u datagrid za popis vozila učitava sva vozila.
+        /// </summary>
+        /// <param name="sender">Referenca na combobox kontrolu</param>
+        /// <param name="e">Sadrži argumente za događaje vezane uz combobox kontrolu/param>
         private void popisSvih(object sender, RoutedEventArgs e)
         {
             string podatak = "sva_vozila";
             voziloDataGrid.ItemsSource = model.dohvatVozila(podatak);
         }
 
-        private void popisSlobodnih(object sender, RoutedEventArgs e)
-        {
-            string podatak = "";
-            voziloDataGrid.ItemsSource = model.dohvatVozila(podatak);
-        }
 
+        /// <summary>
+        /// Metoda koja u datagrid za popis vozila učitava sva vozila.
+        /// </summary>
+        /// <param name="sender">Referenca na combobox kontrolu</param>
+        /// <param name="e">Sadrži argumente za događaje vezane uz combobox kontrolu/param>
         private void popisSvihVozaca(object sender, RoutedEventArgs e)
         {
             string podatak = "svi_vozaci";
@@ -761,6 +862,11 @@ namespace DesingPi
             return teh;
         }
 
+        /// <summary>
+        /// Metoda kojom se odabrano vozilo šalje na registraciju pritiskom na gumb.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPosaljiNaRegistraciju_Click(object sender, RoutedEventArgs e)
         {
             if (provjeriPopunjenostRegistracija())
@@ -799,6 +905,11 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda koja briše registraciju vozila.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnObrisiRegistraciju_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtIdTehnickog.Text))
@@ -810,7 +921,7 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// Metoda koja provjerava dal su unijeti svi potrebni podaci za slanje vozila na servis.
+        /// Metoda koja provjerava dal su uneseni svi potrebni podaci za slanje vozila na servis.
         /// </summary>
         /// <returns></returns>
         private bool provjeriPopunjenostServisa()
@@ -829,6 +940,10 @@ namespace DesingPi
             return true;
         }
 
+        /// <summary>
+        /// Metoda koja dohvaća podatke vezane uz servis vozila
+        /// </summary>
+        /// <returns>Vraća objekt klase servis</returns>
         private servis dohvatServisa()
         {
             servis vozilo = new servis();
@@ -839,6 +954,11 @@ namespace DesingPi
             return vozilo;
         }
 
+        /// <summary>
+        /// Metoda koja pritiskom na gumb šalje vozilo na servis. Najprije provjerava ispravnost unesenih podataka.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPosaljiNaServis_Click(object sender, RoutedEventArgs e)
         {
             if (provjeriPopunjenostServisa())
@@ -852,7 +972,7 @@ namespace DesingPi
         }
 
         /// <summary>
-        /// Metoda koja provjerava dal su uneseni svi podaci potrebni za godišnji odmor.
+        /// Metoda koja provjerava da li su uneseni svi podaci potrebni za godišnji odmor.
         /// </summary>
         /// <returns></returns>
         private bool provjeriPopunjenostGodisnjeg()
@@ -864,6 +984,10 @@ namespace DesingPi
             return true;
         }
 
+        /// <summary>
+        /// Metoda koja dohvaća podatke o godišnjem odmoru zaposlenika na određeni dan.
+        /// </summary>
+        /// <returns>Vraća objekt klase godisnji_odmor</returns>
         private godisnji_odmor dohvatGodisnjeg()
         {
             string[] proba = cmbZaposleniciCombo.Text.Split(' ');
@@ -874,6 +998,11 @@ namespace DesingPi
             return odmor;
         }
 
+        /// <summary>
+        /// Metoda kojom se određnog zaposlenika šalje na godišnji odmor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void posaljiGodisnji_Click(object sender, RoutedEventArgs e)
         {
             if (provjeriPopunjenostGodisnjeg())
@@ -916,6 +1045,11 @@ namespace DesingPi
 
         }
 
+        /// <summary>
+        /// Metoda kojom se pritiskom na gumb briše servis vozila.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnObrišiServis_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtIdServisa.Text))
@@ -927,7 +1061,11 @@ namespace DesingPi
             }
         }
 
-        /******************************************************************************/
+        /// <summary>
+        /// Metoda koja popunjava datagrid s podacima o slobodnim vozilima.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void popisSlobodnihVozila(object sender, RoutedEventArgs e)
         {
             voziloDataGrid.ItemsSource = controller.ispisSlobodnihVozila();
@@ -949,6 +1087,11 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda kojom se pritiskom na gumb briše godišnji odmor zaposlenika.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnObrisiGodisnjiOdmor_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(id_godinjeg_odmoraTextBox.Text))
@@ -960,7 +1103,7 @@ namespace DesingPi
             }
         }
 
-        int brPonavljanja = 0; //kolko put se otvorio combobox
+        int brPonavljanja = 0; //koliko puta se otvorio combobox
         private void cmbPTRSlobodniZaposlenici_DropDownOpened(object sender, EventArgs e)
         {
             if (brPonavljanja++ < 1)
@@ -975,11 +1118,21 @@ namespace DesingPi
             }
         }
 
+        /// <summary>
+        /// Metoda koja se poziva kad korisnik odabere tab kontrolu tabDokumentacija
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tabDokumentacija(object sender, RoutedEventArgs e)
         {
             Process.Start("DesingPI.chm");
         }
 
+        /// <summary>
+        /// Metoda koja poziva formu za unos vrste vozila
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDodajVrstuVozila_Click(object sender, RoutedEventArgs e)
         {
             frmUnosVrsteVozila vrsta_vozila = new frmUnosVrsteVozila();
@@ -989,6 +1142,12 @@ namespace DesingPi
         int brPonavljanjaVrstaVozila = 0;
 
         int brPonavljanjaUlogaZaposlenika = 0;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbUloga_DropDownOpened(object sender, EventArgs e)
         {
             if (brPonavljanjaUlogaZaposlenika++ < 1)
@@ -1031,6 +1190,11 @@ namespace DesingPi
 
         }
 
+        /// <summary>
+        /// Metoda koja računa cijenu satnice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnIzračunajSatnicu_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtCijenaSatnice.Text))

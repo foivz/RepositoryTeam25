@@ -21,12 +21,21 @@ namespace DesingPi
     {
         TrAppModel model = new TrAppModel();
         TrAppController controller = new TrAppController();
+
+        /// <summary>
+        /// Konstruktor forme za unos vrste vozila
+        /// </summary>
         public frmUnosVrsteVozila()
         {
             InitializeComponent();
             vrsta_vozilaDataGrid.ItemsSource = model.dohvatiVrsteVozila();
         }
 
+        /// <summary>
+        /// Metoda koja se poziva kod otvaranja prozora
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
