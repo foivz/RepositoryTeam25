@@ -120,6 +120,7 @@
     </Content>
     <Content Include="css\jquery.mobile-1.4.2.css" />
     <Content Include="css\jquery.mobile.icons.min.css" />
+    <Content Include="css\trapp.minn.css" />
     <Content Include="index.html" />
     <Content Include="scripts\index.js" />
     <Content Include="css\index.css" />

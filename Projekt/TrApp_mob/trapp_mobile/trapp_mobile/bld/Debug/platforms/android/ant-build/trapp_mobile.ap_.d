@@ -38,6 +38,11 @@ C:\Users\Matej\Documents\VS2013\Projects\trapp_mobile\trapp_mobile\bld\Debug\pla
 C:\Users\Matej\Documents\VS2013\Projects\trapp_mobile\trapp_mobile\bld\Debug\platforms\android\assets\www\Project_Readme.html \
 C:\Users\Matej\Documents\VS2013\Projects\trapp_mobile\trapp_mobile\bld\Debug\platforms\android\assets\www\scripts \
 C:\Users\Matej\Documents\VS2013\Projects\trapp_mobile\trapp_mobile\bld\Debug\platforms\android\assets\www\css\index.css \
+C:\Users\Matej\Documents\VS2013\Projects\trapp_mobile\trapp_mobile\bld\Debug\platforms\android\assets\www\css\jquery.mobile-1.4.2.css \
+C:\Users\Matej\Documents\VS2013\Projects\trapp_mobile\trapp_mobile\bld\Debug\platforms\android\assets\www\css\jquery.mobile.icons.min.css \
+C:\Users\Matej\Documents\VS2013\Projects\trapp_mobile\trapp_mobile\bld\Debug\platforms\android\assets\www\css\trapp.css \
+C:\Users\Matej\Documents\VS2013\Projects\trapp_mobile\trapp_mobile\bld\Debug\platforms\android\assets\www\css\trapp.min.css \
+C:\Users\Matej\Documents\VS2013\Projects\trapp_mobile\trapp_mobile\bld\Debug\platforms\android\assets\www\css\trapp.minn.css \
 C:\Users\Matej\Documents\VS2013\Projects\trapp_mobile\trapp_mobile\bld\Debug\platforms\android\assets\www\scripts\index.js \
 C:\Users\Matej\Documents\VS2013\Projects\trapp_mobile\trapp_mobile\bld\Debug\platforms\android\assets\www\scripts\jquery-1.11.1.min.js \
 C:\Users\Matej\Documents\VS2013\Projects\trapp_mobile\trapp_mobile\bld\Debug\platforms\android\assets\www\scripts\jquery.mobile-1.4.2.js \

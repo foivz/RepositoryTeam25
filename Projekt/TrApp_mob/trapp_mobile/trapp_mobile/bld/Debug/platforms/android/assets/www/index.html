@@ -7,6 +7,8 @@
     <!-- trapp_mobile references -->
     <link href="css/index.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.css">
+    <link rel="stylesheet" type="text/css" href="css/trapp.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     
 </head>
 <body>
@@ -54,7 +56,19 @@
             alert("Kod: " + error.code + "\n" + "Poruka: " + error.message + "\n");
         }
         function kraj() {
+            var idPtr = $('#IdPtr').val();
+            $.ajax({
+                type: "POST",
+                url: "http://arka.foi.hr/~mvukovic2/Pi/postgre.php",
+                data: { "lat": currLocation.lat, "lon": currLocation.lon, "idPtr": idPtr, "status": 'g' }
+            })
+  .done(function (msg) {
+       //alert("Data Saved: " + msg);
+     var elem = document.getElementById('geolocation');
+      elem.innerHTML = "Završili ste rutu!";
+  });
             clearInterval(activeWatch);
+            
         }
         function onDeviceReady() {
             //to do?
@@ -74,11 +88,25 @@
             $.ajax({
                 type: "POST",
                 url: "http://arka.foi.hr/~mvukovic2/Pi/postgre.php",
-                data: { "lat": currLocation.lat, "lon" : currLocation.lon, "idPtr" : idPtr }
+                data: { "lat": currLocation.lat, "lon" : currLocation.lon, "idPtr" : idPtr, "status" : 't' }
             })
   .done(function (msg) {
-      alert("Data Saved: " + msg);
+     //alert("Spremljeno: " + msg);
   });
+        }
+
+        function predajRS() {
+            var ptr = $("#ptrId").val();
+            var brSati = $("#brSati").val();
+            var zaposlenik = $("#zapId").val();
+            $.ajax({
+                type: "POST",
+                url: "http://arka.foi.hr/~mvukovic2/Pi/radniSati.php",
+                data: { "ptr": ptr, "brSati": brSati, "zaposlenik": zaposlenik }
+            })
+            .done(function (msg) {
+            alert("Spremljeno! " + msg);
+            });
         }
         
 
@@ -97,13 +125,13 @@
             <div data-role="tabs">
                 <div data-role="navbar">
                     <ul>
-                        <li><a href="#fragment-1">Nova ruta</a></li>
+                        <li><a href="#fragment-1" class="active">Nova ruta</a></li>
                         <li><a href="#fragment-2">Unos radnih sati</a></li>
                     </ul>
                 </div>
                 <div id="fragment-1">
                     <br>
-                    <h2>TrApp: Lokacija</h2><br>
+                    <h2 class="hcustom">TrApp: Lokacija</h2>
                     <hr>
                     <br>
                     <p id="pepe">Broj putnog radnog lista: </p>
@@ -117,9 +145,9 @@
 
                 <div id="fragment-2">
                     <br>
-                    <h2>TrApp: Radni sati</h2><br>
+                    <h2 class ="hcustom">TrApp: Radni sati</h2>
                     <hr>
-                    <br>
+                   
                     <p>Zaposlenik </p>
                     <input type="text" placeholder="Unesite sifru zaposlenika" id="zapId" />
                     <p>Putni radni list </p>
@@ -127,7 +155,7 @@
                     <p>Broj sati </p>
                     <input type="text" placeholder="Unesite br. sati" id="brSati" />
                     <br><br>
-                    <button class="ui-btn-inline ui-input-btn ui-shadow" value="predaj">Predaj</button>
+                    <button class="ui-btn-inline ui-input-btn ui-shadow" value="predaj" onclick="predajRS()">Predaj</button>
 
                 </div>
             </div>
